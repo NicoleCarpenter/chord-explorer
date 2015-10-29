@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chord:</strong>
+  <%= @included_chord.chord_id %>
+</p>
+
+<p>
+  <strong>Tab:</strong>
+  <%= @included_chord.tab_id %>
+</p>
+
+<%= link_to 'Edit', edit_included_chord_path(@included_chord) %> |
+<%= link_to 'Back', included_chords_path %>

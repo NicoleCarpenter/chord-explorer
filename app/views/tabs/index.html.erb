@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tabs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Rating</th>
+      <th>Click count</th>
+      <th>Raw html</th>
+      <th>Song</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tabs.each do |tab| %>
+      <tr>
+        <td><%= tab.url %></td>
+        <td><%= tab.rating %></td>
+        <td><%= tab.click_count %></td>
+        <td><%= tab.raw_html %></td>
+        <td><%= tab.song_id %></td>
+        <td><%= link_to 'Show', tab %></td>
+        <td><%= link_to 'Edit', edit_tab_path(tab) %></td>
+        <td><%= link_to 'Destroy', tab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tab', new_tab_path %>

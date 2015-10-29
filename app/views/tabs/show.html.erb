@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @tab.url %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @tab.rating %>
+</p>
+
+<p>
+  <strong>Click count:</strong>
+  <%= @tab.click_count %>
+</p>
+
+<p>
+  <strong>Raw html:</strong>
+  <%= @tab.raw_html %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @tab.song_id %>
+</p>
+
+<%= link_to 'Edit', edit_tab_path(@tab) %> |
+<%= link_to 'Back', tabs_path %>

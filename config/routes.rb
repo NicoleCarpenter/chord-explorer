@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :included_chords
+  resources :user_songs
+  resources :user_saved_chords
+  resources :tabs
+  resources :songs
+  resources :chords
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

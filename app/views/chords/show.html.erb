@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @chord.name %>
+</p>
+
+<p>
+  <strong>Display card:</strong>
+  <%= @chord.display_card %>
+</p>
+
+<p>
+  <strong>Family:</strong>
+  <%= @chord.family %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @chord.frequency %>
+</p>
+
+<%= link_to 'Edit', edit_chord_path(@chord) %> |
+<%= link_to 'Back', chords_path %>
