@@ -1,8 +1,8 @@
 class CreateIncludedChords < ActiveRecord::Migration
   def change
     create_table :included_chords do |t|
-      t.integer :chord_id
-      t.integer :tab_id
+      t.references :chord
+      t.references :tab
 
       t.timestamps null: false
     end

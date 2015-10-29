@@ -5,7 +5,7 @@ class CreateTabs < ActiveRecord::Migration
       t.integer :rating
       t.integer :click_count
       t.text :raw_html
-      t.integer :song_id
+      t.references :song
 
       t.timestamps null: false
     end

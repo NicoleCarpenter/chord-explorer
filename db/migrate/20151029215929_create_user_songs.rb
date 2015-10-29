@@ -3,8 +3,8 @@ class CreateUserSongs < ActiveRecord::Migration
     create_table :user_songs do |t|
       t.integer :difficulty
       t.boolean :saved
-      t.integer :user_id
-      t.integer :song_id
+      t.references :user
+      t.references :song
 
       t.timestamps null: false
     end
