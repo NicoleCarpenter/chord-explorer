@@ -72,11 +72,11 @@ end
 
 # Parsing the guitar-party tabs. Inside ./guitarparty-tabs is a series of text files, containing JSON objects. So the first job is to open each of these in turn, parse them as JSON, and then extract the data we want.
 
-p Dir.pwd
-p Dir.chdir("db/guitarparty-tabs")
+
+Dir.chdir("db/guitarparty-tabs")
 Dir.foreach(".") do |tab_file|
   next if tab_file == '.' or tab_file == '..' or tab_file == ".DS_Store"
-  p "Work on #{tab_file}"
+  # p "Work on #{tab_file}"
   raw_tab = File.open(tab_file).read
   tab_parsed = JSON.parse(raw_tab)
 
