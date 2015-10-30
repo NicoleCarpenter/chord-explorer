@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:users][:username].downcase)
     if @user && @user.authenticate(params[:users][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to welcome_index_path
     else
       @message = 'Invalid username/password combination'
       render 'new'

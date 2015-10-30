@@ -1,10 +1,54 @@
-<h1>welcome to chord explorer</h1>
 
-  <% if logged_in? %>
-    <%= link_to "Profile", user_path(session[:user_id]) %>
-    <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+<div id="wrapper">
 
-  <% else %>
-    <%= link_to "Sign Up", new_user_path %>
-    <%= link_to "Log in", login_path %>
-  <% end %>
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="/">
+          Chord Explorer
+        </a>
+      </li>
+    <% if logged_in? %>
+      <li>
+        <%= link_to "Profile", user_path(session[:user_id]) %>
+      </li>
+      <li>
+        <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Sign Up", new_user_path %>
+      </li>
+      <li>
+        <%= link_to "Log in", login_path %>
+      </li>
+    <% end %>
+      <li>
+        <p>Type the chords you want to search here!</p>
+      </li>
+      <div class="row">
+        <div class="form-group">
+          <div class="input-group col-md-9 col-xs-7 search">
+            <input type="text" class="form-control" placeholder="example: Am, C, G"  />
+          </div>
+        </div>
+      </div>
+      <li>
+        <a href="/chords">All Chords</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Welcome to Chord Explorer</h1>
+          <p>Some content.</p>
+          <p>Some more content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
