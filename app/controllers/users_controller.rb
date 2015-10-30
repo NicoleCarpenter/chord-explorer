@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @saved_chords = @user.user_saved_chords.map(&:chord)
+
   end
 
   # GET /users/new

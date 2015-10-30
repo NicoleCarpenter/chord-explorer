@@ -57,7 +57,7 @@ end
 #create user objects
 20.times do
   user = User.create(username: Faker::Name.first_name,
-                    password_digest:"password")
+                    password:"password")
 end
 
 #creates associations between all our objects
