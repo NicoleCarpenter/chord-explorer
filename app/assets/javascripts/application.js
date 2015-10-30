@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require raphael-min
+//= require chords.io
+//= require highlight.min
 //= require turbolinks
 //= require_tree .
