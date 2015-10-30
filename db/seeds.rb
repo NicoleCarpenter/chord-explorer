@@ -62,7 +62,6 @@ end
 
 50.times do
   userSavedChord = UserSavedChord.create(user_id:1, chord_id:1)
-
   userSong = Song.all.sample.user_songs.create(difficulty: Faker::Number.between(1, 5),
                                               saved: truth.sample,
                                               user_id: User.all.sample)
