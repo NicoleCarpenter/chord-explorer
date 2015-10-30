@@ -1,5 +1,15 @@
 <h1>this is a user's show page</h1>
 
+<%= link_to "Home", welcome_index_path %>
+<% if logged_in? %>
+  <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_path %>
+  <%= link_to "Log in", login_path %>
+<% end %>
+
+
+
 <p>
   <strong>Username:</strong>
   <%= @user.username %>
@@ -9,3 +19,13 @@
   <strong>Password digest:</strong>
   <%= @user.password_digest %>
 </p>
+
+<div class="saved_chords">
+  <h3> Chords You Know </h3>
+    <% @saved_chords.each do |chord| %>
+      <ul>
+        <li><%= chord.name %></li>
+        <li> chord card will go here</li>
+      </ul>
+    <% end %>
+</div>
