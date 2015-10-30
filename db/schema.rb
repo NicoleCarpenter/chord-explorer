@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151029215953) do
     t.string   "display_card"
     t.string   "family"
     t.integer  "frequency"
+    t.string   "code"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151029215953) do
     t.integer  "rating"
     t.integer  "click_count"
     t.text     "raw_html"
+    t.string   "domain"
     t.integer  "song_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
