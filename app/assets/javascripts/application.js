@@ -16,5 +16,5 @@
 //= require chords.io
 //= require highlight.min
 //= require turbolinks
-//= require_tree .
 //= require bootstrap.min
+//= require_tree .
