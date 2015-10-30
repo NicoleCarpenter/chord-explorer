@@ -9,7 +9,7 @@ The user is introduced to the website by an option to search using either comma 
 Preferably users should be able to save chords in their repitoir, see a list of their most recent searches, and the app should be able to suggest, based on usage, current repitoir and frequency of appearance, a new chord that may be suited for the user to learn as the next logical chord.
 
 
-##The Chord Explorer team are the owners of Chord Explorer. Our team includes:
+##The Team:
 
 * Andy Dierker
 * Dennis Tam
