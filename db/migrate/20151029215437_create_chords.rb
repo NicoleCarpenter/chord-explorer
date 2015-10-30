@@ -5,6 +5,7 @@ class CreateChords < ActiveRecord::Migration
       t.string :display_card
       t.string :family
       t.integer :frequency
+      t.string :code
 
       t.timestamps null: false
     end
