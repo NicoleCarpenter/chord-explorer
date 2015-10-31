@@ -23,10 +23,14 @@
     <li>
       <p>Type the chords you want to search here!</p>
     </li>
-          <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
-            <%= submit_tag "Search" %>
-          <% end %>
+    <div class='row'>
+      <div class='col-md-10 col-md-offset-1'>
+        <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
+          <%= submit_tag "Search", :style => "display: none;" %>
+        <% end %>
+      </div>
+    </div>
     <li>
       <a href="/chords">All Chords</a>
     </li>
@@ -181,12 +185,18 @@
     </div>
   </div>
   <div class="background">
-    <h1>Background content</h1>
-      <% if @matching_songs %>
-        <%= render partial: "results", :locals => {:songs => @matching_songs} %>
-      <% end %>
-    <div class="close-tab">
-      <a href="#close" class="js-closeToggle">Close</a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
+          <h1>Background content</h1>
+            <% if @matching_songs %>
+              <%= render partial: "results", :locals => {:songs => @matching_songs} %>
+            <% end %>
+          <div class="close-tab">
+            <a href="#close" class="js-closeToggle">Close</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
