@@ -82,6 +82,8 @@ Tab.all.each_with_index do |tab, i|
   tab.save
 end
 
+not_exist = "not exist"
+Chord.where("name like ?", "%#{not_exist}%").destroy_all
 
 
 # song generator
