@@ -42,7 +42,7 @@
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
             <% @achords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -190,4 +190,3 @@
     </div>
   </div>
 </div>
-
