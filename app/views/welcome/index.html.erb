@@ -41,13 +41,11 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">Am</button>
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">Amaj</button>
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">A7</button>
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">A9</button>
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">Am7</button>
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">Am9</button>
-            <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">A11</button>
+            <% @achords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -61,7 +59,11 @@
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="list-group">
-            Some chords here
+            <% @bchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -75,7 +77,11 @@
         </div>
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="list-group">
-            Some chords here
+            <% @cchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -89,7 +95,11 @@
         </div>
         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="list-group">
-            Some chords here
+            <% @dchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -103,7 +113,11 @@
         </div>
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
           <div class="list-group">
-            Some chords here
+            <% @echords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -117,7 +131,11 @@
         </div>
         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="list-group">
-            <p>Some chords here</p>
+            <% @fchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -131,7 +149,11 @@
         </div>
         <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
           <div class="list-group">
-            Some chords here
+            <% @gchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>

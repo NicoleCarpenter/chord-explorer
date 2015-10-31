@@ -145,16 +145,17 @@
   margin: 0;
   padding: 10px 10px 10px 30px !important;
   border-radius: 0;
+  /*background-color: blue !important;*/
+  background-image: url('/assets/binding_dark.png') !important; /*not working */
 }
 
 .panel-default {
   border-radius: 0 !important;
-  background-image: url('/low-contrast-linen.png') !important; /*not working */
 }
 
 .btn-default {
   font-size: 10px !important;
-  width: 35px !important;
+  width: 47px !important;
   padding: 5px !important;
   margin-bottom: 3px !important;
 }
@@ -217,4 +218,5 @@ body {
 
 .navbar-fixed-bottom {
   height: 100px;
+  background-image: url('/assets/binding_dark.png');
 }

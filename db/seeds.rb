@@ -47,7 +47,7 @@ Dir.foreach(".") do |tab_file|
 
   tab = Tab.create(song: song, url: tab_parsed["permalink"], domain: tab_parsed["permalink"].scan(/.*?.com/), raw_html: tab_parsed["body"])
   tab_parsed["chords"].each do |chord_in_song|
-    chord = Chord.find_or_create_by(name: chord_in_song["name"], code: chord_in_song["code"])
+    chord = Chord.find_or_create_by(name: chord_in_song["name"], code: chord_in_song["code"], family: chord_in_song["name"][0])
     # In order to get the image, we've gotta do some scraping here. This is what the chord info looks like:
     # {"objects": [{"code": "xo221o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Am_xo221o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Am", "uri": "/v2/chords/46345/"}], "objects_count": 1}
     IncludedChord.create(chord: chord, tab: tab)
