@@ -1,0 +1,12 @@
+
+<% songs.each do |song| %>
+  "<%= song.title %>"<br>
+  <%= song.artist %><br>
+  <% song.tabs.each do |tab| %>
+    From: <%=tab.domain%><br>
+    Rating:  <%=tab.rating%><br>
+    Included chords: <%=tab.show_chords%><br>
+    Chord cards: (chord cards will go here)<br>
+    <br>
+  <% end %>
+<% end %>

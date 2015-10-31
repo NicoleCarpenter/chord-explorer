@@ -167,15 +167,15 @@ body {
   /* animate changing of min-height */
   transition: .5s min-height ease-out;
 }
-
+/*
 .foreground > h1,
 .background > h1 {
-  /* optional just to vertically/horizontally center */
+   optional just to vertically/horizontally center
   position: inherit;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+}*/
 
 .foreground.is-closed,
 .background.is-closed {
@@ -199,7 +199,8 @@ body {
 .background {
   z-index: 1;
   background-color: white;
-  padding-left: 250px;
+  padding-left: 290px;
+  padding-top: 210px;
 }
 
 #intro-content p {
