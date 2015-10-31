@@ -20,11 +20,12 @@ Preferably users should be able to save chords in their repitoir, see a list of 
 
 ##Technologies
 
-[Heroku](www.heroku.com) - Host platform for the app
-[Guitar Party API](http://www.guitarparty.com/developers/) - API used for song and chord data
-[Anemone](https://github.com/chriskite/anemone) - Web crawler framework used for collecting song data from third party sites
-[Ruby on Rails](http://rubyonrails.org/) - Open source framework upon which the app is based (version 4.2.4)
-[Ruby](http://rubyonrails.org/)Programming Language primarily used in the app (version 2.2.1)
+* [Ruby on Rails](http://rubyonrails.org/) - Open source framework upon which the app is based (version 4.2.4)
+* [Ruby](http://rubyonrails.org/) - Programming Language primarily used in the app (version 2.2.1)
+* [Heroku](www.heroku.com) - Host platform for the app
+* [Guitar Party API](http://www.guitarparty.com/developers/) - API used for song and chord data
+* [Anemone](https://github.com/chriskite/anemone) - Web crawler framework used for collecting song data from third party sites
+* [Bootstrap](http://getbootstrap.com/) - HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
 
 
 ##User Stories
