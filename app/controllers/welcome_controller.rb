@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
 
     #change @songs to an array of returned songs once we know how the search is working
     @songs = Song.all
+    @chords = Chord.all
 
     if params[:search]
       chord_objects = params[:search].split(",").map{|chord| Chord.find_by(name: chord.strip)}

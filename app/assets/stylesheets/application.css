@@ -149,6 +149,14 @@
 
 .panel-default {
   border-radius: 0 !important;
+  background-image: url('/low-contrast-linen.png') !important; /*not working */
+}
+
+.btn-default {
+  font-size: 10px !important;
+  width: 35px !important;
+  padding: 5px !important;
+  margin-bottom: 3px !important;
 }
 
 
@@ -205,4 +213,8 @@ body {
 
 #intro-content p {
   color: white;
+}
+
+.navbar-fixed-bottom {
+  height: 100px;
 }
