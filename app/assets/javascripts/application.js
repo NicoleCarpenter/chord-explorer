@@ -15,6 +15,6 @@
 //= require raphael-min
 //= require chords.io
 //= require highlight.min
-//= require turbolinks
 //= require bootstrap.min
+//= require turbolinks
 //= require_tree .

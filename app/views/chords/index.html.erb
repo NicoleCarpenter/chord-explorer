@@ -1,4 +1,69 @@
 <p id="notice"><%= notice %></p>
+<h2>Main Chords: </h2>
+<div id="main-container" class="container"class="container">
+  <div class="row">
+    <div class="col-xs-1">
+      <div class="chord" data-code="xo222o" data-name="A"></div>
+      <div class="chord" data-code="x24442" data-name="B"></div>
+      <div class="chord" data-code="x32o1o" data-name="C"></div>
+      <div class="chord" data-code="xxo232" data-name="D"></div>
+      <div class="chord" data-code="o221oo" data-name="E"></div>
+      <div class="chord" data-code="133211" data-name="F"></div>
+      <div class="chord" data-code="32ooo3" data-name="G"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="xo2o2o" data-name="A7"></div>
+      <div class="chord" data-code="x212o2" data-name="B7"></div>
+      <div class="chord" data-code="x3231o" data-name="C7"></div>
+      <div class="chord" data-code="xxo212" data-name="D7"></div>
+      <div class="chord" data-code="o2o1oo" data-name="E7"></div>
+      <div class="chord" data-code="131211" data-name="F7"></div>
+      <div class="chord" data-code="32ooo1" data-name="G7"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="x13331" data-name="A#"></div>
+      <div class="chord" data-code="xx3121" data-name="C#"></div>
+      <div class="chord" data-code="xx3121" data-name="D#"></div>
+      <div class="chord" data-code="244322" data-name="F#"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="133211_4" data-name="Ab"></div>
+      <div class="chord" data-code="xxo332" data-name="Bb"></div>
+      <div class="chord" data-code="244322" data-name="Gb"></div>
+      <div class="chord" data-code="x43121_3" data-name="Eb"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="xx1112" data-name="Ab7"></div>
+      <div class="chord" data-code="x13131" data-name="Bb7"></div>
+      <div class="chord" data-code="x434o4" data-name="Db7"></div>
+      <div class="chord" data-code="242322" data-name="Gb7"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="xo2213" data-name="Am7"></div>
+      <div class="chord" data-code="x13121_2" data-name="Bm7"></div>
+      <div class="chord" data-code="x13121_3" data-name="Cm7"></div>
+      <div class="chord" data-code="xxo211" data-name="Dm7"></div>
+      <div class="chord" data-code="o2oooo" data-name="Em7"></div>
+      <div class="chord" data-code="13111" data-name="Fm7"></div>
+      <div class="chord" data-code="13111_3" data-name="Gm7"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="xo221o" data-name="Am"></div>
+      <div class="chord" data-code="x24432" data-name="Bm"></div>
+      <div class="chord" data-code="x35543" data-name="Cm"></div>
+      <div class="chord" data-code="xxo231" data-name="Dm"></div>
+      <div class="chord" data-code="o22ooo" data-name="Em"></div>
+      <div class="chord" data-code="133111" data-name="Fm"></div>
+      <div class="chord" data-code="355333" data-name="Gm"></div>
+    </div>
+    <div class="col-xs-1">
+      <div class="chord" data-code="133111_4" data-name="Abm"></div>
+      <div class="chord" data-code="x13321_4" data-name="Dbm"></div>
+      <div class="chord" data-code="x13321_6" data-name="Ebm"></div>
+      <div class="chord" data-code="244222" data-name="Gbm"></div>
+    </div>
+  </div>
+</div>
 
 <h1>Listing Chords</h1>
 
@@ -21,63 +86,7 @@
         <td><%= chord.family %></td>
         <td><%= chord.frequency %></td>
         <td><%= link_to 'Show', chord %></td>
-        <td><%= link_to 'Edit', edit_chord_path(chord) %></td>
-        <td><%= link_to 'Destroy', chord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<br>
-<!-- Example of chords displayed using Raphael.js and jQuery:  -->
-<h2>Main Chords: </h2>
-<div id="main-container" class="container"class="container">
-  <div class="row">
-    <div class="col-xs-1">
-      <div class="chord" data-code="xo222o" data-name="A"></div>
-      <div class="chord" data-code="xo2o2o" data-name="A7"></div>
-      <div class="chord" data-code="133211_4" data-name="Ab"></div>
-      <div class="chord" data-code="xx1112" data-name="Ab7"></div>
-      <div class="chord" data-code="133111_4" data-name="Abm"></div>
-      <div class="chord" data-code="xo221o" data-name="Am"></div>
-    </div>
-    <div class="col-xs-1">
-      <div class="chord" data-code="x24442" data-name="B"></div>
-      <div class="chord" data-code="x212o2" data-name="B7"></div>
-      <div class="chord" data-code="x13131" data-name="Bb7"></div>
-      <div class="chord" data-code="x24432" data-name="Bm"></div>
-    </div>
-    <div class="col-xs-1">
-      <div class="chord" data-code="x32o1o" data-name="C"></div>
-      <div class="chord" data-code="x3231o" data-name="C7"></div>
-      <div class="chord" data-code="x35543" data-name="Cm"></div>
-    </div>
-    <div class="col-xs-1">
-      <div class="chord" data-code="xxo232" data-name="D"></div>
-      <div class="chord" data-code="xxo212" data-name="D7"></div>
-      <div class="chord" data-code="x434o4" data-name="Db7"></div>
-      <div class="chord" data-code="x13321_4" data-name="Dbm"></div>
-      <div class="chord" data-code="xxo231" data-name="Dm"></div>
-    </div>
-    <div class="col-xs-1">
-      <div class="chord" data-code="o221oo" data-name="E"></div>
-      <div class="chord" data-code="o2o1oo" data-name="E7"></div>
-      <div class="chord" data-code="x43121_3" data-name="Eb"></div>
-      <div class="chord" data-code="x13321_6" data-name="Ebm"></div>
-      <div class="chord" data-code="o22ooo" data-name="Em"></div>
-      <div class="chord" data-code="o2oooo" data-name="Em7"></div>
-    </div>
-    <div class="col-xs-1">
-      <div class="chord" data-code="133211" data-name="F"></div>
-      <div class="chord" data-code="131211" data-name="F7"></div>
-      <div class="chord" data-code="133111" data-name="Fm"></div>
-    </div>
-    <div class="col-xs-1">
-      <div class="chord" data-code="32ooo3" data-name="G"></div>
-      <div class="chord" data-code="32ooo1" data-name="G7"></div>
-      <div class="chord" data-code="244322" data-name="Gb"></div>
-      <div class="chord" data-code="242322" data-name="Gb7"></div>
-      <div class="chord" data-code="244222" data-name="Gbm"></div>
-      <div class="chord" data-code="355333" data-name="Gm"></div>
-    </div>
-  </div>
-</div>
