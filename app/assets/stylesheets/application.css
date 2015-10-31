@@ -78,7 +78,7 @@
 
 .sidebar-nav > .sidebar-brand {
   height: 65px;
-  font-size: 24px;
+  font-size: 28px;
   line-height: 60px;
 }
 
@@ -98,7 +98,7 @@
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 250px;
+    padding-left: 0;
   }
 
   #sidebar-wrapper {
@@ -106,7 +106,7 @@
   }
 
   #page-content-wrapper {
-    padding: 20px;
+    padding: 0;
     position: relative;
   }
 }
@@ -152,4 +152,57 @@
 }
 
 
+html,
+body {
+  /* required to let children fill viewport, you can skip this and use vw/vh units if you can */
+  height: 100%;
+}
 
+.foreground,
+.background {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  /* animate changing of min-height */
+  transition: .5s min-height ease-out;
+}
+/*
+.foreground > h1,
+.background > h1 {
+   optional just to vertically/horizontally center
+  position: inherit;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+
+.foreground.is-closed,
+.background.is-closed {
+  min-height: 0;
+}
+
+.close-tab {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+.foreground {
+  /* Sets foreground above background */
+  z-index: 2;
+  background-image: url('/assets/guitar-background.jpg');
+  color: #999999;
+}
+
+.background {
+  z-index: 1;
+  background-color: white;
+  padding-left: 290px;
+  padding-top: 210px;
+}
+
+#intro-content p {
+  color: white;
+}
