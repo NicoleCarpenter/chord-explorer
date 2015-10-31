@@ -3,7 +3,7 @@
   "<%= song.title %>"<br>
   <%= song.artist %><br>
   <% song.tabs.each do |tab| %>
-    From: <%=tab.domain%><br>
+    From: <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
     Rating:  <%=tab.rating%><br>
     Included chords: <%=tab.show_chords%><br>
     Chord cards: (chord cards will go here)<br>
