@@ -2,7 +2,7 @@
 
 > Bring music to the world, one chord at a time.
 
-Chord Explorer is an innovative tool that helps individuals learn how to play guitar and intuitively expand their repitoire. The app allows users to expand on their current music knowledge by introducing them to songs that match their current skill level and chord toolbag.
+Chord Explorer is an innovative tool that helps individuals learn how to play guitar and intuitively expand their repitoire. The app allows users to increase their current music knowledge by introducing them to songs that match their current skill level and chord toolbag.
 
 The user is introduced to the website by an option to search using either comma separated values or clickable chord images. Once the user has ammased the chords they want included in the search, the app will generate a list of songs which predominately use those chords. The songs will link to a third party website which will provide the full tab version of the song.
 
