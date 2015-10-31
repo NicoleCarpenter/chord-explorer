@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Team Chord Explorer added these gems
 gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
-gem 'jquery-turbolinks'
+gem 'jquery-turbolinks'  #Need for speed
 gem 'spinjs-rails'
 
 group :development, :test do
