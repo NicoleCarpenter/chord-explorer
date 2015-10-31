@@ -130,6 +130,7 @@
   font-size: 14px !important;
   font-weight: 400 !important;
   padding-left: 20px;
+  border-color: black;
 }
 
 .panel-title a:hover {
@@ -155,7 +156,7 @@
 
 .btn-default {
   font-size: 10px !important;
-  /*width: 47px !important;*/
+  width: 47px !important;
   padding: 5px !important;
   margin-bottom: 3px !important;
 }
@@ -209,6 +210,7 @@ body {
   z-index: 1;
   background-color: white;
   padding-top: 210px;
+  padding-bottom: 210px;
 }
 
 #intro-content p {
@@ -216,6 +218,7 @@ body {
 }
 
 .navbar-fixed-bottom {
-  height: 100px;
+  height: 200px;
   background-image: url('/assets/binding_dark.png');
+  /*background-color: black;*/
 }
