@@ -206,3 +206,8 @@ body {
 #intro-content p {
   color: white;
 }
+
+.navbar-fixed-bottom {
+  background-color: black !important;
+  border-color: black !important;
+}
