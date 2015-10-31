@@ -1,37 +1,37 @@
 require 'json'
 
-#list of basic chords for seeding.
-major = ["A", "B", "C", "D", "E", "F", "G",
-          "Ab", "Bb", "Cb", "Db", "Eb", "Fb", "Gb",
-          "A#", "B#", "C#", "D#", "E#", "F#", "G#"]
-minor = ["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm",
-          "A#m", "B#m", "C#m", "D#m", "E#m", "F#m", "G#m",
-          "Abm", "Bbm", "Cbm", "Dbm", "Ebm", "Fbm", "Gbm"]
-seventh = ["A7", "B7", "C7", "D7", "E7", "F7", "G7",
-          "Ab7", "Bb7", "Cb7", "Db7", "Eb7", "Fb7", "Gb7",
-          "A#7", "B#7", "C#7", "D#7", "E#7", "F#7", "G#7"]
-
-#creates chord objects
-major.each do |chord|
-  newchord = Chord.create(name: chord,
-                          display_card:"display_" + chord + ".jpg",
-                          family: "major",
-                          frequency: Faker::Number.between(1, 5000))
-end
-
-minor.each do |chord|
-  newchord = Chord.create(name: chord,
-                          display_card:"display_" + chord + ".jpg",
-                          family: "minor",
-                          frequency: Faker::Number.between(1, 5000))
-end
-
-seventh.each do |chord|
-  newchord = Chord.create(name: chord,
-                          display_card:"display_" + chord + ".jpg",
-                          family: "seventh",
-                          frequency: Faker::Number.between(1, 5000))
-end
+# #list of basic chords for seeding.
+# major = ["A", "B", "C", "D", "E", "F", "G",
+#           "Ab", "Bb", "Cb", "Db", "Eb", "Fb", "Gb",
+#           "A#", "B#", "C#", "D#", "E#", "F#", "G#"]
+# minor = ["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm",
+#           "A#m", "B#m", "C#m", "D#m", "E#m", "F#m", "G#m",
+#           "Abm", "Bbm", "Cbm", "Dbm", "Ebm", "Fbm", "Gbm"]
+# seventh = ["A7", "B7", "C7", "D7", "E7", "F7", "G7",
+#           "Ab7", "Bb7", "Cb7", "Db7", "Eb7", "Fb7", "Gb7",
+#           "A#7", "B#7", "C#7", "D#7", "E#7", "F#7", "G#7"]
+#
+# #creates chord objects
+# major.each do |chord|
+#   newchord = Chord.create(name: chord,
+#                           display_card:"display_" + chord + ".jpg",
+#                           family: "major",
+#                           frequency: Faker::Number.between(1, 5000))
+# end
+#
+# minor.each do |chord|
+#   newchord = Chord.create(name: chord,
+#                           display_card:"display_" + chord + ".jpg",
+#                           family: "minor",
+#                           frequency: Faker::Number.between(1, 5000))
+# end
+#
+# seventh.each do |chord|
+#   newchord = Chord.create(name: chord,
+#                           display_card:"display_" + chord + ".jpg",
+#                           family: "seventh",
+#                           frequency: Faker::Number.between(1, 5000))
+# end
 
 
 # Parsing the guitar-party tabs. Inside ./guitarparty-tabs is a series of text files, containing JSON objects. So the first job is to open each of these in turn, parse them as JSON, and then extract the data we want.
