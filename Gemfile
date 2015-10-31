@@ -36,6 +36,8 @@ gem 'anemone'
 #Team Chord Explorer added these gems
 gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
+gem 'jquery-turbolinks'  #Need for speed
+gem 'spinjs-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
