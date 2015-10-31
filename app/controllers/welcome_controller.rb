@@ -11,13 +11,13 @@ class WelcomeController < ApplicationController
     if params[:search]
       chord_objects = params[:search].split(",").map{|chord| Chord.find_by(name: chord.strip)}
 
-      @matching_songs = Song.all.select{|song| chord_objects.to_set.superset?(song.included_chords.map(&:chord).to_set)}
+      array = Array.new(Chord.count, "0")
+      chord_objects.each { |el| array[el.id] = "1" }
+      your_chords = array.join("")
 
-
-      # @chords =
-      # Chord.find_by(name: params[:search])
-      # .order("created_at DESC")
-      # Chord.search(params[:search]).order("created_at DESC")
+      tabs = Tab.all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
+      @matching_songs = tabs.map(&:song)
+      # @matching_songs = Song.all.select{|song| chord_objects.to_set.superset?(song.included_chords.map(&:chord).to_set)}
     end
 
   end

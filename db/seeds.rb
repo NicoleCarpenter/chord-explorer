@@ -71,6 +71,17 @@ truth = [true, false]
   includedChord = Chord.all.sample.included_chords.create(tab_id: Tab.all.sample.id)
 end
 
+chord_count = Chord.count
+
+Tab.all.each_with_index do |tab, i|
+  p i
+  array = Array.new(chord_count, "0")
+  chords = tab.chords
+  chords.each { |el| array[el.id] = "1" }
+  tab.binary_chords = array.join("")
+  tab.save
+end
+
 
 
 # song generator
