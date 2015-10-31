@@ -12,4 +12,144 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
  */
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li p {
+  margin: 20px 20px 5px 20px;
+  text-indent: 0;
+  line-height: 20px;
+  color: #999999;
+  font-size: 13px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 24px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+#sidebar-text > {
+  margin: 15px;
+  color: #999999;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 250px;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+}
+
+.panel-group .panel {
+  border: 0 !important;
+}
+
+.panel-heading {
+  background:#000000 !important;
+  border-color: #000000 !important;
+  color: #999999 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  padding: 10px !important;
+  margin: 0 !important;
+}
+
+.panel-title {
+  color: #999999 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  padding-left: 20px;
+}
+
+.panel-title a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  padding: 11px 180px 11px 30px;
+  margin-left: -30px;
+  width: 100%;
+}
+
+.list-group {
+  margin: 0;
+  padding: 10px 10px 10px 30px !important;
+  border-radius: 0;
+}
+
+.panel-default {
+  border-radius: 0 !important;
+}
+
+
+
