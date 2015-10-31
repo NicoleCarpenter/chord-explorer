@@ -17,7 +17,6 @@ class WelcomeController < ApplicationController
     @fchords = @chords.where(family: "F")
     @gchords = @chords.where(family: "G")
 
-
     if params[:search]
       chord_objects = params[:search].split(",").map{|chord| Chord.find_by(name: chord.strip)}
 

@@ -155,7 +155,7 @@
 
 .btn-default {
   font-size: 10px !important;
-  width: 47px !important;
+  /*width: 47px !important;*/
   padding: 5px !important;
   margin-bottom: 3px !important;
 }
@@ -208,7 +208,6 @@ body {
 .background {
   z-index: 1;
   background-color: white;
-  padding-left: 290px;
   padding-top: 210px;
 }
 
