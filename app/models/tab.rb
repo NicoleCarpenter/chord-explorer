@@ -9,6 +9,7 @@ class Tab < ActiveRecord::Base
 
   def playable?(song_chords, your_chords)
     # Arguments will be strings of binary, representing booleans.
-    song_chords.to_i(2) & your_chords.to_i(2) == song_chords.to_i(2)
+    (song_chords.to_i(2) & your_chords.to_i(2) == song_chords.to_i(2))
+
   end
 end

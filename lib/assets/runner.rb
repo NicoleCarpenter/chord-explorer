@@ -6,7 +6,8 @@ p Dir.pwd
 
 # Sample usage
 # On the next line, replace text with your name.
-artist_lists = Fetcher.get_em('scraper_links/nicole5.txt')
+artist_lists = Fetcher.get_em('scraper_links/andy.txt')
+
 artist_lists.each do |list|
   ArtistSongCrawler.new(list)
 end

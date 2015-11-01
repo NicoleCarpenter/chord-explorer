@@ -21,9 +21,14 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
-//= require bootstrap.min
+
 
 $(document).ready(function() {
+
+  $('#submit-tag').on('click', function() {
+    // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
+    $('.js-page').toggleClass('is-closed');
+  })
 
   $('.js-closeToggle').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
@@ -31,7 +36,11 @@ $(document).ready(function() {
   })
 
   $(".btn-default").click(function(event){
-    console.log($(this))
-    $(this).clone().appendTo(".navbar");
-  })
+    $(".navbar-fixed-bottom").css("display", "block");
+    $(this).clone().appendTo(".navbar").css("margin", "+=10px");;
+    var chordName = $(this).attr("id");
+    $("#search").val(function(i, val){
+      return val + ", " + chordName
+    });
+  });
 });

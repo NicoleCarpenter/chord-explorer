@@ -11,8 +11,8 @@ def crawl(link,like_pattern,skip_pattern)
       new_file.write("#{page.url}\n")
     end
     anemone.on_every_page do |page|
-      timer = rand(10) + 10
-      p "Sleeping for #{timer} seconds"
+      timer = 4
+      p "#{page.url}, Sleeping for #{timer} seconds"
       sleep(timer)
     end
   end

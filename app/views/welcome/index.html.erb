@@ -25,10 +25,7 @@
     </li>
     <div class='row'>
       <div class='col-md-10 col-md-offset-1'>
-        <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
-          <%= submit_tag "Search", :style => "display: none;" %>
-        <% end %>
+
       </div>
     </div>
     <li>
@@ -64,7 +61,7 @@
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="list-group">
             <% @bchords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -82,7 +79,7 @@
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="list-group">
             <% @cchords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -100,7 +97,7 @@
         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="list-group">
             <% @dchords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -118,7 +115,7 @@
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
           <div class="list-group">
             <% @echords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -136,7 +133,7 @@
         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="list-group">
             <% @fchords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -154,7 +151,7 @@
         <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
           <div class="list-group">
             <% @gchords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -169,26 +166,36 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
-          <h1>Welcome to Chord Explorer</h1>
+          <h1>Welcome to </h1>
+            <span class='brand-font'>Chord Explorer</span>
+            <a href="#close" class="js-closeToggle">click me</a>
           <div id="intro-content">
             <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repitoire. We allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
 
             <p>In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Songs"</p>
           </div>
-          <a href="#close" class="js-closeToggle">click me</a>
+
           <nav class="navbar navbar-inverse navbar-fixed-bottom">
             <div class='container'>
+                <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch") do %>
+                 ==========================================<%= text_field_tag :search %>
+                  <%= submit_tag "Search", id: "submit-tag" %>
+                <% end %>
             </div>
           </nav>
         </div>
       </div>
     </div>
   </div>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class='container'>
+    </div>
+  </nav>
   <div class="background">
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
-          <h1>Background content</h1>
+          <h1>Results</h1>
             <% if @matching_songs %>
               <%= render partial: "results", :locals => {:songs => @matching_songs} %>
             <% end %>
@@ -200,3 +207,4 @@
     </div>
   </div>
 </div>
+
