@@ -43,7 +43,7 @@
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
             <% @achords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -166,7 +166,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
-          <h1>Welcome to Chord Explorer</h1>
+          <h1>Welcome to </h1>
+            <span class='brand-font'>Chord Explorer</span>
+            <a href="#close" class="js-closeToggle">click me</a>
           <div id="intro-content">
             <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repitoire. We allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
 
@@ -185,11 +187,15 @@
       </div>
     </div>
   </div>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class='container'>
+    </div>
+  </nav>
   <div class="background">
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
-          <h1>Background content</h1>
+          <h1>Results</h1>
             <% if @matching_songs %>
               <%= render partial: "results", :locals => {:songs => @matching_songs} %>
             <% end %>
@@ -201,3 +207,4 @@
     </div>
   </div>
 </div>
+

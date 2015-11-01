@@ -15,6 +15,28 @@
  *= require bootstrap.min
  */
 
+
+@font-face {
+  font-family: "Art Brewery";
+  src:url('/assets/fonts/art-brewery.ttf') format("truetype");
+}
+
+@media (max-width: @screen-sm) {
+  .brand-font {
+    font-size: 32px;
+  }
+}
+
+h1 {
+  color: #EBE8DF !important;
+}
+
+.brand-font {
+  font-family: "Art Brewery" !important;
+  font-size: 100px;
+  color: #B5D6F1;
+}
+
 #wrapper {
   padding-left: 0;
 }
@@ -83,7 +105,7 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  color: #B5D6F1 !important;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -130,6 +152,7 @@
   font-size: 14px !important;
   font-weight: 400 !important;
   padding-left: 20px;
+  border-color: black;
 }
 
 .panel-title a:hover {
@@ -155,7 +178,7 @@
 
 .btn-default {
   font-size: 10px !important;
-  /*width: 47px !important;*/
+  width: 47px !important;
   padding: 5px !important;
   margin-bottom: 3px !important;
 }
@@ -174,17 +197,18 @@ body {
   min-height: 100%;
   overflow: hidden;
   /* animate changing of min-height */
-  transition: .5s min-height ease-out;
+  transition: .9s min-height ease-out;
 }
-/*
-.foreground > h1,
-.background > h1 {
-   optional just to vertically/horizontally center
+
+.foreground > .container-fluid {
+  /* optional just to vertically/horizontally center */
   position: inherit;
-  top: 50%;
-  left: 50%;
+  top: 15%;
+  left: 35%;
   transform: translate(-50%, -50%);
-}*/
+}
+
+
 
 .foreground.is-closed,
 .background.is-closed {
@@ -200,7 +224,7 @@ body {
 
 .foreground {
   /* Sets foreground above background */
-  z-index: 2;
+  z-index: 3;
   background-image: url('/assets/guitar-background.jpg');
   color: #999999;
 }
@@ -208,14 +232,37 @@ body {
 .background {
   z-index: 1;
   background-color: white;
-  padding-top: 210px;
 }
 
-#intro-content p {
+#intro-content {
   color: white;
+  padding: 10px 200px;
 }
 
 .navbar-fixed-bottom {
+  display: none;
   height: 100px;
-  background-image: url('/assets/binding_dark.png');
+  padding: 20px 40px;
+  margin-left: 250px;
+  /*background-image: url('/assets/binding_dark.png');*/
+  background-color: black !important;
+}
+
+.page-background {
+  background-color: #B5D6F1;
+}
+
+.inner-container {
+  background-color: #EBE8DF;
+  box-shadow: 0 0 5px #888888;
+  bottom: 0;
+  margin: 10px;
+  padding: 80px;
+  height: auto;
+}
+
+.inline-chords {
+  display: inline-block;
+  margin: 20px;
+  padding: 5px;
 }

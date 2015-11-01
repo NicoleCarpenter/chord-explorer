@@ -31,16 +31,15 @@ $(document).ready(function() {
   })
 
   $(".btn-default").click(function(event){
-    $(this).clone().appendTo(".navbar");
+    $(".navbar-fixed-bottom").css("display", "block");
+
+    $(this).clone().appendTo(".navbar").css("margin", "+=10px");;
 
     var chordName = $(this).attr("id");
-    // console.log($(this).attr("id"));
-    // console.log(chordName);
 
     $("#search").val(function(i, val){
       return val + ", " + chordName
     });
-    console.log($("#search").val())
 
 
   });
