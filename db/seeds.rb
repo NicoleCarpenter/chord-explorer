@@ -49,10 +49,10 @@ Dir.foreach(".") do |tab_file|
   tab_parsed["chords"].each do |chord_in_song|
     if !chord_in_song["name"].match("not exist")
       chord = Chord.find_or_create_by(name: chord_in_song["name"], code: chord_in_song["code"], family: chord_in_song["name"][0])
-    end
     # In order to get the image, we've gotta do some scraping here. This is what the chord info looks like:
     # {"objects": [{"code": "xo221o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Am_xo221o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Am", "uri": "/v2/chords/46345/"}], "objects_count": 1}
-    IncludedChord.create(chord: chord, tab: tab)
+      IncludedChord.create(chord: chord, tab: tab)
+    end
   end
 end
 
@@ -83,10 +83,6 @@ Tab.all.each_with_index do |tab, i|
   tab.binary_chords = array.join("")
   tab.save
 end
-
-not_exist = "not exist"
-Chord.where("name like ?", "%#{not_exist}%").destroy_all
-
 
 # song generator
 # song = Song.create(title: Faker::Company.buzzword,
