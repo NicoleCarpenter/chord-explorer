@@ -71,6 +71,11 @@ truth = [true, false]
   includedChord = Chord.all.sample.included_chords.create(tab_id: Tab.all.sample.id)
 end
 
+
+
+# not_exist = "not exist"
+# Chord.where("name like ?", "%#{not_exist}%").destroy_all
+
 chord_count = Chord.count
 
 Tab.all.each_with_index do |tab, i|
@@ -82,8 +87,7 @@ Tab.all.each_with_index do |tab, i|
   tab.save
 end
 
-not_exist = "not exist"
-Chord.where("name like ?", "%#{not_exist}%").destroy_all
+
 
 
 # song generator
