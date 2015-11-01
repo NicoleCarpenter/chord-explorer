@@ -25,11 +25,7 @@
     </li>
     <div class='row'>
       <div class='col-md-10 col-md-offset-1'>
-        <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
-          <%= hidden_field_tag :hiddensearch %>
-          <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
-          <%= submit_tag "Search" %>
-        <% end %>
+
       </div>
     </div>
     <li>
@@ -179,11 +175,10 @@
           <a href="#close" class="js-closeToggle">click me</a>
           <nav class="navbar navbar-inverse navbar-fixed-bottom">
             <div class='container'>
-              <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
-                <%= hidden_field_tag :hiddensearch, params[:search]%>
-                In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Songs
-                <%= submit_tag "Search" %>
-              <% end %>
+                <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch") do %>
+                 ==========================================<%= text_field_tag :search %>
+                  <%= submit_tag "Search" %>
+                <% end %>
             </div>
           </nav>
         </div>
