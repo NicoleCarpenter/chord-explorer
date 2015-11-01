@@ -43,7 +43,7 @@
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
             <% @achords.each do |chord| %>
-              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -174,12 +174,12 @@
 
             <p>In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Songs"</p>
           </div>
-          <a href="#close" class="js-closeToggle">click me</a>
+
           <nav class="navbar navbar-inverse navbar-fixed-bottom">
             <div class='container'>
                 <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch") do %>
                  ==========================================<%= text_field_tag :search %>
-                  <%= submit_tag "Search" %>
+                  <%= submit_tag "Search", id: "submit-tag" %>
                 <% end %>
             </div>
           </nav>

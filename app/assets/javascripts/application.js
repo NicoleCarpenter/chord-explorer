@@ -25,6 +25,11 @@
 
 $(document).ready(function() {
 
+  $('#submit-tag').on('click', function() {
+    // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
+    $('.js-page').toggleClass('is-closed');
+  })
+
   $('.js-closeToggle').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
     $('.js-page').toggleClass('is-closed');
@@ -40,6 +45,7 @@ $(document).ready(function() {
     $("#search").val(function(i, val){
       return val + ", " + chordName
     });
+
 
 
   });
