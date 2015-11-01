@@ -27,5 +27,3 @@ artist_files.each do |artist_file|
     end
   end
 end
-
-{"url"=>"http://tabs.ultimate-guitar.com/j/josipa_lisac/ljubav_crd.htm", "chords"=>["C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A", "B", "C#m", "G#m", "A", "B", "F#m", "G#m", "C#m", "C#m", "G#m", "A", "B", "F#m", "G#m", "C#m", "C#m", "G#m", "A", "C#m", "G#m", "A", "C#m", "G#m", "A"], "title"=>"Ljubav", "artist"=>"Josipa Lisac", "ranking"=>"accurate", "contributor"=>"doggyxdxo novice ", "ult_guitar_reviewcount"=>" x 1 ", "ult_guitar_viewcount"=>" 73 views 1 this week"}
