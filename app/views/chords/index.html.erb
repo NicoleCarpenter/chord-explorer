@@ -1,15 +1,28 @@
-<div class="container">
-
-  <p id="notice"><%= notice %></p>
-
-  <h2>Chords</h2>
-    <% @chords.each do |chord| %>
-      <ul>
-        <li><%= chord.name %></li>
-        <li><%= render html: chord.render_chord.html_safe %></li>
-        <li><%= link_to 'Show', chord %></li>
-      </ul>
+<div class="jumbotron">
+  <div class="container centered">
+    <span class='brand-font'>Chord Explorer</span>
+    <%= link_to "Home", welcome_index_path %>
+    <% if logged_in? %>
+      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     <% end %>
+
+  </div>
+</div>
+<div class="container">
+  <div class="inner-container">
+    <p id="notice"><%= notice %></p>
+
+    <h2>Chords</h2>
+      <% @chords.keys.sort.each do |starting_letter| %>
+        <ul class="list-unstyled">
+          <% @chords[starting_letter].each do |chord| %>
+            <li><%= chord.name %></li>
+            <li><%= render html: chord.render_chord.html_safe %></li>
+            <li><%= link_to 'Show', chord %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
 
 <!-- TODO Curate the chords into usable, logical sections, and implement a tabbed interface to separate them out -->
 

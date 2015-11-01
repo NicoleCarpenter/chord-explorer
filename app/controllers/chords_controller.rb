@@ -1,10 +1,11 @@
 class ChordsController < ApplicationController
   before_action :set_chord, only: [:show, :edit, :update, :destroy]
 
+  FAMILIES = ["A", "B", "C", "D", "E", "F"]
   # GET /chords
   # GET /chords.json
   def index
-    @chords = Chord.all
+    @chords = Chord.all.group_by{|u| u.name[0]}
   end
 
   # GET /chords/1
