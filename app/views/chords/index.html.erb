@@ -1,12 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h2>Chords</h2>
-  <% @chords.each do |chord| %>
-    <ul>
-      <li><%= chord.name %></li>
-      <li><%= render html: chord.render_chord.html_safe %></li>
-      <li><%= link_to 'Show', chord %></li>
-    </ul>
-  <% end %>
+  <p id="notice"><%= notice %></p>
+
+  <h2>Chords</h2>
+    <% @chords.each do |chord| %>
+      <ul>
+        <li><%= chord.name %></li>
+        <li><%= render html: chord.render_chord.html_safe %></li>
+        <li><%= link_to 'Show', chord %></li>
+      </ul>
+    <% end %>
 
 <!-- TODO Curate the chords into usable, logical sections, and implement a tabbed interface to separate them out -->
+
+</div>

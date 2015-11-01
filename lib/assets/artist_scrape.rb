@@ -48,5 +48,3 @@ class ArtistSongCrawler
   end
 
 end
-
-
