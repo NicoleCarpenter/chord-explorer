@@ -26,7 +26,6 @@ class WelcomeController < ApplicationController
 
       tabs = Tab.all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
       @matching_songs = tabs.map(&:song)
-      # @matching_songs = Song.all.select{|song| chord_objects.to_set.superset?(song.included_chords.map(&:chord).to_set)}
     end
 
   end
