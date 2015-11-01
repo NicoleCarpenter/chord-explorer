@@ -10,9 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require bootstrap.min
+ *= require_tree .
  */
 
 
@@ -176,13 +176,21 @@ h1 {
   border-radius: 0 !important;
 }
 
+.btn {
+  border-radius: 0 !important;
+}
+
 .btn-default {
   font-size: 10px !important;
   width: 47px !important;
   padding: 5px !important;
   margin-bottom: 3px !important;
+  border-radius: 0;
 }
 
+button.btn.btn-default.active {
+  background-color: #BDBBB0 !important;
+}
 
 html,
 body {
