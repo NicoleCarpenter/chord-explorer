@@ -27,11 +27,13 @@ $(document).ready(function() {
 
   $('.js-closeToggle').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
-    $('.js-page').slideToggle('slow');
+    $('.js-page').toggleClass('is-closed');
   })
 
   $(".btn-default").click(function(event){
     console.log($(this))
+    $(".navbar-fixed-bottom").css("display", "block");
     $(this).clone().appendTo(".navbar");
+    $(this).css("padding", "+=10px");
   })
 });

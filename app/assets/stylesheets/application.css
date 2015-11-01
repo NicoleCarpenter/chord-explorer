@@ -200,10 +200,19 @@ body {
   transition: .9s min-height ease-out;
 }
 
+.foreground > .container-fluid {
+  /* optional just to vertically/horizontally center */
+  position: inherit;
+  top: 15%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+
+
 .foreground.is-closed,
 .background.is-closed {
   min-height: 0;
-  /*display: none;*/
 }
 
 .close-tab {
@@ -215,7 +224,7 @@ body {
 
 .foreground {
   /* Sets foreground above background */
-  z-index: 2;
+  z-index: 3;
   background-image: url('/assets/guitar-background.jpg');
   color: #999999;
 }
@@ -231,7 +240,10 @@ body {
 }
 
 .navbar-fixed-bottom {
-  height: 200px;
+  display: none;
+  height: 100px;
+  padding: 20px 40px;
+  margin-left: 250px;
   /*background-image: url('/assets/binding_dark.png');*/
   background-color: black !important;
 }
