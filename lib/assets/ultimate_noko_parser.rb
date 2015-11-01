@@ -50,10 +50,13 @@ module UltimateNokoParser
   end
 
   def self.dump_json(song_data)
+
     artist = song_data[:artist].gsub(" ", "_")
-    output_file = File.open(Pathname.new("../../db/artists/#{artist[0].downcase}/#{artist}.txt"), 'a')
-    JSON.dump(song_data, output_file)
-    output_file.write("\n")
-    output_file.close
+    if artist
+      output_file = File.open(Pathname.new("../../db/artists/#{artist[0].downcase}/#{artist}.txt"), 'a')
+      JSON.dump(song_data, output_file)
+      output_file.write("\n")
+      output_file.close
+    end
   end
 end
