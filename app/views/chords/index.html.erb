@@ -1,33 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Chords</h1>
+<h2>Chords</h2>
+  <% @chords.each do |chord| %>
+    <ul>
+      <li><%= chord.name %></li>
+      <li><%= render html: chord.render_chord.html_safe %></li>
+      <li><%= link_to 'Show', chord %></li>
+    </ul>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Display card</th>
-      <th>Family</th>
-      <th>Frequency</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @chords.each do |chord| %>
-      <tr>
-        <td><%= chord.name %></td>
-        <td><%= chord.display_card %></td>
-        <td><%= chord.family %></td>
-        <td><%= chord.frequency %></td>
-        <td><%= link_to 'Show', chord %></td>
-        <td><%= link_to 'Edit', edit_chord_path(chord) %></td>
-        <td><%= link_to 'Destroy', chord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Chord', new_chord_path %>
+<!-- TODO Curate the chords into usable, logical sections, and implement a tabbed interface to separate them out -->

@@ -11,6 +11,27 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require spin
+//= require jquery.spin
+//= require raphael-min
+//= require chords.io
+//= require highlight.min
+//= require bootstrap.min
 //= require turbolinks
 //= require_tree .
+//= require bootstrap.min
+
+$(document).ready(function() {
+
+  $('.js-closeToggle').on('click', function() {
+    // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
+    $('.js-page').toggleClass('is-closed');
+  })
+
+  $(".btn-default").click(function(event){
+    console.log($(this))
+    $(this).clone().appendTo(".navbar");
+  })
+});

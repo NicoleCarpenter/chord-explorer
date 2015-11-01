@@ -1,12 +1,38 @@
-<h1>this is a user's show page</h1>
+<%= link_to "Home", welcome_index_path %>
+<% if logged_in? %>
+  <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_path %>
+  <%= link_to "Log in", login_path %>
+<% end %>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h1><%=@user.username%>'s profile</h1>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
- 
+<div class="saved_chords">
+  <h3> Chords You Know </h3>
+    <% @saved_chords.each do |chord| %>
+      <%= chord.name %><br>
+      chord card will go here<br>
+    <% end %>
+</div>
+
+<div class="saved_songs">
+  <h3> Saved Songs </h3>
+  <% @saved_songs.each do |song| %>
+    "<%= song.title %>"<br>
+    <%= song.artist %><br>
+    <% song.tabs.each do |tab| %>
+      <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
+      <%if tab.rating%>Rating: <%=tab.rating%><br><%end%>
+      Contains: <%=tab.show_chords.join(", ")%><br>
+      (chord cards will go here)<br>
+      <br>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class="recommended_chord">
+  <h3>Next recommended chord</h3>
+
+</div>

@@ -1,0 +1,18 @@
+INSTRUCTIONS FOR CRAWLING:
+
+Inside of lib/assets there is a folder called scraper_links.
+
+Inside of that is a text file with your name on it.
+
+Go into the runner.rb file within lib/assets. Modify line 11 so that it reads
+"scraper_links/YOURNAME.txt" instead of "scraper_links/test.txt"
+
+Then, making sure you are in the chord-explorer/lib/assets folder, call:
+
+ruby runner.rb
+
+If it's working, you should see a bunch of json objects popping up on your screen.
+
+And... that's kinda it! The average artist has maybe 35 tabs. We will be grabbing
+30 tabs per minute. With each of us responsible for 2180 artists, it may be...
+36 minutes? Hopefully?

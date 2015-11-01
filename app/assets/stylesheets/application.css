@@ -12,4 +12,210 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
  */
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li p {
+  margin: 20px 20px 5px 20px;
+  text-indent: 0;
+  line-height: 20px;
+  color: #999999;
+  font-size: 13px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 28px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+#sidebar-text > {
+  margin: 15px;
+  color: #999999;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+  }
+
+  #page-content-wrapper {
+    padding: 0;
+    position: relative;
+  }
+}
+
+.panel-group .panel {
+  border: 0 !important;
+}
+
+.panel-heading {
+  background:#000000 !important;
+  border-color: #000000 !important;
+  color: #999999 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  padding: 10px !important;
+  margin: 0 !important;
+}
+
+.panel-title {
+  color: #999999 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  padding-left: 20px;
+}
+
+.panel-title a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  padding: 11px 180px 11px 30px;
+  margin-left: -30px;
+  width: 100%;
+}
+
+.list-group {
+  margin: 0;
+  padding: 10px 10px 10px 30px !important;
+  border-radius: 0;
+  /*background-color: blue !important;*/
+  background-image: url('/assets/binding_dark.png') !important; /*not working */
+}
+
+.panel-default {
+  border-radius: 0 !important;
+}
+
+.btn-default {
+  font-size: 10px !important;
+  /*width: 47px !important;*/
+  padding: 5px !important;
+  margin-bottom: 3px !important;
+}
+
+
+html,
+body {
+  /* required to let children fill viewport, you can skip this and use vw/vh units if you can */
+  height: 100%;
+}
+
+.foreground,
+.background {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  /* animate changing of min-height */
+  transition: .5s min-height ease-out;
+}
+/*
+.foreground > h1,
+.background > h1 {
+   optional just to vertically/horizontally center
+  position: inherit;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+
+.foreground.is-closed,
+.background.is-closed {
+  min-height: 0;
+}
+
+.close-tab {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+.foreground {
+  /* Sets foreground above background */
+  z-index: 2;
+  background-image: url('/assets/guitar-background.jpg');
+  color: #999999;
+}
+
+.background {
+  z-index: 1;
+  background-color: white;
+  padding-top: 210px;
+}
+
+#intro-content p {
+  color: white;
+}
+
+.navbar-fixed-bottom {
+  height: 100px;
+  background-image: url('/assets/binding_dark.png');
+}
