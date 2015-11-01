@@ -1,49 +1,55 @@
-<div class="page-background">
+<div class="jumbotron">
+  <div class="container centered">
+    <span class='brand-font'>Chord Explorer</span>
+    <%= link_to "Home", welcome_index_path %>
+    <% if logged_in? %>
+      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+    <% end %>
+
+  </div>
+</div>
   <div class="container">
-    <div class="inner-container">
-      <%= link_to "Home", welcome_index_path %>
-      <% if logged_in? %>
-        <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-      <% end %>
-
-      <h2><%=@user.username%>'s profile</h2>
-
-      <div class="saved_chords">
-        <div class='well'>
-          <h3> Chords You Know </h3>
-          <% @saved_chords.each do |chord| %>
-            <div class='inline-chords'>
-            <%= chord.name %><br>
-              <%= render html: chord.render_chord.html_safe %></li><br>
-            </div>
-          <% end %>
-
-        </div>
-        <br>
-      </div>
-
-      <div class="saved_songs">
-        <div class='well'>
-          <h3> Saved Songs </h3>
-          <% @saved_songs.each do |song| %>
-            "<%= song.title %>"<br>
-            <%= song.artist %><br>
-            <% song.tabs.each do |tab| %>
-              <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
-              <%if tab.rating%>Rating: <%=tab.rating%><br><%end%>
-              Contains: <%=tab.show_chords.join(", ")%><br>
-              (chord cards will go here)<br>
-              <br>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-
-      <div class="recommended_chord">
-        <h3>Next recommended chord</h3>
-
+    <div class="row">
+      <div class="well">
+        <h2>Welcome, <%=@user.username%></h2>
       </div>
     </div>
+    <div class="saved_chords">
+      <div class='well'>
+        <h3> Chords You Know </h3>
+        <% @saved_chords.each do |chord| %>
+          <div class='inline-chords'>
+          <%= chord.name %><br>
+            <%= render html: chord.render_chord.html_safe %></li><br>
+          </div>
+        <% end %>
+
+      </div>
+      <br>
+    </div>
+
+    <div class="saved_songs">
+      <div class='well'>
+        <h3> Saved Songs </h3>
+        <% @saved_songs.each do |song| %>
+          "<%= song.title %>"<br>
+          <%= song.artist %><br>
+          <% song.tabs.each do |tab| %>
+            <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
+            <%if tab.rating%>Rating: <%=tab.rating%><br><%end%>
+            Contains: <%=tab.show_chords.join(", ")%><br>
+            (chord cards will go here)<br>
+            <br>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="recommended_chord well">
+      <h3>Next recommended chord</h3>
+
+    </div>
+
   </div>
 </div>
