@@ -8,6 +8,7 @@ class ArtistSongCrawler
   #input is an array of urls for paginated songs by artist e.g. www.ultimate-guitar.com/tabs/adelete_tabs2.htm, www.ultimate-guitar.com/tabs/adelete_tabs3.htm
   def initialize(artist_song_list_pages)
     @song_list = artist_song_list_pages.map do |artist_song_list_page|
+      puts "Crawling #{artist_song_list_page}"
       find_rated_songs(artist_song_list_page)
     end
     @song_list.flatten!
@@ -47,5 +48,3 @@ class ArtistSongCrawler
   end
 
 end
-
-

@@ -18,14 +18,17 @@ class WelcomeController < ApplicationController
     @gchords = @chords.where(family: "G")
 
     if params[:search]
-      chord_objects = params[:search].split(",").map{|chord| Chord.find_by(name: chord.strip)}
+      formatted_params = params[:search].split(",")[2..-1]
+      chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip)}
 
       array = Array.new(Chord.count, "0")
       chord_objects.each { |el| array[el.id] = "1" }
       your_chords = array.join("")
 
       tabs = Tab.all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
+
       @matching_songs = tabs.map(&:song)
+
     end
 
   end
