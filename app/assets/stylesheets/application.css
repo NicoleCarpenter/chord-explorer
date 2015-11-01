@@ -145,10 +145,19 @@
   margin: 0;
   padding: 10px 10px 10px 30px !important;
   border-radius: 0;
+  /*background-color: blue !important;*/
+  background-image: url('/assets/binding_dark.png') !important; /*not working */
 }
 
 .panel-default {
   border-radius: 0 !important;
+}
+
+.btn-default {
+  font-size: 10px !important;
+  /*width: 47px !important;*/
+  padding: 5px !important;
+  margin-bottom: 3px !important;
 }
 
 
@@ -199,7 +208,6 @@ body {
 .background {
   z-index: 1;
   background-color: white;
-  padding-left: 290px;
   padding-top: 210px;
 }
 

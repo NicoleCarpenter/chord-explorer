@@ -23,10 +23,14 @@
     <li>
       <p>Type the chords you want to search here!</p>
     </li>
-          <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
-            <%= submit_tag "Search" %>
-          <% end %>
+    <div class='row'>
+      <div class='col-md-10 col-md-offset-1'>
+        <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
+          <%= submit_tag "Search", :style => "display: none;" %>
+        <% end %>
+      </div>
+    </div>
     <li>
       <a href="/chords">All Chords</a>
     </li>
@@ -41,7 +45,11 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
-            Some chords here
+            <% @achords.each do |chord| %>
+              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -55,7 +63,11 @@
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="list-group">
-            Some chords here
+            <% @bchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -69,7 +81,11 @@
         </div>
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="list-group">
-            Some chords here
+            <% @cchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -83,7 +99,11 @@
         </div>
         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="list-group">
-            Some chords here
+            <% @dchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -97,7 +117,11 @@
         </div>
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
           <div class="list-group">
-            Some chords here
+            <% @echords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -111,7 +135,11 @@
         </div>
         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="list-group">
-            <p>Some chords here</p>
+            <% @fchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -125,7 +153,11 @@
         </div>
         <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
           <div class="list-group">
-            Some chords here
+            <% @gchords.each do |chord| %>
+              <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
           </div>
         </div>
       </div>
@@ -136,7 +168,7 @@
   <div class="foreground js-page">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-3">
+        <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
           <h1>Welcome to Chord Explorer</h1>
           <div id="intro-content">
             <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repitoire. We allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
@@ -144,8 +176,8 @@
             <p>In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Songs"</p>
           </div>
           <a href="#close" class="js-closeToggle">click me</a>
-          <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
+          <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class='container'>
             </div>
           </nav>
         </div>
@@ -153,12 +185,18 @@
     </div>
   </div>
   <div class="background">
-    <h1>Background content</h1>
-      <% if @matching_songs %>
-        <%= render partial: "results", :locals => {:songs => @matching_songs} %>
-      <% end %>
-    <div class="close-tab">
-      <a href="#close" class="js-closeToggle">Close</a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
+          <h1>Background content</h1>
+            <% if @matching_songs %>
+              <%= render partial: "results", :locals => {:songs => @matching_songs} %>
+            <% end %>
+          <div class="close-tab">
+            <a href="#close" class="js-closeToggle">Close</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
