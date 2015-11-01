@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -22,7 +21,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'anemone'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -36,8 +34,12 @@ gem 'anemone'
 #Team Chord Explorer added these gems
 gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
+gem 'anemone'
 gem 'jquery-turbolinks'  #Need for speed
 gem 'spinjs-rails'
+gem 'rails_12factor', group: :production
+gem 'puma'
+gem "rack-timeout"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
