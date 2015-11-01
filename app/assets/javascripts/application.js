@@ -33,7 +33,6 @@ $(document).ready(function() {
   $(".btn-default").click(function(event){
     console.log($(this))
     $(".navbar-fixed-bottom").css("display", "block");
-    $(this).clone().appendTo(".navbar");
-    $(this).css("padding", "+=10px");
+    $(this).clone().appendTo(".navbar").css("margin", "+=10px");
   })
 });
