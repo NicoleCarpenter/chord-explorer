@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20151101212058) do
     t.string   "binary_chords"
     t.string   "domain"
     t.integer  "song_id"
+    t.integer  "view_count"
+    t.integer  "review_count"
+    t.string   "ranking"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.text     "sequence",      default: [],              array: true
