@@ -1,13 +1,16 @@
 module Fetcher
   def self.get_em(file_name)
     link_list = parse_file(file_name)
-    link_list.map! {|link| focus(link)}
+    link_list.map! do |link| 
+      puts "Focusing on #{link}"
+      focus(link)
+    end
     link_list
   end
 
   def self.parse_file(file_name)
     file = File.open(file_name,"r")
-    file.readlines.map(&:chomp)
+    derp = file.readlines.map(&:chomp)
   end
 
   def self.focus(artist_link)
