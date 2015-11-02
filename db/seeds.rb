@@ -86,7 +86,8 @@ cutoff = 2
 
 puts "Deleting chords with frequency less than #{cutoff}"
 
-Chord.where("frequency < ?", cutoff).destroy_all
+loser_chords = Chord.where("frequency < ?", cutoff)
+loser_chords.destroy_all
 
 puts "Escaping sharps and slashes now..."
 
