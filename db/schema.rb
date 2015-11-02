@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 20151102171421) do
 
   create_table "chords", force: :cascade do |t|
     t.string   "name"
-    t.string   "display_card"
     t.string   "family"
     t.integer  "frequency"
     t.string   "code"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "escaped_name"
   end
 
   create_table "included_chords", force: :cascade do |t|
@@ -50,8 +50,19 @@ ActiveRecord::Schema.define(version: 20151102171421) do
     t.string   "binary_chords"
     t.string   "domain"
     t.integer  "song_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "view_count"
+    t.integer  "review_count"
+    t.string   "ranking"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "sequence",      default: [],              array: true
+  end
+
+  create_table "ultimate_raws", force: :cascade do |t|
+    t.string   "url"
+    t.string   "raw_html"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_saved_chords", force: :cascade do |t|

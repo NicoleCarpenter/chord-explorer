@@ -1,176 +1,214 @@
-<div id="wrapper">
-
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a href="/">
-          Chord Explorer
-        </a>
-      </li>
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <a href="/">
+        Chord Explorer
+      </a>
+    </li>
     <% if logged_in? %>
-      <li>
-        <%= link_to "Profile", user_path(session[:user_id]) %>
-      </li>
-      <li>
-        <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-      </li>
+    <li>
+      <%= link_to "Profile", user_path(session[:user_id]) %>
+    </li>
+    <li>
+      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+    </li>
     <% else %>
-      <li>
-        <%= link_to "Sign Up", new_user_path %>
-      </li>
-      <li>
-        <%= link_to "Log in", login_path %>
-      </li>
+    <li>
+      <%= link_to "Sign Up", new_user_path %>
+    </li>
+    <li>
+      <%= link_to "Log in", login_path %>
+    </li>
     <% end %>
-      <li>
-        <p>Type the chords you want to search here!</p>
-      </li>
-      <!-- <div class="row">
-        <div class="form-group">
-          <div class="input-group col-md-9 col-xs-7 search">
+    <li>
+      <p>Type the chords you want to search here!</p>
+    </li>
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <form id="add-to-well">
+          <input id="sidebar-value" type="text" name="chords-to-add">
+          <input id="sidebar-submit" type="submit" value="Submit" style="display:none;">
+        </form>
+      </div>
+    </div>
 
-            <%= form_tag(welcome_index_path, :method => "get", id: "search-form") do %>
-              <%= text_field_tag :search, params[:search], placeholder: "example: Am, C, G" %>
-              <%= submit_tag "Search" %>
-            <% end %>
-
-          </div>
-        </div>
-      </div> -->
-
-      <li>
-        <a href="/chords">All Chords</a>
-      </li>
-
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
-                <a class="chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  A Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-              <div class="list-group">
-                Some chords here
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-              <h4 class="panel-title">
-                <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  B Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="list-group">
-                Some chords here
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  C Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="list-group">
-                Some chords here
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
-              <h4 class="panel-title">
-                <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  D Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-              <div class="list-group">
-                Some chords here
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFive">
-              <h4 class="panel-title">
-                <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  E Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-              <div class="list-group">
-                Some chords here
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingSix">
-              <h4 class="panel-title">
-                <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  F Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-              <div class="list-group">
-                <p>Some chords here</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingSeven">
-              <h4 class="panel-title">
-                <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  G Chords
-                </a>
-              </h4>
-            </div>
-            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-              <div class="list-group">
-                Some chords here
-              </div>
-            </div>
-          </div>
+    <div class='row'>
+      <div class='col-md-10 col-md-offset-1'>
 
       </div>
-    </ul>
-  </div>
-
-  <div id="page-content-wrapper">
+    </div>
+    <li>
+      <a href="/chords">All Chords</a>
+    </li>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a class="chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              A Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="list-group">
+            <% @achords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              B Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="list-group">
+            <% @bchords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+          <h4 class="panel-title">
+            <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              C Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="list-group">
+            <% @cchords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+          <h4 class="panel-title">
+            <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              D Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+          <div class="list-group">
+            <% @dchords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+          <h4 class="panel-title">
+            <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              E Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+          <div class="list-group">
+            <% @echords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingSix">
+          <h4 class="panel-title">
+            <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              F Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+          <div class="list-group">
+            <% @fchords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingSeven">
+          <h4 class="panel-title">
+            <a class="collapsed chord-link" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              G Chords
+            </a>
+          </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+          <div class="list-group">
+            <% @gchords.each do |chord| %>
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <%= chord.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>
+<div id="wrapper">
+  <div class="foreground js-page">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-12">
-          <h1>Welcome to Chord Explorer</h1>
-          <p>Some content.</p>
-          <p>Some more content.</p>
+        <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
+          <h1>Welcome to </h1>
+            <span class='brand-font'>Chord Explorer</span>
+            <a href="#close" class="js-closeToggle">click me</a>
+          <div id="intro-content">
+            <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repitoire. We allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
 
-          <% if @matching_songs %>
-            <%= render partial: "results", :locals => {:songs => @matching_songs} %>
-          <% end %>
-
+            <p>In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Songs"</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
+  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class='container'>
+      <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch") do %>
+        <%= hidden_field_tag :search %>
+        <%= submit_tag "Search", id: "submit-tag" %>
+      <% end %>
+    </div>
+  </nav>
+  <div class="background">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
+          <h1>Results</h1>
+            <% if @matching_songs %>
+              <%= render partial: "results", :locals => {:songs => @matching_songs} %>
+            <% end %>
+          <div class="close-tab">
+            <a href="#close" class="js-closeToggle">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

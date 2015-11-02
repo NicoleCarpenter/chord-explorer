@@ -10,10 +10,57 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require bootstrap.min
+ *= require_tree .
  */
+
+body {
+  background-color: black !important;
+}
+
+@font-face {
+  font-family: "Art Brewery";
+  src:url('/assets/fonts/art-brewery.ttf') format("truetype");
+}
+
+@media (max-width: @screen-sm) {
+  .brand-font {
+    font-size: 32px;
+  }
+}
+
+h1 {
+  color: #A0A38C !important;
+}
+
+h2 {
+  font-size: 36px !important;
+}
+
+h4 {
+  margin-bottom: 10px !important;
+}
+
+.brand-font {
+  font-family: "Art Brewery" !important;
+  font-size: 100px;
+  color: #B5D6F1;
+}
+
+.jumbotron.brand-font {
+  text-align: center;
+}
+
+.brand-font-small {
+  font-family: "Art Brewery" !important;
+  font-size: 70px;
+  color: #B5D6F1;
+}
+
+.centered {
+  text-align: center;
+}
 
 #wrapper {
   padding-left: 0;
@@ -78,12 +125,12 @@
 
 .sidebar-nav > .sidebar-brand {
   height: 65px;
-  font-size: 24px;
+  font-size: 28px;
   line-height: 60px;
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  color: #B5D6F1 !important;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -98,7 +145,7 @@
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 250px;
+    padding-left: 0;
   }
 
   #sidebar-wrapper {
@@ -106,7 +153,7 @@
   }
 
   #page-content-wrapper {
-    padding: 20px;
+    padding: 0;
     position: relative;
   }
 }
@@ -130,6 +177,7 @@
   font-size: 14px !important;
   font-weight: 400 !important;
   padding-left: 20px;
+  border-color: black;
 }
 
 .panel-title a:hover {
@@ -145,11 +193,139 @@
   margin: 0;
   padding: 10px 10px 10px 30px !important;
   border-radius: 0;
+  /*background-color: blue !important;*/
+  background-image: url('/assets/binding_dark.png') !important; /*not working */
 }
 
 .panel-default {
   border-radius: 0 !important;
 }
 
+.btn {
+  border-radius: 0 !important;
+}
+
+.btn-default {
+  font-size: 10px !important;
+  width: 47px !important;
+  padding: 5px !important;
+  margin-bottom: 3px !important;
+}
+
+button.btn.btn-default.active {
+  background-color: #BDBBB0 !important;
+}
+
+html,
+body {
+  /* required to let children fill viewport, you can skip this and use vw/vh units if you can */
+  height: 100%;
+}
+
+.foreground,
+.background {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  /* animate changing of min-height */
+  transition: .9s min-height ease-out;
+}
+
+.foreground > .container-fluid {
+  /* optional just to vertically/horizontally center */
+  position: inherit;
+  top: 15%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.foreground.is-closed,
+.background.is-closed {
+  min-height: 0;
+}
+
+.close-tab {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+.foreground {
+  /* Sets foreground above background */
+  z-index: 3;
+  background-image: url('/assets/guitar-background.jpg');
+  color: #999999;
+}
+
+.background {
+  z-index: 1;
+  background-color: white;
+}
+
+#intro-content {
+  color: white;
+  padding: 10px 200px;
+}
+
+.navbar-fixed-bottom {
+  display: none;
+  height: 100px;
+  padding: 20px 40px;
+  margin-left: 250px;
+  /*background-image: url('/assets/binding_dark.png');*/
+  background-color: black !important;
+}
+
+.page-background {
+  background-color: black;
+}
+
+.inner-container {
+  background-color: #B5D6F1 !important;
+  opacity: 0.6;
+  box-shadow: 0 0 5px #888888;
+  bottom: 0;
+  margin: 0 10px;
+  padding: 80px;
+  height: auto;
+}
+
+.inline-chords {
+  display: inline-block;
+  margin: 20px;
+  padding: 5px;
+}
+
+.well {
+  background-color: #B5D6F1 !important;
+  opacity: 0.6;
+}
+
+.white {
+  background-color: white;
+  margin-top: 30px;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.jumbotron-h2 {
+  font-size: 80px;
+}
+
+.list-inline {
+  display: inline-block;
+}
+
+.auth-container {
+  margin: 0 auto;
+  width: 500px;
+  padding-bottom: 200px;
+}
 
 

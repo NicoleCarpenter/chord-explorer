@@ -1,31 +1,70 @@
-<h1>this is a user's show page</h1>
-
-<%= link_to "Home", welcome_index_path %>
-<% if logged_in? %>
-  <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-<% else %>
-  <%= link_to "Sign Up", new_user_path %>
-  <%= link_to "Log in", login_path %>
-<% end %>
-
-
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<div class="saved_chords">
-  <h3> Chords You Know </h3>
-    <% @saved_chords.each do |chord| %>
-      <ul>
-        <li><%= chord.name %></li>
-        <li> chord card will go here</li>
-      </ul>
+<div class="jumbotron">
+  <div class="container centered">
+    <span class='brand-font'>Chord Explorer</span>
+    <%= link_to "Home", welcome_index_path %>
+    <% if logged_in? %>
+      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     <% end %>
+
+  </div>
+</div>
+    <div class="row">
+      <div class="container-fluid white">
+        <div class="container">
+          <h2>Welcome, <%=@user.username%></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container-fluid white">
+        <div class="container">
+          <div class="saved_chords col-lg-5">
+            <h3> Chords You Know </h3>
+            <% @saved_chords.each do |chord| %>
+              <div class='inline-chords'>
+                <!-- <%= chord.name %><br> -->
+                <%= render html: chord.render_chord.html_safe %></li><br>
+              </div>
+            <% end %>
+          </div>
+          <div class="saved_songs col-lg-7">
+            <h3> Saved Songs </h3>
+            <table class="table table-condensed">
+            <% @saved_songs.each do |song| %>
+              <tr>
+                <td><h4>"<%= song.title %>"</h4></td>
+                <td><i><%= song.artist %></i></td>
+              <% song.tabs.each do |tab| %>
+                <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%>
+                <%if tab.rating%>
+                  <td>Rating: <%=tab.rating%></td>
+                <%end%>
+                <td>Contains: <%=tab.show_chords.join(", ")%></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                <% tab.chords.each do |chord| %>
+                <div class="inline-chords">
+                  <%= render html: chord.render_chord.html_safe %>
+                </div>
+                <% end %>
+              </td>
+              <% end %>
+              </tr>
+            <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="recommended_chord">
+        <div class="container-fluid white">
+          <div class="container">
+            <h3>Next recommended chord</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

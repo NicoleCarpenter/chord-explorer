@@ -7,5 +7,10 @@ class Chord < ActiveRecord::Base
   # def self.search(search)
   #   where("name = ?", "#{search}")
   # end
+  #
+  #
+  def render_chord
+    "<div class='chord' data-code='#{self.code}' data-name='#{self.name}'></div>"
+  end
 
 end
