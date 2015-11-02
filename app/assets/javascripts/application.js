@@ -22,6 +22,7 @@
 //= require turbolinks
 //= require_tree .
 
+var searchString = ""
 
 $(document).ready(function() {
 
@@ -36,11 +37,34 @@ $(document).ready(function() {
   })
 
   $(".btn-default").click(function(event){
+
     $(".navbar-fixed-bottom").css("display", "block");
-    $(this).clone().appendTo(".navbar").css("margin", "+=10px");;
+    $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");
     var chordName = $(this).attr("id");
-    $("#search").val(function(i, val){
-      return val + ", " + chordName
-    });
+    searchString = searchString + ", " + chordName;
   });
+
+  $("body").on("click", ".navbar .btn-default", function(event){
+    var chordName = $(this).attr("id");
+    if (chordName.includes("#")){
+      var index = chordName.indexOf("#")
+      chordName = chordName.substr(0,index) + "\\#" + chordName.substr(index+3)
+      console.log(chordName)
+    }
+    console.log("#"+chordName)
+    $("#"+chordName).attr("class","btn btn-default "+chordName);
+    searchString = searchString.replace(", " + chordName, "");
+    $(this).remove();
+    return searchString
+  });
+
+
+  $("body").on("click","#submit-tag",function(event){
+    $("#search").val(searchString)
+
+  })
+
+
+
+
 });

@@ -9,6 +9,8 @@ class WelcomeController < ApplicationController
     @songs = Song.all
     @chords = Chord.all
 
+
+
     @achords = @chords.where(family: "A")
     @bchords = @chords.where(family: "B")
     @cchords = @chords.where(family: "C")
@@ -18,7 +20,7 @@ class WelcomeController < ApplicationController
     @gchords = @chords.where(family: "G")
 
     if params[:search]
-      formatted_params = params[:search].split(",")[2..-1]
+      formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
       chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip)}
 
       array = Array.new(Chord.count, "0")
