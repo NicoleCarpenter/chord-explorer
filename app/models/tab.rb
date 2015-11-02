@@ -11,4 +11,8 @@ class Tab < ActiveRecord::Base
     # Arguments will be strings of binary, representing booleans.
     (song_chords.to_i(2) & your_chords.to_i(2) == song_chords.to_i(2))
   end
+
+  def self.playables(your_chords)
+    all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
+  end
 end
