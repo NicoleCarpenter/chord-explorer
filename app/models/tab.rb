@@ -8,9 +8,9 @@ class Tab < ActiveRecord::Base
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
       chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip).id}
       tabs = Tab.find_all_for_chords(chord_objects)
-      tabs = Tab.playables(your_chords)
       @matching_songs = tabs.map(&:song)
-    end
+  end
+
   def self.find_all_for_chords(chord_ids)
     where(<<-SQL, ids: chord_ids)
       tabs.id IN (
