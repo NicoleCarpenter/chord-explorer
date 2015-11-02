@@ -49,25 +49,26 @@ $(document).ready(function() {
   //clicks in well
   $("body").on("click", ".navbar .btn-default", function(event){
     var chordName = $(this).attr("id");
-    console.log(chordName);
-    console.log("#"+chordName)
     $("#"+chordName).attr("class","btn btn-default "+chordName);
     searchString = searchString.replace(", " + chordName, "");
     $(this).remove();
     return searchString
   });
 
-  //clicks on search in well, sends chords to form and searches
+  //clicks on search in well, sends chords to form and seargit ches
   $("body").on("click","#submit-tag",function(event){
-    $("#search").val(searchString)
+    $("#search").val(searchString);
+    $("#hiddensearch").submit(function(){
+      event.preventDefault();
+      console.log("We're going to make an AJAX request")
+      console.log($(this).serialize());
+      $(this).serialize();
+    })
   })
-
-
 
   $(function(){
     $("#add-to-well").submit(function() {return false});
   });
-
 
   // $("#sidebar-submit").on("click", function (event){
   //replace the next three lines with the above to revert to the old way
@@ -80,17 +81,14 @@ $(document).ready(function() {
           chord_string[i] = chord_string[i].trim();
       }
     };
-    console.log(chord_string)
-
     //iterate over chord_string
     //use chord_string as id and call click on the element
     if (chord_string != undefined){
       for (var i=0; i<chord_string.length; i++){
-        if (searchString.includes(chord_string[i]) == false){
+        if (searchString.includes(chord_string[i].replace("#","sharp").replace("/","slash")) == false){
           $("#"+chord_string[i].replace("#","sharp").replace("/","slash")).click();
         }
       }
     }
-    console.log(searchString)
   })
 });
