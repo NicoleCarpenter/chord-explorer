@@ -22,7 +22,7 @@
             <h3> Chords You Know </h3>
             <% @saved_chords.each do |chord| %>
               <div class='inline-chords'>
-                <%= chord.name %><br>
+                <!-- <%= chord.name %><br> -->
                 <%= render html: chord.render_chord.html_safe %></li><br>
               </div>
             <% end %>
