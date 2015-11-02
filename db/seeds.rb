@@ -87,3 +87,26 @@ cutoff = 2
 puts "Deleting chords with frequency less than #{cutoff}"
 
 Chord.where("frequency < ?", cutoff).destroy_all
+
+puts "Escaping sharps and slashes now..."
+
+# this populates the "escaped_name" column for all chords, which is important for the javascript and jquery in the well logic
+chords = Chord.all
+
+chords.each do |chord|
+  if chord.name.include?("#")
+    chord.escaped_name = chord.name.gsub(/#/, "sharp")
+  else
+    chord.escaped_name = chord.name
+  end
+  chord.save
+end
+
+chords.each do |chord|
+  if chord.name.include?("/")
+    chord.escaped_name = chord.escaped_name.gsub(/\//, "slash")
+  else
+    chord.escaped_name = chord.escaped_name
+  end
+  chord.save
+end
