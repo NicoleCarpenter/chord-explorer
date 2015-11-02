@@ -22,6 +22,7 @@
 //= require turbolinks
 //= require_tree .
 
+var searchString = ""
 
 $(document).ready(function() {
 
@@ -35,12 +36,51 @@ $(document).ready(function() {
     $('.js-page').toggleClass('is-closed');
   })
 
+  //clicks on left hand side
   $(".btn-default").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
-    $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");;
+
+    $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");
+
     var chordName = $(this).attr("id");
-    $("#search").val(function(i, val){
-      return val + ", " + chordName
-    });
+    searchString = searchString + ", " + chordName;
   });
+
+  //clicks in well
+  $("body").on("click", ".navbar .btn-default", function(event){
+    var chordName = $(this).attr("id");
+    console.log("#"+chordName)
+    $("#"+chordName).attr("class","btn btn-default "+chordName);
+    searchString = searchString.replace(", " + chordName, "");
+    $(this).remove();
+    return searchString
+  });
+
+  //clicks on search in well, sends chords to form and searches
+  $("body").on("click","#submit-tag",function(event){
+    $("#search").val(searchString)
+  })
+
+
+
+
+
+  // $("#sidebar-submit").on("click", function (event){
+  //replace the next three lines with the above to revent to the old way
+    $(document).on("keyup", function(event){
+      event.preventDefault();
+      if (event.keyCode == 13) {
+        var chord_string = ($("#sidebar-value").val());
+        chord_string = chord_string.split(",");
+        for (var i = 0; i < chord_string.length; i++){
+          chord_string[i] = chord_string[i].trim();
+      }
+    };
+
+    //iterate over chord_string
+    //use chord_string as id and call click on the element
+    for (var i=0; i<chord_string.length; i++){
+      $("#"+chord_string[i]).click();
+    }
+  })
 });
