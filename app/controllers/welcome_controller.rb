@@ -9,16 +9,7 @@ class WelcomeController < ApplicationController
     @songs = Song.all
     @chords = Chord.all
 
-    <div class="jumbotron">
-  <div class="container centered">
-    <span class='brand-font'>Chord Explorer</span>
-    <%= link_to "Home", welcome_index_path %>
-    <% if logged_in? %>
-      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-    <% end %>
-
-  </div>
-</div>
+    @achords = @chords.where(family: "A")
     @bchords = @chords.where(family: "B")
     @cchords = @chords.where(family: "C")
     @dchords = @chords.where(family: "D")

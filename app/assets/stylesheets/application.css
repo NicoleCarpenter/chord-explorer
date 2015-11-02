@@ -301,4 +301,8 @@ body {
   font-size: 80px;
 }
 
+.list-inline {
+  display: inline-block;
+}
+
 

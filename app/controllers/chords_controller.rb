@@ -5,7 +5,14 @@ class ChordsController < ApplicationController
   # GET /chords
   # GET /chords.json
   def index
-    @chords = Chord.all.group_by{|u| u.name[0]}
+    @chords = Chord.order(:name)
+    @achords = @chords.where(family: "A")
+    @bchords = @chords.where(family: "B")
+    @cchords = @chords.where(family: "C")
+    @dchords = @chords.where(family: "D")
+    @echords = @chords.where(family: "E")
+    @fchords = @chords.where(family: "F")
+    @gchords = @chords.where(family: "G")
   end
 
   # GET /chords/1
