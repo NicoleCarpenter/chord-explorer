@@ -9,8 +9,6 @@ class WelcomeController < ApplicationController
     @songs = Song.all
     @chords = Chord.all
 
-
-
     @achords = @chords.where(family: "A")
     @bchords = @chords.where(family: "B")
     @cchords = @chords.where(family: "C")
