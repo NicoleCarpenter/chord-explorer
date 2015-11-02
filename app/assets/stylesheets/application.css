@@ -31,7 +31,15 @@ body {
 }
 
 h1 {
-  color: #EBE8DF !important;
+  color: #A0A38C !important;
+}
+
+h2 {
+  font-size: 36px !important;
+}
+
+h4 {
+  margin-bottom: 10px !important;
 }
 
 .brand-font {
@@ -297,12 +305,27 @@ body {
   opacity: 0.6;
 }
 
+.white {
+  background-color: white;
+  margin-top: 30px;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .jumbotron-h2 {
   font-size: 80px;
 }
 
 .list-inline {
   display: inline-block;
+}
+
+.auth-container {
+  margin: 0 auto;
+  width: 500px;
+  padding-bottom: 200px;
 }
 
 

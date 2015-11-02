@@ -9,8 +9,6 @@ class WelcomeController < ApplicationController
     @songs = Song.all
     @chords = Chord.all
 
-
-
     @achords = @chords.where(family: "A")
     @bchords = @chords.where(family: "B")
     @cchords = @chords.where(family: "C")
@@ -27,7 +25,7 @@ class WelcomeController < ApplicationController
       chord_objects.each { |el| array[el.id] = "1" }
       your_chords = array.join("")
 
-      tabs = Tab.playables
+      tabs = Tab.playables(your_chords)
 
       @matching_songs = tabs.map(&:song)
 

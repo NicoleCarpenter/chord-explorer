@@ -8,14 +8,16 @@
 
   </div>
 </div>
-<div class="container">
-  <div class="inner-container">
+<div class="container-fluid white">
+  <div class="container">
     <p id="notice"><%= notice %></p>
-
     <h2>Chords</h2>
-    <div class="row">
-      <% cur_letter = nil %>
-      <ul class="list-inline">
+  </div>
+</div>
+<div class="container-fluid white">
+  <div class="container">
+    <ul class="list-inline">
+    <% cur_letter = nil %>
       <% @chords.each do |chord| %>
         <% chord_letter = chord.name[0].capitalize.match(/[A-Z]/) ? chord.name[0].capitalize : "#" %>
         <% if chord_letter != cur_letter %>
@@ -25,12 +27,15 @@
           <h3><%= cur_letter %> Chords</h3>
           <br>
         <% end %>
+
         <div class="inline-chords">
-          <li><%= chord.name %></li>
+          <!-- <li><%= chord.name %></li> -->
           <li><%= render html: chord.render_chord.html_safe %></li>
-          <li><%= link_to 'Show', chord %></li>
+          <!-- <li><%= link_to 'Show', chord %></li> -->
         </div>
       <% end %>
+    </div>
+  </div>
       <hr>
     </ul>
     </div>
