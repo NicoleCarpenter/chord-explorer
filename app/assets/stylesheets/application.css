@@ -229,7 +229,7 @@ body {
   min-height: 100%;
   overflow: hidden;
   /* animate changing of min-height */
-  transition: .9s min-height ease-out;
+  transition: 1.1s min-height ease-out;
 }
 
 .foreground > .container {
@@ -329,4 +329,7 @@ body {
   padding-bottom: 200px;
 }
 
+.bottom-pad {
+  padding-bottom: 200px;
+}
 
