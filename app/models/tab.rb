@@ -7,8 +7,12 @@ class Tab < ActiveRecord::Base
       puts "Hello you came here via JS"
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
       chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip).id}
-      tabs = Tab.find_all_for_chords(chord_objects)
-      @matching_songs = tabs.map(&:song)
+      @tabs = Tab.find_all_for_chords(chord_objects)
+      @tabs = Tab.group_tabs_by_artist(@tabs)
+  end
+
+  def self.group_tabs_by_artist(tabs)
+    grouped = tabs.group_by { |x| x.song }
   end
 
   def self.find_all_for_chords(chord_ids)

@@ -1,11 +1,8 @@
-<% songs.each do |song| %>
+<% tabs.each do |song, tabbies| %>
   "<%= song.title %>"<br>
   <%= song.artist %><br>
-  <% song.tabs.each do |tab| %>
+  <% tabbies.each do |tab| %>
+    Contains: <%=tab.show_chords.join(", ") %><br>
     <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
-    <%if tab.rating%>Rating: <%=tab.rating%><br><%end%>
-    Contains: <%=tab.show_chords.join(", ")%><br>
-    (chord cards will go here)<br>
-    <br>
   <% end %>
 <% end %>

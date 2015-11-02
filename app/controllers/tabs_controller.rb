@@ -6,7 +6,7 @@ class TabsController < ApplicationController
   def index
     if request.xhr?
       puts "VIA AJAX"
-      @songs = Tab.search(params)
+      @tabs = Tab.search(params)
     else
       @tabs = Tab.all
     end
