@@ -1,10 +1,14 @@
 class TabsController < ApplicationController
   before_action :set_tab, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :js
   # GET /tabs
   # GET /tabs.json
   def index
-    @tabs = Tab.all
+    if request.xhr?
+      @tabs = Tab.search(params[:search])
+    else
+      @tabs = Tab.all
+    end
   end
 
   # GET /tabs/1

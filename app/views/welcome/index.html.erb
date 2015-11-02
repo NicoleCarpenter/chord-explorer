@@ -189,7 +189,7 @@
   </div>
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class='container'>
-      <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch") do %>
+      <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch", remote: true) do %>
         <%= hidden_field_tag :search %>
         <%= submit_tag "Search", id: "submit-tag" %>
       <% end %>
