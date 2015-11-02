@@ -82,12 +82,24 @@ freq_dist.each do |chord_name, frequency|
   chord.save
 end
 
-cutoff = 2
+cutoff = 3
 
 puts "Deleting chords with frequency less than #{cutoff}"
+puts "Current chord count: #{Chord.count}. Current tab count: #{Tab.count}"
 
 loser_chords = Chord.where("frequency < ?", cutoff)
 loser_chords.destroy_all
+
+# Sniping some typo chords...
+
+Chord.where("name LIKE '%H%'").destroy_all
+
+# Killing off tabs which have only one chord
+
+# A hash, keys are tab_ids, values are the amount of chords in them.
+chords_per_song = IncludedChord.group("chord_id").count("chord_id")
+chords_per_song.select { |key, value| value == 1}
+Tab.find(chords_per_song.keys).destroy_all
 
 puts "Escaping sharps and slashes now..."
 
