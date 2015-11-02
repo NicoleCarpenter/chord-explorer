@@ -12,10 +12,17 @@ class Tab < ActiveRecord::Base
       @matching_songs = tabs.map(&:song)
     end
   def self.find_all_for_chords(chord_ids)
-    joins(:included_chords).
-      where(tab_id: chord_ids).
-      where.not(tab_id: IncludedChord.without(chord_ids).select(:tab_id))
-      # where("included_chords.tab_id NOT IN (#{IncludedChord.without(chord_ids).select(:tab_id).to_sql})")
+    where(<<-SQL, ids: chord_ids)
+      tabs.id IN (
+        SELECT DISTINCT tab_id
+        FROM included_chords
+        WHERE chord_id IN (:ids)
+        EXCEPT
+        SELECT DISTINCT tab_id
+        FROM included_chords
+        WHERE chord_id NOT IN (:ids)
+      )
+    SQL
   end
 
   def show_chords
@@ -31,3 +38,18 @@ class Tab < ActiveRecord::Base
     all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
   end
 end
+
+# song1 = [1,4,27]
+# song2 = [1,4,27,63]
+# song3 = [63, 84]
+# song4 = [4,27,84]
+# # song5 = [1,4]
+
+# [song1, song2, song4, song5]
+
+
+# [song1, song5]
+
+# select tab_id
+# from included_chords
+# where chord_id NOT IN ()
