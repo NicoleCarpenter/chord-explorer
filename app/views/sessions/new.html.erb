@@ -1,11 +1,31 @@
-<h1>User login</h1>
+<div class="jumbotron">
+  <div class="container centered">
+    <span class='brand-font'>Chord Explorer</span>
+    <%= link_to "Home", welcome_index_path %>
+    <% if logged_in? %>
+      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+    <% end %>
+  </div>
+</div>
 
-<%= @message if @message %>
+<div class="row">
+  <div class="container-fluid white">
+    <div class="container">
+      <div class="auth-container">
+        <h1>User login</h1>
 
-<%= form_for :users do |f| %>
-   <%= f.label :username %>
-   <%= f.text_field :username %>
-   <%= f.label :password %>
-   <%= f.password_field :password %>
-   <%= f.submit "Login" %>
-<% end %>
+        <%= @message if @message %>
+
+        <%= form_for :users do |f| %>
+           <%= f.label :username %>
+           <%= f.text_field :username, class: 'form-control' %>
+
+           <%= f.label :password %>
+           <%= f.password_field :password, class: 'form-control' %>
+
+           <%= f.submit "Login" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
