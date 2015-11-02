@@ -34,6 +34,10 @@ h1 {
   color: #EBE8DF !important;
 }
 
+h4 {
+  margin-bottom: 10px !important;
+}
+
 .brand-font {
   font-family: "Art Brewery" !important;
   font-size: 100px;
@@ -295,6 +299,15 @@ body {
 .well {
   background-color: #B5D6F1 !important;
   opacity: 0.6;
+}
+
+.white {
+  background-color: white;
+  margin-top: 30px;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .jumbotron-h2 {
