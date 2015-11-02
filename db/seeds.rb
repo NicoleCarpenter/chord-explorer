@@ -35,8 +35,7 @@ require 'json'
 
 
 # Parsing the guitar-party tabs. Inside ./guitarparty-tabs is a series of text files, containing JSON objects. So the first job is to open each of these in turn, parse them as JSON, and then extract the data we want.
-Dir.chdir("db/guitarparty-tabs")
-Dir.foreach(".") do |tab_file|
+Dir.glob("db/guitarparty-tabs/*.txt") do |tab_file|
   next if tab_file == '.' or tab_file == '..' or tab_file == ".DS_Store"
   p "Work on #{tab_file}"
   raw_tab = File.open(tab_file).read
@@ -74,6 +73,37 @@ truth = [true, false]
 end
 
 
+# A script for getting JSON objects into our database.
+
+artist_files = Dir.glob('db/artists/*/*.txt')
+
+artist_files.each do |artist_file|
+  File.foreach(artist_file) do |song_json|
+    song_data = JSON.parse(song_json)
+    artist = song_data["artist"].strip
+    title  = song_data["title"].strip
+    p "#{artist} - #{title}"
+    
+    song = Song.find_or_create_by(artist: artist, title: title)
+
+    tab_create_hash = {
+      :song         => song,
+      :domain       => song_data["url"].scan(/(?<=\.).*(?=\.com)/).first,
+      :view_count   => song_data["ult_guitar_viewcount"].scan(/\d+/).first,
+      :review_count => song_data["ult_guitar_reviewcount"].scan(/\d+/).first,
+      :sequence     => Array.new(song_data["chords"]),
+      :ranking      => song_data["ranking"],
+      :url          => song_data["url"]
+    }
+
+    tab = Tab.new(tab_create_hash)
+    tab.save
+    tab.sequence.uniq.each do |chord_in_song|
+      chord = Chord.find_or_create_by(name: chord_in_song.strip)
+      IncludedChord.create(chord: chord, tab: tab)
+    end
+  end
+end
 
 # not_exist = "not exist"
 # Chord.where("name like ?", "%#{not_exist}%").destroy_all
