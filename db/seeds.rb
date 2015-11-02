@@ -137,3 +137,26 @@ end
 # userSavedChord = UserSavedChord.create(user_id:1, chord_id:1)
 # userSong = UserSong.create(difficulty:3, saved:true, user_id:1, song_id:1)
 # includedChord = IncludedChord.create(chord_id:1, tab_id:1)
+
+
+# this populates the "escaped_name" column for all chords, which is important for the javascript and jquery in the well logic
+chords = Chord.all
+
+chords.each do |chord|
+  if chord.name.include?("#")
+    chord.escaped_name = chord.name.gsub(/#/, "sharp")
+  else
+    chord.escaped_name = chord.name
+  end
+  chord.save
+end
+
+chords.each do |chord|
+  if chord.name.include?("/")
+    chord.escaped_name = chord.escaped_name.gsub(/\//, "slash")
+  else
+    chord.escaped_name = chord.escaped_name
+  end
+  chord.save
+end
+
