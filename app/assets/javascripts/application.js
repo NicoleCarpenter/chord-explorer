@@ -49,6 +49,7 @@ $(document).ready(function() {
   //clicks in well
   $("body").on("click", ".navbar .btn-default", function(event){
     var chordName = $(this).attr("id");
+    console.log(chordName);
     console.log("#"+chordName)
     $("#"+chordName).attr("class","btn btn-default "+chordName);
     searchString = searchString.replace(", " + chordName, "");
@@ -66,7 +67,7 @@ $(document).ready(function() {
 
 
   // $("#sidebar-submit").on("click", function (event){
-  //replace the next three lines with the above to revent to the old way
+  //replace the next three lines with the above to revert to the old way
     $(document).on("keyup", function(event){
       event.preventDefault();
       if (event.keyCode == 13) {
