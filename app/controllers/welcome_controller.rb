@@ -27,7 +27,7 @@ class WelcomeController < ApplicationController
       chord_objects.each { |el| array[el.id] = "1" }
       your_chords = array.join("")
 
-      tabs = Tab.all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
+      tabs = Tab.playables
 
       @matching_songs = tabs.map(&:song)
 

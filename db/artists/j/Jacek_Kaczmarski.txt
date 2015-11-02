@@ -1,0 +1,2 @@
+{"url":"http://tabs.ultimate-guitar.com/j/jacek_kaczmarski/mury_crd.htm","chords":["A","Em","H7","Em"],"title":"Mury","artist":"Jacek Kaczmarski","ranking":"excellent!","contributor":"Linu novice ","ult_guitar_reviewcount":" x 2 ","ult_guitar_viewcount":" 24,872 views 66 this week"}
+{"url":"http://tabs.ultimate-guitar.com/j/jacek_kaczmarski/oblawa_crd.htm","chords":["A","A"],"title":"Oblawa","artist":"Jacek Kaczmarski","ranking":"excellent!","contributor":"","ult_guitar_reviewcount":" x 1 ","ult_guitar_viewcount":" 10,493 views 9 this week"}

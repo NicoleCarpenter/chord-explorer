@@ -39,7 +39,9 @@ $(document).ready(function() {
   //clicks on left hand side
   $(".btn-default").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
+
     $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");
+
     var chordName = $(this).attr("id");
     searchString = searchString + ", " + chordName;
   });
