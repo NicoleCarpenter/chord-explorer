@@ -1,11 +1,12 @@
 class TabsController < ApplicationController
   before_action :set_tab, only: [:show, :edit, :update, :destroy]
-  respond_to :html, :js
+  respond_to :html, :js, :json
   # GET /tabs
   # GET /tabs.json
   def index
     if request.xhr?
-      @tabs = Tab.search(params[:search])
+      puts "VIA AJAX"
+      @songs = Tab.search(params)
     else
       @tabs = Tab.all
     end

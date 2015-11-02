@@ -49,8 +49,6 @@ $(document).ready(function() {
   //clicks in well
   $("body").on("click", ".navbar .btn-default", function(event){
     var chordName = $(this).attr("id");
-    console.log(chordName);
-    console.log("#"+chordName)
     $("#"+chordName).attr("class","btn btn-default "+chordName);
     searchString = searchString.replace(", " + chordName, "");
     $(this).remove();
@@ -59,8 +57,13 @@ $(document).ready(function() {
 
   //clicks on search in well, sends chords to form and searches
   $("body").on("click","#submit-tag",function(event){
-    event.preventDefault();
     $("#search").val(searchString);
+    $("#hiddensearch").submit(function(){
+      event.preventDefault();
+      console.log("We're going to make an AJAX request")
+      console.log($(this).serialize());
+      $(this).serialize();
+    })
   })
 
   $(function(){

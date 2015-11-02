@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get '/tabs' => "tabs#index", as: "tabs_index"
+
 end

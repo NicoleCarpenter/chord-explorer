@@ -5,7 +5,7 @@ class Tab < ActiveRecord::Base
 
   def self.search(params)
       puts "Hello you came here via JS"
-      if params[:search]
+      params[:search]
         formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
         chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip)}
 
@@ -16,8 +16,7 @@ class Tab < ActiveRecord::Base
         tabs = self.playables(your_chords)
 
         @matching_songs = tabs.map(&:song)
-      end
-    end
+
   end
 
   def show_chords
