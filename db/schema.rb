@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102004007) do
+ActiveRecord::Schema.define(version: 20151102171421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20151102004007) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "included_chords", ["tab_id"], name: "index_included_chords_on_tab_id", using: :btree
+
   create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.string   "artist"
@@ -48,6 +50,9 @@ ActiveRecord::Schema.define(version: 20151102004007) do
     t.string   "binary_chords"
     t.string   "domain"
     t.integer  "song_id"
+    t.integer  "view_count"
+    t.integer  "review_count"
+    t.string   "ranking"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.text     "sequence",      default: [],              array: true

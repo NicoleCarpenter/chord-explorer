@@ -3,6 +3,13 @@ class Tab < ActiveRecord::Base
   has_many    :chords, through: :included_chords
   belongs_to  :song
 
+  def self.find_all_for_chords(chord_ids)
+    joins(:included_chords).
+      where(tab_id: chord_ids).
+      where.not(tab_id: IncludedChord.without(chord_ids).select(:tab_id))
+      # where("included_chords.tab_id NOT IN (#{IncludedChord.without(chord_ids).select(:tab_id).to_sql})")
+  end
+
   def show_chords
     included_chords.map(&:chord).map(&:name)
   end
