@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   $(".btn-default").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
-    $(this).clone().appendTo(".navbar").css("margin", "+=10px");;
+    $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");;
     var chordName = $(this).attr("id");
     $("#search").val(function(i, val){
       return val + ", " + chordName
