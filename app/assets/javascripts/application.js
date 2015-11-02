@@ -57,7 +57,7 @@ $(document).ready(function() {
     return searchString
   });
 
-  //clicks on search in well, sends chords to form and searches
+  //clicks on search in well, sends chords to form and seargit ches
   $("body").on("click","#submit-tag",function(event){
     $("#search").val(searchString)
   })
