@@ -8,52 +8,63 @@
 
   </div>
 </div>
-  <div class="container">
     <div class="row">
-      <div class="well">
-        <h2>Welcome, <%=@user.username%></h2>
-      </div>
-    </div>
-    <div class="saved_chords">
-      <div class="row">
-        <div class="well">
-          <h3> Chords You Know </h3>
-          <% @saved_chords.each do |chord| %>
-            <div class='inline-chords'>
-            <%= chord.name %><br>
-              <%= render html: chord.render_chord.html_safe %></li><br>
-            </div>
-          <% end %>
+      <div class="container-fluid white">
+        <div class="container">
+          <h2>Welcome, <%=@user.username%></h2>
         </div>
       </div>
-      <br>
     </div>
-
-    <div class="saved_songs">
-      <div class="row">
-        <div class="well">
-          <h3> Saved Songs </h3>
-          <% @saved_songs.each do |song| %>
-            "<%= song.title %>"<br>
-            <%= song.artist %><br>
-            <% song.tabs.each do |tab| %>
-              <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
-              <%if tab.rating%>Rating: <%=tab.rating%><br><%end%>
-              Contains: <%=tab.show_chords.join(", ")%><br>
-              (chord cards will go here)<br>
-              <br>
+    <div class="row">
+      <div class="container-fluid white">
+        <div class="container">
+          <div class="saved_chords col-lg-5">
+            <h3> Chords You Know </h3>
+            <% @saved_chords.each do |chord| %>
+              <div class='inline-chords'>
+                <!-- <%= chord.name %><br> -->
+                <%= render html: chord.render_chord.html_safe %></li><br>
+              </div>
             <% end %>
-          <% end %>
+          </div>
+          <div class="saved_songs col-lg-7">
+            <h3> Saved Songs </h3>
+            <table class="table table-condensed">
+            <% @saved_songs.each do |song| %>
+              <tr>
+                <td><h4>"<%= song.title %>"</h4></td>
+                <td><i><%= song.artist %></i></td>
+              <% song.tabs.each do |tab| %>
+                <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%>
+                <%if tab.rating%>
+                  <td>Rating: <%=tab.rating%></td>
+                <%end%>
+                <td>Contains: <%=tab.show_chords.join(", ")%></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                <% tab.chords.each do |chord| %>
+                <div class="inline-chords">
+                  <%= render html: chord.render_chord.html_safe %>
+                </div>
+                <% end %>
+              </td>
+              <% end %>
+              </tr>
+            <% end %>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-
-
     <div class="row">
-      <div class="recommended_chord well">
-        <h3>Next recommended chord</h3>
-
+      <div class="recommended_chord">
+        <div class="container-fluid white">
+          <div class="container">
+            <h3>Next recommended chord</h3>
+          </div>
+        </div>
       </div>
-
+    </div>
   </div>
 </div>

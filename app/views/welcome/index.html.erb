@@ -5,29 +5,32 @@
         Chord Explorer
       </a>
     </li>
-  <% if logged_in? %>
+    <% if logged_in? %>
     <li>
       <%= link_to "Profile", user_path(session[:user_id]) %>
     </li>
     <li>
       <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     </li>
-  <% else %>
+    <% else %>
     <li>
       <%= link_to "Sign Up", new_user_path %>
     </li>
     <li>
       <%= link_to "Log in", login_path %>
     </li>
-  <% end %>
+    <% end %>
     <li>
       <p>Type the chords you want to search here!</p>
     </li>
-
-    <form id="add-to-well">
-      <input id="sidebar-value" type="text" name="chords-to-add">
-      <input id="sidebar-submit" type="button" value="Submit" style="display:none;">
-    </form>
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <form id="add-to-well">
+          <input id="sidebar-value" type="text" name="chords-to-add">
+          <input id="sidebar-submit" type="button" value="Submit" style="display:none;">
+        </form>
+      </div>
+    </div>
 
     <div class='row'>
       <div class='col-md-10 col-md-offset-1'>
