@@ -1,12 +1,25 @@
 
 <% songs.each do |song| %>
-  "<%= song.title %>"<br>
-  <%= song.artist %><br>
-  <% song.tabs.each do |tab| %>
-    <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
-    <%if tab.rating%>Rating: <%=tab.rating%><br><%end%>
-    Contains: <%=tab.show_chords.join(", ")%><br>
-    (chord cards will go here)<br>
-    <br>
-  <% end %>
+  <h4>"<%= song.title %>"</h4>
+  <i><%= song.artist %></i><br>
+
+  <div class="container">
+    <% song.tabs.each do |tab| %>
+      <a href='<%= tab.url %>'><%=tab.domain.capitalize%></a>
+      <%if tab.rating%>
+        Rating: <%=tab.rating%>
+      <%end%>
+      <%=tab.show_chords.join(", ")%>
+      <br>
+      <ul class="list-inline">
+      <% tab.chords.each do |chord| %>
+        <div class="inline-chords">
+          <%= render html: chord.render_chord.html_safe %>
+        </div>
+      <% end %>
+      </ul>
+      <br>
+    <% end %>
+  </div>
 <% end %>
+<hr>
