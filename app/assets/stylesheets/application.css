@@ -232,12 +232,12 @@ body {
   transition: .9s min-height ease-out;
 }
 
-.foreground > .container-fluid {
+.foreground > .container {
   /* optional just to vertically/horizontally center */
   position: inherit;
-  top: 15%;
-  left: 35%;
-  transform: translate(-50%, -50%);
+  /*top: 15%;*/
+  /*left: 35%;*/
+  /*transform: translate(-50%, -50%);*/
 }
 
 
@@ -259,6 +259,7 @@ body {
   z-index: 3;
   background-image: url('/assets/guitar-background.jpg');
   color: #999999;
+  padding-left: 150px;
 }
 
 .background {
@@ -268,7 +269,7 @@ body {
 
 #intro-content {
   color: white;
-  padding: 10px 200px;
+  padding: 10px 100px;
 }
 
 .navbar-fixed-bottom {
