@@ -64,11 +64,14 @@ $(document).ready(function() {
 
 
 
+  $(function(){
+    $("#add-to-well").submit(function() {return false});
+  });
 
 
   // $("#sidebar-submit").on("click", function (event){
   //replace the next three lines with the above to revert to the old way
-    $(document).on("keyup", function(event){
+    $("#add-to-well").on("keyup", function(event){
       event.preventDefault();
       if (event.keyCode == 13) {
         var chord_string = ($("#sidebar-value").val());
@@ -77,11 +80,17 @@ $(document).ready(function() {
           chord_string[i] = chord_string[i].trim();
       }
     };
+    console.log(chord_string)
 
     //iterate over chord_string
     //use chord_string as id and call click on the element
-    for (var i=0; i<chord_string.length; i++){
-      $("#"+chord_string[i]).click();
+    if (chord_string != undefined){
+      for (var i=0; i<chord_string.length; i++){
+        if (searchString.includes(chord_string[i]) == false){
+          $("#"+chord_string[i].replace("#","sharp").replace("/","slash")).click();
+        }
+      }
     }
+    console.log(searchString)
   })
 });
