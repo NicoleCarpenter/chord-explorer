@@ -50,6 +50,10 @@ body {
     padding: 10px !important;
     width: 600px;
   }
+
+  table {
+    margin-right: 250px;
+  }
 }
 
 h1 {
@@ -243,16 +247,15 @@ button.btn.btn-default.active {
   background-color: #B5D6F1 !important;
   color: #000000 !important;
   border: 1px solid #8ABEE9 !important;
+  margin-bottom: 10px  !important;
 }
 
 button.btn.btn-info {
   background-color: #B5D6F1 !important;
   color: #000000 !important;
   border: 1px solid #8ABEE9 !important;
-}
+  margin-bottom: 10px  !important;
 
-.well-buttons {
-  display: inline;
 }
 
 html,
@@ -321,6 +324,26 @@ body {
   background-color: black !important;
 }
 
+.added_chords {
+  height: 100%;
+  width: 70%;
+}
+
+.well-buttons {
+  float: right;
+  height: 100%;
+  width: 150px;
+  display: inline-block;
+}
+
+.well-table {
+  width: 100%;
+}
+
+.well-table td:last-child {
+  width: 150px;
+}
+
 .page-background {
   background-color: black;
 }
@@ -344,10 +367,6 @@ body {
 .well {
   background-color: #B5D6F1 !important;
   opacity: 0.6;
-}
-
-.well-button {
-
 }
 
 .white {
