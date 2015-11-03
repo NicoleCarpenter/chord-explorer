@@ -303,6 +303,15 @@ body {
   /*transform: translate(-50%, -50%);*/
 }
 
+.watermark {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  opacity: 0.4;
+  z-index: 99;
+  font-size: 140px;
+}
+
 
 
 .foreground.is-closed,
