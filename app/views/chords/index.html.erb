@@ -1,7 +1,6 @@
 <div class="jumbotron">
   <div class="container centered">
-    <span class='brand-font'>Chord Explorer</span>
-    <%= link_to "Home", welcome_index_path %>
+    <a href="/"><span class='brand-font'>Chord Explorer</span></a>
     <% if logged_in? %>
     <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     <% end %>

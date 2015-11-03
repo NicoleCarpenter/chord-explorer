@@ -14,12 +14,19 @@
  *= require bootstrap.min
  *= require_tree .
  */
-#hiddensearch{
-  display: inline-block;
-}
 
 body {
   background-color: black !important;
+}
+
+p {
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 @font-face {
@@ -30,6 +37,7 @@ body {
 @media screen and (max-width: 847px) {
   h1 {
     font-size: 24px !important;
+    font-family: 'Arimo', sans-serif;
   }
 
   .brand-font {
@@ -43,26 +51,39 @@ body {
 
 @media screen and (max-width: 992px) {
   .foreground {
-    background-size: 1280px 1000px;
+    background-position: 10% 10%;
+    background-size: 2000px 1400px;
   }
 
   #intro-content {
     background-color: black;
     opacity: .9;
     padding: 10px !important;
+    width: 600px;
+  }
+
+  table {
+    margin-right: 250px;
   }
 }
 
 h1 {
   color: #A0A38C !important;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 h2 {
   font-size: 36px !important;
+  font-family: 'Arimo', sans-serif !important;
+}
+
+h3 {
+  font-family: 'Arimo', sans-serif !important;
 }
 
 h4 {
   margin-bottom: 10px !important;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 .brand-font {
@@ -144,6 +165,7 @@ h4 {
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
   text-decoration: none;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 .sidebar-nav > .sidebar-brand {
@@ -154,9 +176,11 @@ h4 {
 
 .sidebar-nav > .sidebar-brand a {
   color: #B5D6F1 !important;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
+  font-family: 'Arimo', sans-serif !important;
   color: #fff;
   background: none;
 }
@@ -237,6 +261,22 @@ h4 {
 
 button.btn.btn-default.active {
   background-color: #BDBBB0 !important;
+  margin-bottom: 3px !important;
+}
+
+.btn-info {
+  background-color: #B5D6F1 !important;
+  color: #000000 !important;
+  border: 1px solid #8ABEE9 !important;
+  margin-bottom: 10px  !important;
+}
+
+button.btn.btn-info {
+  background-color: #B5D6F1 !important;
+  color: #000000 !important;
+  border: 1px solid #8ABEE9 !important;
+  margin-bottom: 10px  !important;
+
 }
 
 html,
@@ -298,11 +338,31 @@ body {
 
 .navbar-fixed-bottom {
   display: none;
-  height: 100px;
-  padding: 20px 40px;
+  height: 160px;
+  padding: 20px;
   margin-left: 250px;
   /*background-image: url('/assets/binding_dark.png');*/
   background-color: black !important;
+}
+
+.added_chords {
+  height: 100%;
+  width: 70%;
+}
+
+.well-buttons {
+  float: right;
+  height: 100%;
+  width: 150px;
+  display: inline-block;
+}
+
+.well-table {
+  width: 100%;
+}
+
+.well-table td:last-child {
+  width: 150px;
 }
 
 .page-background {
