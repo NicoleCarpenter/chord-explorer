@@ -1,26 +1,12 @@
 require 'json'
-
-# Parsing the guitar-party tabs. Inside ./guitarparty-tabs is a series of text files, containing JSON objects. So the first job is to open each of these in turn, parse them as JSON, and then extract the data we want.
-
-Dir.glob("db/guitarparty-tabs/*.txt") do |tab_file|
-  next if tab_file == '.' or tab_file == '..' or tab_file == ".DS_Store"
-  p "Work on #{tab_file}"
-  raw_tab = File.open(tab_file).read
-  tab_parsed = JSON.parse(raw_tab)
-
-  # Unfortunately there are can be many artists on one song, so I've decided to just select the first.
-  song = Song.find_or_create_by(artist: tab_parsed["authors"][0]["name"], title: tab_parsed["title"])
-
-  tab = Tab.create(song: song, url: tab_parsed["permalink"], domain: "guitarparty", raw_html: tab_parsed["body"])
-  tab_parsed["chords"].each do |chord_in_song|
-    if !chord_in_song["name"].match("not exist")
-      chord = Chord.find_or_create_by(name: chord_in_song["name"], code: chord_in_song["code"], family: chord_in_song["name"][0])
-    # In order to get the image, we've gotta do some scraping here. This is what the chord info looks like:
-    # {"objects": [{"code": "xo221o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Am_xo221o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Am", "uri": "/v2/chords/46345/"}], "objects_count": 1}
-      IncludedChord.create(chord: chord, tab: tab)
-    end
-  end
+Dir.chdir('db')
+chord_list = File.open("chord_list.txt", "r").readlines
+chord_list.each do |line|
+  name, code = line.chomp.split(",")
+  chord = Chord.find_or_create_by(name: name, code: code, family: name[0])
 end
+
+proper_chords = Chord.all.pluck(:name)
 
 #create user objects
 20.times do
@@ -50,11 +36,8 @@ artist_files.each do |artist_file|
     artist = song_data["artist"].strip
     title  = song_data["title"].strip
     p "#{artist} - #{title}"
-    
-    song = Song.find_or_create_by(artist: artist, title: title)
 
     tab_create_hash = {
-      :song         => song,
       :domain       => song_data["url"].scan(/(?<=\.).*(?=\.com)/).first,
       :view_count   => song_data["ult_guitar_viewcount"].scan(/\d+/).first,
       :review_count => song_data["ult_guitar_reviewcount"].scan(/\d+/).first,
@@ -64,10 +47,17 @@ artist_files.each do |artist_file|
     }
 
     tab = Tab.new(tab_create_hash)
-    tab.save
-    tab.sequence.uniq.each do |chord_in_song|
-      chord = Chord.find_or_create_by(name: chord_in_song.strip)
-      IncludedChord.create(chord: chord, tab: tab)
+    if tab.save
+      song = Song.find_or_create_by(artist: artist, title: title)
+      tab.song = song
+      tab.save
+
+      tab.sequence.uniq.each do |chord_in_song|
+        chord = Chord.find_by(name: chord_in_song.strip)
+        IncludedChord.create(chord: chord, tab: tab)
+      end
+    else
+      puts "Contains improper cords"
     end
   end
 end
