@@ -24,9 +24,29 @@ body {
   src:url('/assets/fonts/art-brewery.ttf') format("truetype");
 }
 
-@media (max-width: @screen-sm) {
+@media screen and (max-width: 847px) {
+  h1 {
+    font-size: 24px !important;
+  }
+
   .brand-font {
-    font-size: 32px;
+    font-size: 36px !important;
+  }
+
+  .foreground {
+    padding-left: 10px !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .foreground {
+    background-size: 1280px 1000px;
+  }
+
+  #intro-content {
+    background-color: black;
+    opacity: .9;
+    padding: 10px !important;
   }
 }
 
@@ -229,15 +249,15 @@ body {
   min-height: 100%;
   overflow: hidden;
   /* animate changing of min-height */
-  transition: .9s min-height ease-out;
+  transition: 1.1s min-height ease-out;
 }
 
-.foreground > .container-fluid {
+.foreground > .container {
   /* optional just to vertically/horizontally center */
   position: inherit;
-  top: 15%;
-  left: 35%;
-  transform: translate(-50%, -50%);
+  /*top: 15%;*/
+  /*left: 35%;*/
+  /*transform: translate(-50%, -50%);*/
 }
 
 
@@ -258,7 +278,9 @@ body {
   /* Sets foreground above background */
   z-index: 3;
   background-image: url('/assets/guitar-background.jpg');
+  background-repeat: no-repeat;
   color: #999999;
+  padding-left: 150px;
 }
 
 .background {
@@ -268,7 +290,7 @@ body {
 
 #intro-content {
   color: white;
-  padding: 10px 200px;
+  padding: 10px 100px;
 }
 
 .navbar-fixed-bottom {
@@ -328,4 +350,7 @@ body {
   padding-bottom: 200px;
 }
 
+#results {
+  padding-bottom: 200px;
+}
 

@@ -1,8 +1,27 @@
 <% tabs.each do |song, tabbies| %>
-  "<%= song.title %>"<br>
-  <%= song.artist %><br>
-  <% tabbies.each do |tab| %>
-    Contains: <%=tab.show_chords.join(", ") %><br>
-    <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
-  <% end %>
+  <div class="container">
+    <h3>"<%= song.title %>"</h3>
+    <h4><i><%= song.artist %></i></h4>
+      <br>
+
+    <% tabbies.each do |tab| %>
+      <div class="container">
+        <%if tab.rating%>
+          Rating: <%=tab.rating%>
+          <br>
+        <%end%>
+        <a href='<%= tab.url %>'><%=tab.domain.capitalize%></a>
+        <%=tab.show_chords.join(", ") %>
+        <br>
+        <!-- <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br> -->
+        <ul class="list-inline">
+        <% tab.chords.each do |chord| %>
+          <div class="inline-chords">
+            <li><%= chord.render_chord.html_safe %></li>
+          </div>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 <% end %>
