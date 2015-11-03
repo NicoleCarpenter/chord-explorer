@@ -15,6 +15,9 @@
  *= require_tree .
  */
 
+body {
+  background-color: black !important;
+}
 
 @font-face {
   font-family: "Art Brewery";
@@ -28,13 +31,35 @@
 }
 
 h1 {
-  color: #EBE8DF !important;
+  color: #A0A38C !important;
+}
+
+h2 {
+  font-size: 36px !important;
+}
+
+h4 {
+  margin-bottom: 10px !important;
 }
 
 .brand-font {
   font-family: "Art Brewery" !important;
   font-size: 100px;
   color: #B5D6F1;
+}
+
+.jumbotron.brand-font {
+  text-align: center;
+}
+
+.brand-font-small {
+  font-family: "Art Brewery" !important;
+  font-size: 70px;
+  color: #B5D6F1;
+}
+
+.centered {
+  text-align: center;
 }
 
 #wrapper {
@@ -256,14 +281,15 @@ body {
 }
 
 .page-background {
-  background-color: #B5D6F1;
+  background-color: black;
 }
 
 .inner-container {
-  background-color: #EBE8DF;
+  background-color: #B5D6F1 !important;
+  opacity: 0.6;
   box-shadow: 0 0 5px #888888;
   bottom: 0;
-  margin: 10px;
+  margin: 0 10px;
   padding: 80px;
   height: auto;
 }
@@ -273,3 +299,33 @@ body {
   margin: 20px;
   padding: 5px;
 }
+
+.well {
+  background-color: #B5D6F1 !important;
+  opacity: 0.6;
+}
+
+.white {
+  background-color: white;
+  margin-top: 30px;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.jumbotron-h2 {
+  font-size: 80px;
+}
+
+.list-inline {
+  display: inline-block;
+}
+
+.auth-container {
+  margin: 0 auto;
+  width: 500px;
+  padding-bottom: 200px;
+}
+
+

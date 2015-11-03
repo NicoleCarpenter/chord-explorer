@@ -22,6 +22,7 @@
 //= require turbolinks
 //= require_tree .
 
+var searchString = ""
 
 $(document).ready(function() {
 
@@ -35,12 +36,59 @@ $(document).ready(function() {
     $('.js-page').toggleClass('is-closed');
   })
 
+  //clicks on left hand side
   $(".btn-default").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
-    $(this).clone().appendTo(".navbar").css("margin", "+=10px");;
+
+    $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");
+
     var chordName = $(this).attr("id");
-    $("#search").val(function(i, val){
-      return val + ", " + chordName
-    });
+    searchString = searchString + ", " + chordName;
   });
+
+  //clicks in well
+  $("body").on("click", ".navbar .btn-default", function(event){
+    var chordName = $(this).attr("id");
+    $("#"+chordName).attr("class","btn btn-default "+chordName);
+    searchString = searchString.replace(", " + chordName, "");
+    $(this).remove();
+    return searchString
+  });
+
+  //clicks on search in well, sends chords to form and seargit ches
+  $("body").on("click","#submit-tag",function(event){
+    $("#search").val(searchString);
+    $("#hiddensearch").submit(function(){
+      event.preventDefault();
+      console.log("We're going to make an AJAX request")
+      console.log($(this).serialize());
+      $(this).serialize();
+    })
+  })
+
+  $(function(){
+    $("#add-to-well").submit(function() {return false});
+  });
+
+  // $("#sidebar-submit").on("click", function (event){
+  //replace the next three lines with the above to revert to the old way
+    $("#add-to-well").on("keyup", function(event){
+      event.preventDefault();
+      if (event.keyCode == 13) {
+        var chord_string = ($("#sidebar-value").val());
+        chord_string = chord_string.split(",");
+        for (var i = 0; i < chord_string.length; i++){
+          chord_string[i] = chord_string[i].trim();
+      }
+    };
+    //iterate over chord_string
+    //use chord_string as id and call click on the element
+    if (chord_string != undefined){
+      for (var i=0; i<chord_string.length; i++){
+        if (searchString.includes(chord_string[i].replace("#","sharp").replace("/","slash")) == false){
+          $("#"+chord_string[i].replace("#","sharp").replace("/","slash")).click();
+        }
+      }
+    }
+  })
 });

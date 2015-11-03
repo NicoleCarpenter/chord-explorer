@@ -5,24 +5,33 @@
         Chord Explorer
       </a>
     </li>
-  <% if logged_in? %>
+    <% if logged_in? %>
     <li>
       <%= link_to "Profile", user_path(session[:user_id]) %>
     </li>
     <li>
       <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     </li>
-  <% else %>
+    <% else %>
     <li>
       <%= link_to "Sign Up", new_user_path %>
     </li>
     <li>
       <%= link_to "Log in", login_path %>
     </li>
-  <% end %>
+    <% end %>
     <li>
       <p>Type the chords you want to search here!</p>
     </li>
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <form id="add-to-well">
+          <input id="sidebar-value" type="text" name="chords-to-add">
+          <input id="sidebar-submit" type="submit" value="Submit" style="display:none;">
+        </form>
+      </div>
+    </div>
+
     <div class='row'>
       <div class='col-md-10 col-md-offset-1'>
 
@@ -43,7 +52,7 @@
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
             <% @achords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -61,7 +70,7 @@
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="list-group">
             <% @bchords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -79,7 +88,7 @@
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="list-group">
             <% @cchords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -97,7 +106,7 @@
         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="list-group">
             <% @dchords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -115,7 +124,7 @@
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
           <div class="list-group">
             <% @echords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -133,7 +142,7 @@
         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="list-group">
             <% @fchords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -151,7 +160,7 @@
         <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
           <div class="list-group">
             <% @gchords.each do |chord| %>
-              <button type="button" id="<%= chord.name %>" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -175,20 +184,16 @@
             <p>In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Songs"</p>
           </div>
 
-          <nav class="navbar navbar-inverse navbar-fixed-bottom">
-            <div class='container'>
-                <%= form_tag(welcome_index_path, :method => "get", id: "hiddensearch") do %>
-                 ==========================================<%= text_field_tag :search %>
-                  <%= submit_tag "Search", id: "submit-tag" %>
-                <% end %>
-            </div>
-          </nav>
         </div>
       </div>
     </div>
   </div>
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class='container'>
+      <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
+        <%= hidden_field_tag :search %>
+        <%= submit_tag "Search", id: "submit-tag" %>
+      <% end %>
     </div>
   </nav>
   <div class="background">
@@ -196,6 +201,7 @@
       <div class="row">
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
           <h1>Results</h1>
+          <div id="results"></div>
             <% if @matching_songs %>
               <%= render partial: "results", :locals => {:songs => @matching_songs} %>
             <% end %>

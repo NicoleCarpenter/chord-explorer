@@ -1,0 +1,8 @@
+<% tabs.each do |song, tabbies| %>
+  "<%= song.title %>"<br>
+  <%= song.artist %><br>
+  <% tabbies.each do |tab| %>
+    Contains: <%=tab.show_chords.join(", ") %><br>
+    <%=tab.domain.scan(/(?<=www\.).*(?=\.com)/)[0]%><br>
+  <% end %>
+<% end %>
