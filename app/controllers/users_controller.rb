@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @saved_chords = @user.user_saved_chords.map(&:chord)
-    @saved_songs = @user.user_songs.where(saved: true).map(&:song)
+    if request.xhr?
+      @saved_chords = @user.user_saved_chords.map(&:chord)
+      @saved_songs = @user.user_songs.where(saved: true).map(&:song)
+    end
   end
 
   # GET /users/new
