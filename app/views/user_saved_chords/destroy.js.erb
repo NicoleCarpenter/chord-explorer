@@ -1,0 +1,5 @@
+$("#chords-you-know").html("<%=escape_javascript (render :partial => 'user_saved_chords_show.html.erb', :locals =>{saved_chords: @saved_chords, user: @user})%>")
+
+$(function() {
+  $('.chord').chordsIO();
+});
