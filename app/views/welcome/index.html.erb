@@ -194,21 +194,24 @@
     </div>
   </div>
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class='container'>
-      <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
-        <%= hidden_field_tag :search %>
-        <%= submit_tag "Find Tabs", id: "submit-tag" %>
-      <% end %>
-
-      <button id="clear-well-button">Clear These Chords</button>
-
-      <% if logged_in? %>
-        <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
-          <%= hidden_field_tag :save_chords %>
-          <%= submit_tag "Save These Chords", id: "save-chords-button" %>
+    <div class='container well'>
+      <div class='container well-buttons'>
+        <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
+          <%= hidden_field_tag :search %>
+          <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info" %>
         <% end %>
-      <% end %>
-
+      </div>
+      <div class="container">
+        <button id="clear-well-button" class="btn btn-info">Clear These Chords</button>
+      </div>
+      <div class="container">
+        <% if logged_in? %>
+          <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
+            <%= hidden_field_tag :save_chords %>
+            <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info" %>
+          <% end %>
+        <% end %>
+      </div>
 
       <div id="added_chords"></div>
 

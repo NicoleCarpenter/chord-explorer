@@ -236,6 +236,23 @@ h4 {
 
 button.btn.btn-default.active {
   background-color: #BDBBB0 !important;
+  margin-bottom: 3px !important;
+}
+
+.btn-info {
+  background-color: #B5D6F1 !important;
+  color: #000000 !important;
+  border: 1px solid #8ABEE9 !important;
+}
+
+button.btn.btn-info {
+  background-color: #B5D6F1 !important;
+  color: #000000 !important;
+  border: 1px solid #8ABEE9 !important;
+}
+
+.well-buttons {
+  display: inline;
 }
 
 html,
@@ -297,8 +314,8 @@ body {
 
 .navbar-fixed-bottom {
   display: none;
-  height: 100px;
-  padding: 20px 40px;
+  height: 160px;
+  padding: 20px;
   margin-left: 250px;
   /*background-image: url('/assets/binding_dark.png');*/
   background-color: black !important;
@@ -327,6 +344,10 @@ body {
 .well {
   background-color: #B5D6F1 !important;
   opacity: 0.6;
+}
+
+.well-button {
+
 }
 
 .white {
