@@ -17,17 +17,10 @@ class WelcomeController < ApplicationController
     @fchords = @chords.where(family: "F")
     @gchords = @chords.where(family: "G")
 
-# <<<<<<< HEAD
-# =======
-#     if params[:search]
-#       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
-#       chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip).id}
-#       tabs = Tab.find_all_for_chords(chord_objects)
-#       @matching_songs = tabs.map(&:song)
-
-#     end
-
-# >>>>>>> master
-  end
+    if params[:search]
+      p params
+      formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
+      chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip)}
+    end
 
 end
