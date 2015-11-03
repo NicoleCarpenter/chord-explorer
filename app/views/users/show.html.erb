@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="container-fluid white">
-        <div class="container">
+        <div class="container" id="chords-you-know">
           <div class="saved_chords col-lg-5">
             <h3> Chords You Know </h3>
             <% if @saved_chords %>
@@ -24,9 +24,9 @@
                 <div class='inline-chords'>
                   <%= user_saved_chord.name %><br>
                   <%= render html: user_saved_chord.render_chord.html_safe %></li><br>
-                  <%= link_to user_saved_chord, remote: true, method: :delete do %>
-                    <button id="remove-saved-chords-button">Forget This Chord</button>
-                  <% end %>
+
+                    <button class="remove-saved-chords-button" id=<%= @user.user_saved_chords.find_by(chord_id: user_saved_chord.id).id %>>Forget This Chord</button>
+
                 </div>
               <% end %>
             <% else %>
