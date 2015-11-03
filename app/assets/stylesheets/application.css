@@ -19,6 +19,12 @@ body {
   background-color: black !important;
 }
 
+p {
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
 @font-face {
   font-family: "Art Brewery";
   src:url('/assets/fonts/art-brewery.ttf') format("truetype");
@@ -27,6 +33,7 @@ body {
 @media screen and (max-width: 847px) {
   h1 {
     font-size: 24px !important;
+    font-family: 'Arimo', sans-serif;
   }
 
   .brand-font {
@@ -58,14 +65,21 @@ body {
 
 h1 {
   color: #A0A38C !important;
+  font-family: 'Arimo', sans-serif;
 }
 
 h2 {
   font-size: 36px !important;
+  font-family: 'Arimo', sans-serif;
+}
+
+h3 {
+  font-family: 'Arimo', sans-serif;
 }
 
 h4 {
   margin-bottom: 10px !important;
+  font-family: 'Arimo', sans-serif;
 }
 
 .brand-font {
