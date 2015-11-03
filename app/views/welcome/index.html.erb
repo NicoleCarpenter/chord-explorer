@@ -227,6 +227,11 @@
                 <%= render partial: "profile", :locals => {:user => @user} %>
               <% end %>
             </div>
+            <!-- <div class="all_chords">
+              <% if @chord %>
+                <%= render partial: "chords", :locals => {:chord => @chord} %>
+              <% end %>
+            </div> -->
             <div id="results">
               <% if @matching_songs %>
                 <%= render partial: "results", :locals => {:songs => @matching_songs} %>

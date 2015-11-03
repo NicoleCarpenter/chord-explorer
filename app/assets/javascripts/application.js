@@ -28,22 +28,22 @@ $(document).ready(function() {
 
   $('#submit-tag').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
-    $('.js-page').toggleClass('is-closed');
+    $('.js-page').addClass('is-closed');
   })
 
   $('.js-closeToggle').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
-    $('.js-page').toggleClass('is-closed');
+    $('.js-page').addClass('is-closed');
   })
 
-  $("#all_chords").on("click", function(event){
-    event.preventDefault();
-    $('.js-page').toggleClass('is-closed');
-  });
+  // $("#all_chords").on("click", function(event){
+  //   event.preventDefault();
+  //   $('.js-page').toggleClass('is-closed');
+  // });
 
   $("#profile").on("click", function(event){
     event.preventDefault();
-    $('.js-page').toggleClass('is-closed');
+    $('.js-page').addClass('is-closed');
   });
 
   //clicks on left hand side
