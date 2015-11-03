@@ -14,9 +14,6 @@
  *= require bootstrap.min
  *= require_tree .
  */
-#hiddensearch{
-  display: inline-block;
-}
 
 body {
   background-color: black !important;
@@ -43,13 +40,15 @@ body {
 
 @media screen and (max-width: 992px) {
   .foreground {
-    background-size: 1280px 1000px;
+    background-position: 10% 10%;
+    background-size: 2000px 1400px;
   }
 
   #intro-content {
     background-color: black;
     opacity: .9;
     padding: 10px !important;
+    width: 600px;
   }
 }
 
