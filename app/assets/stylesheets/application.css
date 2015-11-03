@@ -288,6 +288,11 @@ button.btn.btn-success {
   margin-top: 20px;
 }
 
+button.btn.btn-success {
+  background-color: #A0A38C !important;
+  border: 2px solid #B3B5A3 !important;
+}
+
 #add-to-well {
   margin-bottom: 20px;
 }
@@ -313,6 +318,15 @@ body {
   /*top: 15%;*/
   /*left: 35%;*/
   /*transform: translate(-50%, -50%);*/
+}
+
+.watermark {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  opacity: 0.4;
+  z-index: 99;
+  font-size: 140px;
 }
 
 
