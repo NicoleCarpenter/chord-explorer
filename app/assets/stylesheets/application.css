@@ -25,6 +25,10 @@ p {
   font-weight: 300;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 @font-face {
   font-family: "Art Brewery";
   src:url('/assets/fonts/art-brewery.ttf') format("truetype");
@@ -65,21 +69,21 @@ p {
 
 h1 {
   color: #A0A38C !important;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 h2 {
   font-size: 36px !important;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 h3 {
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 h4 {
   margin-bottom: 10px !important;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 .brand-font {
@@ -161,6 +165,7 @@ h4 {
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
   text-decoration: none;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 .sidebar-nav > .sidebar-brand {
@@ -171,9 +176,11 @@ h4 {
 
 .sidebar-nav > .sidebar-brand a {
   color: #B5D6F1 !important;
+  font-family: 'Arimo', sans-serif !important;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
+  font-family: 'Arimo', sans-serif !important;
   color: #fff;
   background: none;
 }
