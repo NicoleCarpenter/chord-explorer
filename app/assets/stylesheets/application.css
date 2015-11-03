@@ -274,9 +274,21 @@ button.btn.btn-default.active {
 button.btn.btn-info {
   background-color: #B5D6F1 !important;
   color: #000000 !important;
-  border: 1px solid #8ABEE9 !important;
+  border: 2px solid #D6E8F7 !important;
   margin-bottom: 10px  !important;
+}
 
+button.btn.btn-success {
+  background-color: #A0A38C !important;
+  border: 2px solid #B3B5A3 !important;
+}
+
+#add-saved-chords-button {
+  margin-left: 20px;
+}
+
+#add-to-well {
+  margin-bottom: 20px;
 }
 
 html,
@@ -360,7 +372,6 @@ body {
 }
 
 .well-buttons {
-  float: right;
   height: 100%;
   width: 150px;
   display: inline-block;

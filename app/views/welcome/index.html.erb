@@ -22,7 +22,7 @@
     <% end %>
 
     <% if logged_in? %>
-      <button id="add-saved-chords-button">Add Saved Chords</button>
+      <button id="add-saved-chords-button" class="btn btn-success well-buttons">Add Saved Chords</button>
     <% end %>
 
     <li>
@@ -42,9 +42,6 @@
 
       </div>
     </div>
-    <li>
-      <a id="all_chords" href="/chords">All Chords</a>
-    </li>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -173,6 +170,9 @@
         </div>
       </div>
     </div>
+    <li>
+      <a id="all_chords" href="/chords">All Chords</a>
+    </li>
   </ul>
 </div>
 <div id="wrapper">
