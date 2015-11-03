@@ -36,9 +36,9 @@ $(document).ready(function() {
     $('.js-page').toggleClass('is-closed');
   })
 
-  $("#all_chords").on("click", function(event){
-
-  });
+  // $("#all_chords").on("click", function(event){
+  //   $('.js-page').toggleClass('is-closed');
+  // });
 
   //clicks on left hand side
   $(".btn-default").click(function(event){
