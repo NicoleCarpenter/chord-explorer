@@ -14,9 +14,6 @@
  *= require bootstrap.min
  *= require_tree .
  */
-#hiddensearch{
-  display: inline-block;
-}
 
 body {
   background-color: black !important;
@@ -43,13 +40,19 @@ body {
 
 @media screen and (max-width: 992px) {
   .foreground {
-    background-size: 1280px 1000px;
+    background-position: 10% 10%;
+    background-size: 2000px 1400px;
   }
 
   #intro-content {
     background-color: black;
     opacity: .9;
     padding: 10px !important;
+    width: 600px;
+  }
+
+  table {
+    margin-right: 250px;
   }
 }
 
@@ -237,6 +240,22 @@ h4 {
 
 button.btn.btn-default.active {
   background-color: #BDBBB0 !important;
+  margin-bottom: 3px !important;
+}
+
+.btn-info {
+  background-color: #B5D6F1 !important;
+  color: #000000 !important;
+  border: 1px solid #8ABEE9 !important;
+  margin-bottom: 10px  !important;
+}
+
+button.btn.btn-info {
+  background-color: #B5D6F1 !important;
+  color: #000000 !important;
+  border: 1px solid #8ABEE9 !important;
+  margin-bottom: 10px  !important;
+
 }
 
 html,
@@ -298,11 +317,31 @@ body {
 
 .navbar-fixed-bottom {
   display: none;
-  height: 100px;
-  padding: 20px 40px;
+  height: 160px;
+  padding: 20px;
   margin-left: 250px;
   /*background-image: url('/assets/binding_dark.png');*/
   background-color: black !important;
+}
+
+.added_chords {
+  height: 100%;
+  width: 70%;
+}
+
+.well-buttons {
+  float: right;
+  height: 100%;
+  width: 150px;
+  display: inline-block;
+}
+
+.well-table {
+  width: 100%;
+}
+
+.well-table td:last-child {
+  width: 150px;
 }
 
 .page-background {
