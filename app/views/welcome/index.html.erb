@@ -22,7 +22,7 @@
     <% end %>
 
     <% if logged_in? %>
-      <button id="add-saved-chords-button">Add Saved Chords</button>
+      <button id="add-saved-chords-button" class="btn btn-success well-buttons">Add Saved Chords</button>
     <% end %>
 
     <li>
@@ -42,9 +42,6 @@
 
       </div>
     </div>
-    <li>
-      <a href="/chords">All Chords</a>
-    </li>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -173,6 +170,9 @@
         </div>
       </div>
     </div>
+    <li>
+      <a id="all_chords" href="/chords">All Chords</a>
+    </li>
   </ul>
 </div>
 <div id="wrapper">
@@ -207,18 +207,21 @@
               <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
             <% end %>
           </td>
+        </tr>
         <tr>
           <td>
             <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
           </td>
+        </tr>
+        <tr>
+          <% if logged_in? %>
           <td>
-            <% if logged_in? %>
-              <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
-                <%= hidden_field_tag :save_chords %>
-                <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well buttons" %>
-              <% end %>
+            <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
+            <%= hidden_field_tag :save_chords %>
+              <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
             <% end %>
           </td>
+          <% end %>
         </tr>
       </table>
     </div>
@@ -227,15 +230,18 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-5 col-lg-9 col-lg-offset-2">
-          <h1>Results</h1>
-          <div id="results">
-            <% if @matching_songs %>
-              <%= render partial: "results", :locals => {:songs => @matching_songs} %>
-            <% else %>
-              <h3>Sorry, your search did not return any results. Please try a new chord combination</h3>
-            <% end %>
-            <div class="close-tab">
-              <a href="#close" class="js-closeToggle">Close</a>
+          <span class='brand-font watermark'>Chord Explorer</span>
+          <div id="backpage">
+            <div id="results">
+              <% if @matching_songs %>
+                <%= render partial: "results", :locals => {:songs => @matching_songs} %>
+              <% else %>
+                <h3>Sorry, your search did not return any results. Please try a new chord combination</h3>
+              <% end %>
+
+              <div class="close-tab">
+                <a href="#close" class="js-closeToggle">Close</a>
+              </div>
             </div>
           </div>
         </div>
