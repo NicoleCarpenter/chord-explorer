@@ -193,50 +193,40 @@
       </div>
     </div>
   </div>
+
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-      <table class='well-table'>
-        <tr>
-          <td rowspan="3">
-            <div id="added_chords">
-            </div>
-          </td>
-          <td>
-            <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
-              <%= hidden_field_tag :search %>
-              <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
-          </td>
-        </tr>
-        <tr>
-          <% if logged_in? %>
-          <td>
-            <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
-            <%= hidden_field_tag :save_chords %>
-              <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
-            <% end %>
-          </td>
+    <div class="row">
+      <div class='col-md-9'>
+        <div id="added_chords">
+        </div>
+      </div>
+      <div class='col-sm-12 col-md-3'>
+        <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
+          <%= hidden_field_tag :search %>
+          <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
+        <% end %>
+        <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
+        <% if logged_in? %>
+          <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
+          <%= hidden_field_tag :save_chords %>
+            <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
           <% end %>
-        </tr>
-      </table>
+        <% end %>
+      </div>
     </div>
   </nav>
+
   <div class="background">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-5 col-lg-9 col-lg-offset-2">
+        <div class="col-sm-8 col-sm-offset-3">
           <span class='brand-font watermark'>Chord Explorer</span>
           <div id="backpage">
             <div id="results">
               <% if @matching_songs %>
                 <%= render partial: "results", :locals => {:songs => @matching_songs} %>
               <% else %>
-                <h3>Sorry, your search did not return any results. Please try a new chord combination</h3>
+                <h3>Please wait while we search for songs</h3>
               <% end %>
 
               <div class="close-tab">
