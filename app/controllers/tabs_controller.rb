@@ -7,6 +7,7 @@ class TabsController < ApplicationController
     if request.xhr?
       puts "VIA AJAX"
       @tabs = Tab.search(params)
+      # @tabs_keys = @tabs.keys
     else
       @tabs = Tab.all
     end

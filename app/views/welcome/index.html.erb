@@ -202,10 +202,8 @@
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-5 col-lg-9 col-lg-offset-2">
           <h1>Results</h1>
           <div id="results">
-            <% if @matching_songs %>
-              <%= render partial: "results", :locals => {:songs => @matching_songs} %>
-            <% else %>
-              <h3>Sorry, your search did not return any results. Please try a new chord combination</h3>
+            <% if @tabs %>
+              <%= render partial: "tabs/results", locals: {tabs: @tabs} %>
             <% end %>
             <div class="close-tab">
               <a href="#close" class="js-closeToggle">Close</a>

@@ -1,10 +1,12 @@
-<% tabs.each do |song, tabbies| %>
+<% tabs_keys = tabs.keys.paginate(:page => params[:page])  %>
+
+<% tabs_keys.each do |song| %>
   <div class="container">
     <h3>"<%= song.title %>"</h3>
     <h4><i><%= song.artist %></i></h4>
       <br>
 
-    <% tabbies.each do |tab| %>
+    <% tabs[song].each do |tab| %>
       <div class="container">
         <%if tab.rating%>
           Rating: <%=tab.rating%>
@@ -25,3 +27,5 @@
     <% end %>
   </div>
 <% end %>
+
+<%= will_paginate tabs_keys %>
