@@ -1,10 +1,15 @@
 class UserSavedChordsController < ApplicationController
   before_action :set_user_saved_chord, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js, :json
 
   # GET /user_saved_chords
   # GET /user_saved_chords.json
   def index
-    @user_saved_chords = UserSavedChord.all
+    if request.xhr?
+      puts "You made it via AJAX"
+      p @user_saved_escaped_chords = UserSavedChord.where(user_id: session[:user_id]).map(&:chord).map(&:escaped_name)
+
+    end
   end
 
   # GET /user_saved_chords/1
@@ -24,15 +29,13 @@ class UserSavedChordsController < ApplicationController
   # POST /user_saved_chords
   # POST /user_saved_chords.json
   def create
-    @user_saved_chord = UserSavedChord.new(user_saved_chord_params)
+    if request.xhr?
+      formatted_params = params[:save_chords].split(",")[1..-1].map!{|chord| chord.strip}
+      p formatted_params
+      chord_ids = formatted_params.map{|chord| Chord.find_by(escaped_name: chord.strip).id}
 
-    respond_to do |format|
-      if @user_saved_chord.save
-        format.html { redirect_to @user_saved_chord, notice: 'User saved chord was successfully created.' }
-        format.json { render :show, status: :created, location: @user_saved_chord }
-      else
-        format.html { render :new }
-        format.json { render json: @user_saved_chord.errors, status: :unprocessable_entity }
+      chord_ids.each do |id|
+        UserSavedChord.find_or_create_by(user_id: session[:user_id], chord_id: id)
       end
     end
   end

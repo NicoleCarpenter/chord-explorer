@@ -4,7 +4,10 @@ class WelcomeController < ApplicationController
   def index
     if session[:user_id]
       @user = User.find(session[:user_id])
+      @saved_chords = @user.user_saved_chords.map(&:chord).map(&:escaped_name)
+
     end
+
 
     @songs = Song.all
     @chords = Chord.all
