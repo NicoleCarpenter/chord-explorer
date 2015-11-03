@@ -7,7 +7,14 @@ class TabsController < ApplicationController
     if request.xhr?
       puts "VIA AJAX"
       @tabs = Tab.search(params)
-      # @tabs_keys = @tabs.keys
+      p @tabs.keys
+      @tabs_keys = @tabs.keys
+      p "****************************************************************"
+      p @tabs_keys
+      p "*****************************************************************"
+      p @tabs
+      p params
+      @tabs_keys_pages = @tabs_keys.paginate(:page => params[:page] || 1)
     else
       @tabs = Tab.all
     end
