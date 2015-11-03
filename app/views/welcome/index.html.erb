@@ -7,7 +7,7 @@
     </li>
     <% if logged_in? %>
     <li>
-      <%= link_to "Profile", user_path(session[:user_id]) %>
+      <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
     </li>
     <li>
       <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
@@ -222,11 +222,16 @@
         <div class="col-sm-8 col-sm-offset-3">
           <span class='brand-font watermark'>Chord Explorer</span>
           <div id="backpage">
+            <div class="profile">
+              <% if @current_user %>
+                <%= render partial: "profile", :locals => {:user => @user} %>
+              <% end %>
+            </div>
             <div id="results">
               <% if @matching_songs %>
                 <%= render partial: "results", :locals => {:songs => @matching_songs} %>
               <% else %>
-                <h3>Please wait while we search for songs</h3>
+                <h3>...</h3>
               <% end %>
 
               <div class="close-tab">
