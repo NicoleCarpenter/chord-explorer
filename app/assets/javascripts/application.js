@@ -81,8 +81,13 @@ $(document).ready(function() {
 
   //"add saved chords" button will add all saved chords to the current well
   $("body").on("click","#add-saved-chords-button",function(event){
-    console.log("hey");
     $.get("/user_saved_chords")
+  })
+
+  //"forget this chord" button will destroy the saved chord for the user
+  $("body").on("click","#remove-saved-chords-button",function(event){
+    console.log("hey");
+    // $.get("/user_saved_chords")
   })
 
   //this prevents page refresh on Enter. needed for the keyup event below
