@@ -22,5 +22,5 @@ class WelcomeController < ApplicationController
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
       chord_objects = formatted_params.map{|chord| Chord.find_by(name: chord.strip)}
     end
-
+  end
 end
