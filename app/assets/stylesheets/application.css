@@ -24,9 +24,29 @@ body {
   src:url('/assets/fonts/art-brewery.ttf') format("truetype");
 }
 
-@media (max-width: @screen-sm) {
+@media screen and (max-width: 847px) {
+  h1 {
+    font-size: 24px !important;
+  }
+
   .brand-font {
-    font-size: 32px;
+    font-size: 36px !important;
+  }
+
+  .foreground {
+    padding-left: 10px !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .foreground {
+    background-size: 1280px 1000px;
+  }
+
+  #intro-content {
+    background-color: black;
+    opacity: .9;
+    padding: 10px !important;
   }
 }
 
@@ -258,6 +278,7 @@ body {
   /* Sets foreground above background */
   z-index: 3;
   background-image: url('/assets/guitar-background.jpg');
+  background-repeat: no-repeat;
   color: #999999;
   padding-left: 150px;
 }
@@ -329,7 +350,7 @@ body {
   padding-bottom: 200px;
 }
 
-.bottom-pad {
+#results {
   padding-bottom: 200px;
 }
 
