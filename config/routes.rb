@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :chords, only: [:index, :show]
 
   resources :users, only: [:new, :create, :show]
+  resources :user_saved_chords, only: [:create, :index]
 
   get 'welcome/index'
   get '/logout' => 'sessions#destroy'

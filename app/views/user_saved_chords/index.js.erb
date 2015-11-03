@@ -1,0 +1,7 @@
+var saved_chords = <%= raw @user_saved_escaped_chords.to_json %>
+console.log(saved_chords);
+
+for (i=0; i<saved_chords.length; i++){
+  $("#"+saved_chords[i]).click();
+}
+

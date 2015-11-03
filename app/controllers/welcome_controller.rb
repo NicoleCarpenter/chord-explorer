@@ -6,6 +6,8 @@ class WelcomeController < ApplicationController
       @user = User.find(session[:user_id])
     end
 
+    @saved_chords = @user.user_saved_chords.map(&:chord).map(&:escaped_name)
+
     @songs = Song.all
     @chords = Chord.all
 

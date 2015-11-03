@@ -39,11 +39,11 @@ $(document).ready(function() {
   //clicks on left hand side
   $(".btn-default").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
-
-    $(this).clone().appendTo(".navbar-fixed-bottom").css("margin", "+=10px");
-
-    var chordName = $(this).attr("id");
-    searchString = searchString + ", " + chordName;
+    if ($("#added_chords #" + $(this).attr("id")).length == false
+      ){$(this).clone().appendTo("#added_chords").css("margin", "+=10px");
+      var chordName = $(this).attr("id");
+      searchString = searchString + ", " + chordName;}
+    else{$(this).css("class","btn btn-default "+chordName+" active")}
   });
 
   //clicks in well
@@ -60,12 +60,32 @@ $(document).ready(function() {
     $("#search").val(searchString);
     $("#hiddensearch").submit(function(){
       event.preventDefault();
-      console.log("We're going to make an AJAX request")
-      console.log($(this).serialize());
       $(this).serialize();
     })
   })
 
+  //"save these chords" button will save chords to user's user_saved_chords
+  $("body").on("click","#save-chords-button",function(event){
+    $("#save_chords").val(searchString);
+    $("#save-chords-form").submit(function(){
+      event.preventDefault();
+      $(this).serialize();
+    })
+  })
+
+  //"clear these chords" button will clear the current well and reset searchString
+  $("body").on("click","#clear-well-button",function(event){
+    $("#added_chords .btn").click();
+    searchString = ""
+  })
+
+  //"add saved chords" button will add all saved chords to the current well
+  $("body").on("click","#add-saved-chords-button",function(event){
+    console.log("hey");
+    $.get("/user_saved_chords")
+  })
+
+  //this prevents page refresh on Enter. needed for the keyup event below
   $(function(){
     $("#add-to-well").submit(function() {return false});
   });
@@ -81,6 +101,7 @@ $(document).ready(function() {
           chord_string[i] = chord_string[i].trim();
       }
     };
+
     //iterate over chord_string
     //use chord_string as id and call click on the element
     if (chord_string != undefined){
