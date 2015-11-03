@@ -4,7 +4,10 @@ module Fetcher
   def self.get_em(file_name)
     output = File.open("artist_links", "w")
     link_list = parse_file(file_name)
-    link_list.map! { |link| focus(link) }
+    link_list.map! do |link|
+      puts "Focusing on #{link}"
+      focus(link)
+    end
     output.write(YAML.dump(link_list))
     output.close
     link_list
