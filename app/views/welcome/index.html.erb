@@ -231,14 +231,14 @@
             <div class="chords">
             </div>
             <div id="results">
-              <% if @matching_songs %>
-                <%= render partial: "results", :locals => {:songs => @matching_songs} %>
+              <div id="spinner"></div>
+              <% if @tabs %>
+
               <% else %>
                 <h3>...</h3>
               <% end %>
             </div>
             <div class="register">
-
             </div>
           </div>
         </div>
