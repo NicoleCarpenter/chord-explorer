@@ -1,3 +1,3 @@
-$("#results").html(" <%= escape_javascript (render partial: 'results', :locals =>{:tabs =>@tabs}) %>");
+$("#results").html(" <%= escape_javascript (render partial: 'results', :locals =>{:tabs => @tabs, :tabs_keys_paginatable =>@tabs_keys_paginatable}) %>");
 $('#paginator').html(" <%= escape_javascript (paginate(@tabs_keys_paginatable, :remote => true).to_s) %>");
 $('.chord').chordsIO();
