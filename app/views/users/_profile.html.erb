@@ -17,7 +17,7 @@
                   <%= user_saved_chord.name %><br>
                   <%= render html: user_saved_chord.render_chord.html_safe %></li><br>
 
-                    <button class="remove-saved-chords-button" id=<%= @user.user_saved_chords.find_by(chord_id: user_saved_chord.id).id %>>Forget This Chord</button>
+                    <button class="remove-saved-chords-button btn btn-link btn-xs" id=<%= @user.user_saved_chords.find_by(chord_id: user_saved_chord.id).id %>>Remove from repertoire</button>
 
                 </div>
               <% end %>
