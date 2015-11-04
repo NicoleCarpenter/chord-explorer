@@ -29,18 +29,21 @@ proper_chords = Chord.all.pluck(:name)
 # A script for getting JSON objects into our database.
 
 artist_files = Dir.glob('db/artists/*/*.txt')
+grab_number = /[0-9,]+/
 
 artist_files.each do |artist_file|
   File.foreach(artist_file) do |song_json|
     song_data = JSON.parse(song_json)
     artist = song_data["artist"].strip
     title  = song_data["title"].strip
+    view_count = song_data["ult_guitar_viewcount"].match(grab_number)
+    review_count = song_data["ult_guitar_reviewcount"].match(grab_number)
     p "#{artist} - #{title}"
 
     tab_create_hash = {
       :domain       => song_data["url"].scan(/(?<=\.).*(?=\.com)/).first,
-      :view_count   => song_data["ult_guitar_viewcount"].scan(/\d+/).first,
-      :review_count => song_data["ult_guitar_reviewcount"].scan(/\d+/).first,
+      :view_count   => view_count ?  song_data["ult_guitar_viewcount"].scan(/[0-9,]+/).first.gsub(/\D/, "") : 0,
+      :review_count => review_count ?  song_data["ult_guitar_reviewcount"].scan(/[0-9,]+/).first.gsub(/\D/, "") : 0,
       :sequence     => Array.new(song_data["chords"]),
       :ranking      => song_data["ranking"],
       :url          => song_data["url"]
@@ -71,6 +74,13 @@ freq_dist.each do |chord_name, frequency|
   chord.frequency = frequency
   chord.save
 end
+
+# destroys chords that don't actually appear in our database
+nil_chords = Chord.where(frequency: nil)
+puts "Deleting chords with nil frequency"
+nil_chords.destroy_all
+
+
 
 puts "Escaping sharps and slashes now..."
 
