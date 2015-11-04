@@ -18,4 +18,8 @@ class Chord < ActiveRecord::Base
     IncludedChord.joins(:chord).group("chords.name").order("count_chord_id desc").count("chord_id")
   end
 
+  def self.recommend
+    
+  end
+
 end
