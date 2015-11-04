@@ -15,7 +15,7 @@
     </li>
     <% else %>
     <li>
-      <%= link_to "Sign Up", new_user_path %>
+      <%= link_to "Sign Up", new_user_path, id: "register" %>
     </li>
     <li>
       <%= link_to "Log in", login_path %>
@@ -229,7 +229,6 @@
               <% end %>
             </div>
             <div class="chords">
-
             </div>
             <div id="results">
               <% if @matching_songs %>
@@ -237,6 +236,9 @@
               <% else %>
                 <h3>...</h3>
               <% end %>
+            </div>
+            <div class="register">
+
             </div>
           </div>
         </div>

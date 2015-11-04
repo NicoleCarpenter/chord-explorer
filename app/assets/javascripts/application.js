@@ -38,7 +38,7 @@ $(document).ready(function() {
     $('.js-page').addClass('is-closed');
   })
 
-  // $("#chords").on("click", function(event){
+  // $("#register").on("click", function(event){
   //   event.preventDefault();
   //   $('.profile').empty();
   //   $('#results').empty();
