@@ -2,43 +2,35 @@
   <div class="container centered">
     <a href="/"><span class='brand-font'>Chord Explorer</span></a>
     <% if logged_in? %>
-      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+    <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     <% end %>
 
   </div>
 </div>
 <div class="container-fluid white">
   <div class="container">
-    <p id="notice"><%= notice %></p>
-    <h2>Chords</h2>
+    <h2 id="spinner">Chords</h2>
   </div>
 </div>
 <div class="container-fluid white">
   <div class="container">
     <ul class="list-inline">
-    <% cur_letter = nil %>
+      <% cur_letter = nil %>
       <% @chords.each do |chord| %>
-        <% chord_letter = chord.name[0].capitalize.match(/[A-Z]/) ? chord.name[0].capitalize : "#" %>
-        <% if chord_letter != cur_letter %>
-          <% cur_letter = chord_letter %>
-          <br>
-          <hr>
-          <h3><%= cur_letter %> Chords</h3>
-          <br>
-        <% end %>
-
-        <div class="inline-chords">
-          <!-- <li><%= chord.name %></li> -->
-          <li><%= render html: chord.render_chord.html_safe %></li>
-          <!-- <li><%= link_to 'Show', chord %></li> -->
-        </div>
+      <% chord_letter = chord.name[0].capitalize.match(/[A-Z]/) ? chord.name[0].capitalize : "#" %>
+      <% if chord_letter != cur_letter %>
+      <% cur_letter = chord_letter %>
+      <br>
+      <hr>
+      <h3><%= cur_letter %> Chords</h3>
+      <br>
       <% end %>
-    </div>
-  </div>
+
+      <div class="inline-chords">
+        <li><%= render html: chord.render_chord.html_safe %></li>
+      </div>
+      <% end %>
       <hr>
     </ul>
-    </div>
-
-<!-- TODO Curate the chords into usable, logical sections, and implement a tabbed interface to separate them out -->
-
+  </div>
 </div>
