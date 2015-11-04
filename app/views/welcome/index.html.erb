@@ -235,7 +235,7 @@
             <div id="results">
               <div id="spinner"></div>
               <% if @tabs %>
-              <%= render partial: "tabs/results", collection: @tabs_keys_pages, as: :tabs_keys_pages, locals: {tabs: @tabs} %>
+                <%= render @tabs %>
               <% else %>
                 <h3>...</h3>
               <% end %>

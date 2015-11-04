@@ -1,5 +1,4 @@
 <h1>Results</h1>
-
 <% tabs.each do |song, tabbies| %>
   <div class="container">
     <h3>"<%= song.title %>"</h3>
@@ -26,5 +25,6 @@
     <% end %>
   </div>
 <% end %>
-
-<%= will_paginate @tabs_keys_pages, :remote => true %>
+<div id="paginator">
+  <%= paginate @tabs_keys_paginatable, :remote => true %>
+</div>

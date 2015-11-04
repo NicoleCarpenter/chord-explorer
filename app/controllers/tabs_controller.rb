@@ -7,16 +7,10 @@ class TabsController < ApplicationController
     if request.xhr?
       puts "VIA AJAX"
       @tabs = Tab.search(params)
-      p @tabs.keys
-      @tabs_keys = @tabs.keys
-      p "****************************************************************"
-      p @tabs_keys
-      p "*****************************************************************"
-      p @tabs
-      p params
-      @tabs_keys_pages = @tabs_keys.paginate(:page => params[:page] || 1)
+      tabs_keys = @tabs.keys
+      @tabs_keys_paginatable = Kaminari.paginate_array(tabs_keys).page(params[:page]).per(10)
     else
-      @tabs = Tab.all
+      @tabs = Tab.all.page(params[:page])
     end
   end
 

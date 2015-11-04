@@ -3,7 +3,7 @@ class Tab < ActiveRecord::Base
   has_many    :chords, through: :included_chords
   belongs_to  :song
   validate :include_proper_chords?
-
+  paginates_per 10
 
   def self.search(params)
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
