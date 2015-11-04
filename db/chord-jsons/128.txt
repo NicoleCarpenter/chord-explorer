@@ -1,0 +1,1 @@
+{"objects": [{"code": "o221o2", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Eadd9_o221o2.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Eadd9", "uri": "/v2/chords/48991/"}], "objects_count": 1}

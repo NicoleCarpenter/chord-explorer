@@ -1,0 +1,1 @@
+{"objects": [{"code": "1xx434_5", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Adim7_1xx434_5.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Adim7", "uri": "/v2/chords/20791/"}], "objects_count": 1}

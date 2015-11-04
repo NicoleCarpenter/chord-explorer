@@ -1,0 +1,1 @@
+{"objects": [{"code": "14x22o_8", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Caug_14x22o_8.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Caug", "uri": "/v2/chords/41899/"}], "objects_count": 1}

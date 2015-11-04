@@ -1,0 +1,1 @@
+{"objects": [{"code": "xx111x_8", "image_url": "http://chords.guitarparty.com/chord-images/guitar_EbslashBb_xx111x_8.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Eb/Bb", "uri": "/v2/chords/43343/"}], "objects_count": 1}

@@ -1,0 +1,1 @@
+{"objects": [{"code": "2ox222", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Gbm_2ox222.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Gbm", "uri": "/v2/chords/20974/"}], "objects_count": 1}

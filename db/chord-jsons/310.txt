@@ -1,0 +1,1 @@
+{"objects": [{"code": "4241xo_11", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Gbm7_4241xo_11.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Gbm7", "uri": "/v2/chords/19650/"}], "objects_count": 1}

@@ -1,0 +1,1 @@
+{"objects": [{"code": "2x132o_7", "image_url": "http://chords.guitarparty.com/chord-images/guitar_C6_2x132o_7.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "C6", "uri": "/v2/chords/9745/"}], "objects_count": 1}
