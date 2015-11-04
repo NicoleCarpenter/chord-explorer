@@ -1,7 +1,7 @@
 module ApplicationHelper
   def next_chord(bin_repertoire)
     current_playable_count = Tab.playables(bin_repertoire).count
-    best_chord = ni
+    best_chord = nil
     Chord.count.times do |i|
       new_string = bin_repertoire.dup
       new_string[i] = 1

@@ -17,10 +17,22 @@
 
 body {
   background-color: black !important;
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.style_logo {
+  width: 180px;
+  padding-left: 20px;
+  padding-top: 20px;
+  opacity: .8;
+}
+
+#overlay {
+  margin-top: -70px;
+  margin-left: 20px;
 }
 
 p {
-  font-family: 'Arimo', sans-serif;
   font-size: 15px;
   font-weight: 300;
 }
@@ -41,7 +53,6 @@ a:hover {
 @media screen and (max-width: 847px) {
   h1 {
     font-size: 24px !important;
-    font-family: 'Arimo', sans-serif;
   }
 
   .brand-font {
@@ -61,7 +72,7 @@ a:hover {
 
   #intro-content {
     background-color: black;
-    opacity: .9;
+    opacity: .7;
     padding: 10px !important;
     width: 600px;
   }
@@ -73,21 +84,14 @@ a:hover {
 
 h1 {
   color: #A0A38C !important;
-  font-family: 'Arimo', sans-serif !important;
 }
 
 h2 {
   font-size: 36px !important;
-  font-family: 'Arimo', sans-serif !important;
-}
-
-h3 {
-  font-family: 'Arimo', sans-serif !important;
 }
 
 h4 {
   margin-bottom: 10px !important;
-  font-family: 'Arimo', sans-serif !important;
 }
 
 .brand-font {
@@ -166,12 +170,6 @@ h4 {
   background: rgba(255,255,255,0.2);
 }
 
-/*.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
-  font-family: 'Arimo', sans-serif !important;
-}*/
-
 .sidebar-nav li:last-child {
   margin-bottom: 50px;
 }
@@ -184,11 +182,9 @@ h4 {
 
 .sidebar-nav > .sidebar-brand a {
   color: #B5D6F1 !important;
-  font-family: 'Arimo', sans-serif !important;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  font-family: 'Arimo', sans-serif !important;
   color: #fff;
   background: none;
 }
@@ -291,6 +287,12 @@ button.btn.btn-success {
   border: 2px solid #B3B5A3 !important;
 }
 
+.btn.btn-success {
+  background-color: #A0A38C !important;
+  border: 2px solid #B3B5A3 !important;
+  margin-top: 5px;
+}
+
 #add-saved-chords-button {
   margin-left: 20px;
   margin-top: 20px;
@@ -338,13 +340,6 @@ body {
 .foreground.is-closed,
 .background.is-closed {
   min-height: 0;
-}
-
-.close-tab {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  background-color: white;
 }
 
 .foreground {
@@ -438,7 +433,7 @@ body {
 
 .auth-container {
   margin: 0 auto;
-  width: 500px;
+  width: 300px;
   padding-bottom: 200px;
 }
 

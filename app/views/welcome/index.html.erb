@@ -1,7 +1,8 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
+      <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
     <li class="sidebar-brand">
-      <a href="/">
+      <a id="overlay" href="/">
         Chord Explorer
       </a>
     </li>
@@ -14,7 +15,7 @@
     </li>
     <% else %>
     <li>
-      <%= link_to "Sign Up", new_user_path %>
+      <%= link_to "Sign Up", new_user_path, id: "register" %>
     </li>
     <li>
       <%= link_to "Log in", login_path %>
@@ -22,7 +23,7 @@
     <% end %>
 
     <% if logged_in? %>
-      <button id="add-saved-chords-button" class="btn btn-success well-buttons">Add Saved Chords</button>
+      <button id="add-saved-chords-button" class="btn btn-success well-buttons">Search My Chords</button>
     <% end %>
 
     <li>
@@ -171,7 +172,7 @@
       </div>
     </div>
     <li>
-      <a id="all_chords" href="/chords">All Chords</a>
+      <a id="chords" href="/chords">All Chords</a>
     </li>
   </ul>
 </div>
@@ -184,9 +185,9 @@
             <span class='brand-font'>Chord Explorer</span>
             <a href="#close" class="js-closeToggle">click me</a>
           <div id="intro-content">
-            <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repertoire. We allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
+            <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repitoire. It allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
 
-            <p>In order to get started, enter chords you are familiar with in the search bar in the left panel, or select the chords from the given drop-down options. Once you have selected each of the chords you want included in your search, click "Find Songs"</p>
+            <p>In order to get started, enter chords you are familiar with in the searchbar in the left panel, or select the chords from the given dropdown options. Once you have selected each of the chords you want included in your search, click "Find Tabs" to get your custom list of songs!</p>
           </div>
 
         </div>
@@ -227,11 +228,8 @@
                 <%= render partial: "profile", :locals => {:user => @user} %>
               <% end %>
             </div>
-            <!-- <div class="all_chords">
-              <% if @chord %>
-                <%= render partial: "chords", :locals => {:chord => @chord} %>
-              <% end %>
-            </div> -->
+            <div class="chords">
+            </div>
             <div id="results">
               <div id="spinner"></div>
               <% if @tabs %>
@@ -239,9 +237,8 @@
               <% else %>
                 <h3>...</h3>
               <% end %>
-              <div class="close-tab">
-                <a href="#close" class="js-closeToggle">Close</a>
-              </div>
+            </div>
+            <div class="register">
             </div>
           </div>
         </div>

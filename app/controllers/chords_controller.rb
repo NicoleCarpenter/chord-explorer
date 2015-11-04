@@ -1,5 +1,6 @@
 class ChordsController < ApplicationController
   before_action :set_chord, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js, :json
 
   FAMILIES = ["A", "B", "C", "D", "E", "F"]
   # GET /chords
@@ -7,13 +8,13 @@ class ChordsController < ApplicationController
   def index
     # if request.xhr?
       @chords = Chord.order(:name)
-      @achords = @chords.where(family: "A")
-      @bchords = @chords.where(family: "B")
-      @cchords = @chords.where(family: "C")
-      @dchords = @chords.where(family: "D")
-      @echords = @chords.where(family: "E")
-      @fchords = @chords.where(family: "F")
-      @gchords = @chords.where(family: "G")
+      # @achords = @chords.where(family: "A")
+      # @bchords = @chords.where(family: "B")
+      # @cchords = @chords.where(family: "C")
+      # @dchords = @chords.where(family: "D")
+      # @echords = @chords.where(family: "E")
+      # @fchords = @chords.where(family: "F")
+      # @gchords = @chords.where(family: "G")
     # end
   end
 
