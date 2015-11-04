@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     if request.xhr?
       @saved_chords = @user.user_saved_chords.map(&:chord)
       @saved_songs = @user.user_songs.where(saved: true).map(&:song)
+
     end
   end
 

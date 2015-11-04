@@ -33,6 +33,11 @@
         <div class="container-fluid white">
           <div class="container">
             <h3>Next recommended chord</h3>
+            <% chord = Chord.recommend(@saved_chords) %>
+            <div class='inline-chords'>
+              <%= chord.name %><br>
+              <%= render html: chord.render_chord.html_safe %></li><br>
+            </div>
           </div>
         </div>
       </div>
