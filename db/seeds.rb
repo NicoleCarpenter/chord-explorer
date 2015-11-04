@@ -50,7 +50,7 @@ artist_files.each do |artist_file|
     artist = song_data["artist"].strip
     title  = song_data["title"].strip
     p "#{artist} - #{title}"
-    
+
     song = Song.find_or_create_by(artist: artist, title: title)
 
     tab_create_hash = {
@@ -66,6 +66,8 @@ artist_files.each do |artist_file|
     tab = Tab.new(tab_create_hash)
     tab.save
     tab.sequence.uniq.each do |chord_in_song|
+      # map it here.
+
       chord = Chord.find_or_create_by(name: chord_in_song.strip)
       IncludedChord.create(chord: chord, tab: tab)
     end
