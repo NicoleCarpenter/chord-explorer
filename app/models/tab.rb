@@ -4,6 +4,7 @@ class Tab < ActiveRecord::Base
   belongs_to  :song
   validate :include_proper_chords?
 
+  @@chord_mapper = YAML.load(File.open("db/canonical_chords.yaml", "r").read)
 
   def self.search(params)
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
@@ -50,6 +51,7 @@ class Tab < ActiveRecord::Base
   def include_proper_chords?
     proper_chords = Chord.all.pluck(:name)
     sequence.uniq.each do |chord|
+      chord = @@chord_mapper
       unless proper_chords.include?(chord)
         errors.add(:chord, "This chord isn't in our database")
       end

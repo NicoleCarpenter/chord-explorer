@@ -57,7 +57,7 @@ artist_files.each do |artist_file|
         IncludedChord.create(chord: chord, tab: tab)
       end
     else
-      puts "Contains improper cords"
+      puts "Contains improper chords"
     end
   end
 end
