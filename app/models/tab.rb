@@ -52,7 +52,6 @@ class Tab < ActiveRecord::Base
     proper_chords = Chord.all.pluck(:name)
     sequence.uniq.each do |chord|
       chord = @@chord_mapper.fetch(chord, chord)
-      p "current chord we're looking for: #{chord}"
       unless proper_chords.include?(chord)
         errors.add(:chord, "This chord isn't in our database")
       end
