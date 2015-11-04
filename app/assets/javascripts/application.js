@@ -38,14 +38,17 @@ $(document).ready(function() {
     $('.js-page').addClass('is-closed');
   })
 
-  // $("#all_chords").on("click", function(event){
+  // $("#chords").on("click", function(event){
   //   event.preventDefault();
-  //   $('.js-page').toggleClass('is-closed');
+  //   $('.profile').empty();
+  //   $('#results').empty();
+  //   $('.js-page').addClass('is-closed');
   // });
 
   $("#profile").on("click", function(event){
     event.preventDefault();
     $('#results').empty();
+    $('.chords').empty();
     $('.js-page').addClass('is-closed');
   });
 
