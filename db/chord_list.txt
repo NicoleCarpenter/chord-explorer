@@ -633,7 +633,6 @@ D#/F#,211oxx
 C#/C,x33121
 Db/Eb,xx1121
 G7/C,x33oo3
-
 B/A#,x1444x
 Dmadd9,x5325x
 Dm/A#,x13231
@@ -644,4 +643,3 @@ F7sus,111311 sus4
 Fm7/Bb,x11111
 Gm7/Bb,x13333 !!!!!!!!!!!!!
 D6/E,ooo2o2
-
