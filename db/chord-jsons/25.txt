@@ -1,0 +1,1 @@
+{"objects": [{"code": "xxxx13_6", "image_url": "http://chords.guitarparty.com/chord-images/guitar_F5_xxxx13_6.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "F5", "uri": "/v2/chords/18501/"}], "objects_count": 1}

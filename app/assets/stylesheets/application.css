@@ -25,6 +25,10 @@ p {
   font-weight: 300;
 }
 
+:focus {
+  outline: none !important;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -162,11 +166,11 @@ h4 {
   background: rgba(255,255,255,0.2);
 }
 
-.sidebar-nav li a:active,
+/*.sidebar-nav li a:active,
 .sidebar-nav li a:focus {
   text-decoration: none;
   font-family: 'Arimo', sans-serif !important;
-}
+}*/
 
 .sidebar-nav li:last-child {
   margin-bottom: 50px;
@@ -263,8 +267,8 @@ h4 {
   margin-bottom: 3px !important;
 }
 
-button.btn.btn-default.active {
-  background-color: #BDBBB0 !important;
+button.btn.btn-default.pressed {
+  background-color: #aaa89e !important;
   margin-bottom: 3px !important;
 }
 
@@ -441,4 +445,3 @@ body {
 #results {
   padding-bottom: 200px;
 }
-

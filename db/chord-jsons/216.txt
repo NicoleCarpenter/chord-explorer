@@ -1,0 +1,1 @@
+{"objects": [{"code": "xxo122_12", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Dm11_xxo122_12.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Dm11", "uri": "/v2/chords/50191/"}], "objects_count": 1}

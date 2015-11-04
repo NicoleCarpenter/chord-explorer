@@ -1,0 +1,1 @@
+{"objects": [{"code": "4321xx_10", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Faug_4321xx_10.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Faug", "uri": "/v2/chords/59508/"}], "objects_count": 1}

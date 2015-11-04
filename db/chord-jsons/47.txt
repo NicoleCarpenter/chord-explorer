@@ -1,0 +1,1 @@
+{"objects": [{"code": "xo4432", "image_url": "http://chords.guitarparty.com/chord-images/guitar_BmslashA_xo4432.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Bm/A", "uri": "/v2/chords/20807/"}], "objects_count": 1}

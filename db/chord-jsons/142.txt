@@ -1,0 +1,1 @@
+{"objects": [{"code": "xo4232", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Bm7slashA_xo4232.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Bm7/A", "uri": "/v2/chords/65312/"}], "objects_count": 1}

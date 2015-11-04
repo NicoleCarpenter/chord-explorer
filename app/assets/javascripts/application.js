@@ -53,13 +53,14 @@ $(document).ready(function() {
   });
 
   //clicks on left hand side
-  $(".btn-default").click(function(event){
+  $(".unpressed").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
     if ($("#added_chords #" + $(this).attr("id")).length == false
-      ){$(this).clone().appendTo("#added_chords").css("margin", "+=10px");
+  ){$(this).clone().removeClass("focus").addClass("unpressed").appendTo("#added_chords").css("margin", "+=10px");
       var chordName = $(this).attr("id");
       searchString = searchString + ", " + chordName;}
     else{$(this).css("class","btn btn-default "+chordName+" active")}
+    $(this).addClass("pressed").removeClass("unpressed");
   });
 
   //clicks in well

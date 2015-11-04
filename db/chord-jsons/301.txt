@@ -1,0 +1,1 @@
+{"objects": [{"code": "23x4", "image_url": "http://chords.guitarparty.com/chord-images/banjo_Bbaug_23x4.png", "instrument": {"name": "Banjo", "safe_name": "banjo", "tuning": "CGBD"}, "name": "Bbaug", "uri": "/v2/chords/79782/"}], "objects_count": 1}

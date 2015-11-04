@@ -1,0 +1,1 @@
+{"objects": [{"code": "1x3143_3", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Gm9_1x3143_3.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Gm9", "uri": "/v2/chords/9888/"}], "objects_count": 1}

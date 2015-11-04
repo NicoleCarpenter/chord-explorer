@@ -1,0 +1,1 @@
+{"objects": [{"code": "11xx", "image_url": "http://chords.guitarparty.com/chord-images/mandolin_Ab5_11xx.png", "instrument": {"name": "Mandolin", "safe_name": "mandolin", "tuning": "GDAE"}, "name": "Ab5", "uri": "/v2/chords/76359/"}], "objects_count": 1}

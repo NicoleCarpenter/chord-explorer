@@ -1,0 +1,1 @@
+{"objects": [{"code": "351x", "image_url": "http://chords.guitarparty.com/chord-images/ukulele_Bb5_351x.png", "instrument": {"name": "Ukulele", "safe_name": "ukulele", "tuning": "GCEA"}, "name": "Bb5", "uri": "/v2/chords/68358/"}], "objects_count": 1}

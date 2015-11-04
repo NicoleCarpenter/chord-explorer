@@ -1,0 +1,1 @@
+{"objects": [{"code": "3o2o1o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Am7slashG_3o2o1o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Am7/G", "uri": "/v2/chords/79883/"}], "objects_count": 1}

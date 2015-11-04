@@ -1,0 +1,1 @@
+{"objects": [{"code": "132555_8", "image_url": "http://chords.guitarparty.com/chord-images/guitar_EmslashC_132555_8.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Em/C", "uri": "/v2/chords/39679/"}], "objects_count": 1}

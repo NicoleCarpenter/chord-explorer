@@ -1,0 +1,1 @@
+{"objects": [{"code": "x32o1o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_C_x32o1o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "C", "uri": "/v2/chords/44351/"}], "objects_count": 1}

@@ -1,0 +1,1 @@
+{"objects": [{"code": "x762", "image_url": "http://chords.guitarparty.com/chord-images/mandolin_Ebdim_x762.png", "instrument": {"name": "Mandolin", "safe_name": "mandolin", "tuning": "GDAE"}, "name": "Ebdim", "uri": "/v2/chords/73056/"}], "objects_count": 1}

@@ -1,0 +1,1 @@
+{"objects": [{"code": "xxo115_6", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Dmmaj7_xxo115_6.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Dmmaj7", "uri": "/v2/chords/42052/"}], "objects_count": 1}

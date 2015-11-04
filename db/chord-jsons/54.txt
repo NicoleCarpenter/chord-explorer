@@ -1,0 +1,1 @@
+{"objects": [{"code": "x43141_5", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Fadd9_x43141_5.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Fadd9", "uri": "/v2/chords/59215/"}], "objects_count": 1}

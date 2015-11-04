@@ -1,0 +1,1 @@
+{"objects": [{"code": "21x1x1_10", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Ebmaj9_21x1x1_10.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Ebmaj9", "uri": "/v2/chords/62139/"}], "objects_count": 1}

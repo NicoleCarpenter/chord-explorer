@@ -1,0 +1,1 @@
+{"objects": [{"code": "x343", "image_url": "http://chords.guitarparty.com/chord-images/banjo_Ebsus2_x343.png", "instrument": {"name": "Banjo", "safe_name": "banjo", "tuning": "CGBD"}, "name": "Ebsus2", "uri": "/v2/chords/79324/"}], "objects_count": 1}

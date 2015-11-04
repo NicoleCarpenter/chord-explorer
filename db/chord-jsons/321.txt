@@ -1,0 +1,1 @@
+{"objects": [{"code": "33x543", "image_url": "http://chords.guitarparty.com/chord-images/guitar_CmslashG_33x543.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Cm/G", "uri": "/v2/chords/29167/"}], "objects_count": 1}

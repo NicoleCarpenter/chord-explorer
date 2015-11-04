@@ -1,0 +1,1 @@
+{"objects": [{"code": "133ox3", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Fsus2_133ox3.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Fsus2", "uri": "/v2/chords/61083/"}], "objects_count": 1}

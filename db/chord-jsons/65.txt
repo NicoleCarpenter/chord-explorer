@@ -1,0 +1,1 @@
+{"objects": [{"code": "15x2x1_3", "image_url": "http://chords.guitarparty.com/chord-images/guitar_EmslashG_15x2x1_3.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Em/G", "uri": "/v2/chords/16642/"}], "objects_count": 1}

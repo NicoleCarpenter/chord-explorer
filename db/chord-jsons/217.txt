@@ -1,0 +1,1 @@
+{"objects": [{"code": "1313", "image_url": "http://chords.guitarparty.com/chord-images/bass_F7sus4_1313.png", "instrument": {"name": "Bass", "safe_name": "bass", "tuning": "EADG"}, "name": "F7sus4", "uri": "/v2/chords/69070/"}], "objects_count": 1}
