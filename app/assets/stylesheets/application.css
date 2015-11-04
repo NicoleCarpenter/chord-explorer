@@ -291,6 +291,12 @@ button.btn.btn-success {
   border: 2px solid #B3B5A3 !important;
 }
 
+.btn.btn-success {
+  background-color: #A0A38C !important;
+  border: 2px solid #B3B5A3 !important;
+  margin-top: 5px;
+}
+
 #add-saved-chords-button {
   margin-left: 20px;
   margin-top: 20px;
@@ -431,7 +437,7 @@ body {
 
 .auth-container {
   margin: 0 auto;
-  width: 500px;
+  width: 300px;
   padding-bottom: 200px;
 }
 
