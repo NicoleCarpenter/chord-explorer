@@ -1,0 +1,1 @@
+{"objects": [{"code": "1433xx_10", "image_url": "http://chords.guitarparty.com/chord-images/guitar_GmslashD_1433xx_10.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Gm/D", "uri": "/v2/chords/6960/"}], "objects_count": 1}

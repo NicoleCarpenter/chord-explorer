@@ -1,0 +1,1 @@
+{"objects": [{"code": "xx321o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_AmslashF_xx321o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Am/F", "uri": "/v2/chords/13718/"}], "objects_count": 1}

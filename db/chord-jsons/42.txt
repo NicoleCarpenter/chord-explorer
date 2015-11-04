@@ -1,0 +1,1 @@
+{"objects": [{"code": "7x33", "image_url": "http://chords.guitarparty.com/chord-images/mandolin_Gsus_7x33.png", "instrument": {"name": "Mandolin", "safe_name": "mandolin", "tuning": "GDAE"}, "name": "Gsus", "uri": "/v2/chords/75759/"}], "objects_count": 1}

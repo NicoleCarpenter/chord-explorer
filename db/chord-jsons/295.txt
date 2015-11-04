@@ -1,0 +1,1 @@
+{"objects": [{"code": "4214x1_3", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Bbm6_4214x1_3.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Bbm6", "uri": "/v2/chords/22486/"}], "objects_count": 1}

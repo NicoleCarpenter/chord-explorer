@@ -1,5 +1,5 @@
 require 'json'
-Dir.chdir('db')
+
 chord_list = File.open("chord_list.txt", "r").readlines
 chord_list.each do |line|
   name, code = line.chomp.split(",")

@@ -1,0 +1,1 @@
+{"objects": [{"code": "oo2o2o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_A7slashE_oo2o2o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "A7/E", "uri": "/v2/chords/65300/"}], "objects_count": 1}

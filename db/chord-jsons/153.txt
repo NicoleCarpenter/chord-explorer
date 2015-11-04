@@ -1,0 +1,1 @@
+{"objects": [{"code": "xxo211", "image_url": "http://chords.guitarparty.com/chord-images/guitar_FslashD_xxo211.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "F/D", "uri": "/v2/chords/3803/"}], "objects_count": 1}

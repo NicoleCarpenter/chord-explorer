@@ -1,0 +1,1 @@
+{"objects": [{"code": "1x22o3_8", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Cmaj9_1x22o3_8.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Cmaj9", "uri": "/v2/chords/8996/"}], "objects_count": 1}

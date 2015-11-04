@@ -1,0 +1,1 @@
+{"objects": [{"code": "2133xx_8", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Dbmaj7_2133xx_8.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Dbmaj7", "uri": "/v2/chords/1767/"}], "objects_count": 1}

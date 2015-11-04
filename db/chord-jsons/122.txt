@@ -1,0 +1,1 @@
+{"objects": [{"code": "531x", "image_url": "http://chords.guitarparty.com/chord-images/mandolin_Fsus_531x.png", "instrument": {"name": "Mandolin", "safe_name": "mandolin", "tuning": "GDAE"}, "name": "Fsus", "uri": "/v2/chords/74279/"}], "objects_count": 1}
