@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-      <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
+    <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
     <li class="sidebar-brand">
       <a id="overlay" href="/">
         Chord Explorer
@@ -13,6 +13,9 @@
     <li>
       <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
     </li>
+    <li>
+      <a id="chords" href="/chords">All Chords</a>
+    </li>
     <% else %>
     <li>
       <%= link_to "Sign Up", new_user_path, id: "register" %>
@@ -21,11 +24,6 @@
       <%= link_to "Log in", login_path %>
     </li>
     <% end %>
-
-    <% if logged_in? %>
-      <button id="add-saved-chords-button" class="btn btn-success well-buttons">Search My Chords</button>
-    <% end %>
-
     <li>
       <p>Type the chords you want to search here!</p>
     </li>
@@ -38,6 +36,11 @@
       </div>
     </div>
 
+    <li>
+      <% if logged_in? %>
+        <a id="add-saved-chords-button">Add Saved Chords</a>
+      <% end %>
+    </li>
     <div class='row'>
       <div class='col-md-10 col-md-offset-1'>
 
@@ -171,9 +174,6 @@
         </div>
       </div>
     </div>
-    <li>
-      <a id="chords" href="/chords">All Chords</a>
-    </li>
   </ul>
 </div>
 <div id="wrapper">
