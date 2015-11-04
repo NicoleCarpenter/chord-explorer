@@ -11,7 +11,7 @@
   <div class="container-fluid white">
     <div class="container">
       <div class="auth-container">
-        <h1>New user sign up</h1>
+        <h1>Register</h1>
         <% if @user.errors.any? %>
           <div id="error_explanation">
             <h2>
@@ -32,7 +32,7 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
 
-          <%= f.submit "Sign Up" %>
+          <%= f.submit "Sign Up", class: "button btn btn-success" %>
         <% end %>
       </div>
     </div>
