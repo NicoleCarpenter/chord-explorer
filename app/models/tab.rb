@@ -2,8 +2,9 @@ class Tab < ActiveRecord::Base
   has_many    :included_chords
   has_many    :chords, through: :included_chords
   belongs_to  :song
-  validate :include_proper_chords?
+  validate :include_proper_chords?, :has_sequence?
 
+  @@chord_mapper = YAML.load(File.open("db/canonical_chords.yaml", "r").read)
 
   def self.search(params)
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
@@ -50,24 +51,14 @@ class Tab < ActiveRecord::Base
   def include_proper_chords?
     proper_chords = Chord.all.pluck(:name)
     sequence.uniq.each do |chord|
+      chord = @@chord_mapper.fetch(chord, chord)
       unless proper_chords.include?(chord)
         errors.add(:chord, "This chord isn't in our database")
       end
     end
   end
+
+  def has_sequence?
+    errors.add(:song, "Tab doesn't have a chord sequence") unless sequence.uniq.length > 1
+  end
 end
-
-# song1 = [1,4,27]
-# song2 = [1,4,27,63]
-# song3 = [63, 84]
-# song4 = [4,27,84]
-# # song5 = [1,4]
-
-# [song1, song2, song4, song5]
-
-
-# [song1, song5]
-
-# select tab_id
-# from included_chords
-# where chord_id NOT IN ()
