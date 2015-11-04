@@ -2,6 +2,8 @@ class Tab < ActiveRecord::Base
   has_many    :included_chords
   has_many    :chords, through: :included_chords
   belongs_to  :song
+  paginates_per 10
+
   validate :include_proper_chords?, :has_sequence?
   validates :url, uniqueness: true
 

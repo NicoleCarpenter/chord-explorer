@@ -1,12 +1,11 @@
 <h1>Results</h1>
-
-<% tabs.each do |song, tabbies| %>
+<% tabs_keys_paginatable.each do |song|  %>
   <div class="container">
     <h3>"<%= song.title %>"</h3>
     <h4><i><%= song.artist %></i></h4>
       <br>
 
-    <% tabbies.each do |tab| %>
+    <% tabs[song].each do |tab| %>
       <div class="container">
         <%if tab.rating%>
           Rating: <%=tab.rating%>
@@ -26,3 +25,6 @@
     <% end %>
   </div>
 <% end %>
+<div id="paginator">
+  <%= paginate @tabs_keys_paginatable, :remote => true %>
+</div>
