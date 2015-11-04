@@ -18,8 +18,12 @@ class Chord < ActiveRecord::Base
     IncludedChord.joins(:chord).group("chords.name").order("count_chord_id desc").count("chord_id")
   end
 
-  def self.recommend
-    
+  def self.recommend(chord_ids)
+    self.without(chord_ids).where('frequency > ?', 1).order(:frequency => :desc).first
+  end
+
+  def self.without(chord_ids)
+    where('id NOT IN (?)', chord_ids)
   end
 
 end
