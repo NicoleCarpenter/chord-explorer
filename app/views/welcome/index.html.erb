@@ -54,7 +54,7 @@
         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="list-group">
             <% @achords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -72,7 +72,7 @@
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="list-group">
             <% @bchords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -90,7 +90,7 @@
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="list-group">
             <% @cchords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -108,7 +108,7 @@
         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="list-group">
             <% @dchords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -126,7 +126,7 @@
         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
           <div class="list-group">
             <% @echords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -144,7 +144,7 @@
         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="list-group">
             <% @fchords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
@@ -162,7 +162,7 @@
         <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
           <div class="list-group">
             <% @gchords.each do |chord| %>
-              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
+              <button type="button" id="<%= chord.escaped_name %>" class="btn btn-default unpressed  <%= chord.escaped_name %>" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <%= chord.name %>
               </button>
             <% end %>
