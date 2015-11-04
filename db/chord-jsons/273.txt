@@ -1,0 +1,1 @@
+{"objects": [{"code": "1351xx", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Fmadd9_1351xx.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Fmadd9", "uri": "/v2/chords/44830/"}], "objects_count": 1}

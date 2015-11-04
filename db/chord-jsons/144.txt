@@ -1,0 +1,1 @@
+{"objects": [{"code": "6246", "image_url": "http://chords.guitarparty.com/chord-images/mandolin_Bbdim_6246.png", "instrument": {"name": "Mandolin", "safe_name": "mandolin", "tuning": "GDAE"}, "name": "Bbdim", "uri": "/v2/chords/78218/"}], "objects_count": 1}

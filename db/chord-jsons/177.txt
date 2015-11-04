@@ -1,0 +1,1 @@
+{"objects": [{"code": "0143", "image_url": "http://chords.guitarparty.com/chord-images/banjo_Ab6_0143.png", "instrument": {"name": "Banjo", "safe_name": "banjo", "tuning": "CGBD"}, "name": "Ab6", "uri": "/v2/chords/79672/"}], "objects_count": 1}

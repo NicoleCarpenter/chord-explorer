@@ -2,6 +2,8 @@ class Tab < ActiveRecord::Base
   has_many    :included_chords
   has_many    :chords, through: :included_chords
   belongs_to  :song
+  validate :include_proper_chords?
+
 
   def self.search(params)
       formatted_params = params[:search].split(",")[1..-1].map!{|chord| chord.strip}
@@ -39,6 +41,19 @@ class Tab < ActiveRecord::Base
 
   def self.playables(your_chords)
     all.select {|tab| tab.playable?(tab.binary_chords, your_chords)}
+  end
+
+  private
+
+  #validations
+
+  def include_proper_chords?
+    proper_chords = Chord.all.pluck(:name)
+    sequence.uniq.each do |chord|
+      unless proper_chords.include?(chord)
+        errors.add(:chord, "This chord isn't in our database")
+      end
+    end
   end
 end
 

@@ -1,9 +1,6 @@
 <div class="jumbotron">
   <div class="container centered">
     <a href="/"><span class='brand-font'>Chord Explorer</span></a>
-    <% if logged_in? %>
-      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-    <% end %>
 
   </div>
 </div>
@@ -11,19 +8,25 @@
       <div class="container-fluid white">
         <div class="container">
           <h2>Welcome, <%=@user.username%></h2>
+          <% if logged_in? %>
+            <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="container-fluid white">
-        <div class="container">
+        <div class="container" id="chords-you-know">
           <div class="saved_chords col-lg-5">
             <h3> Chords You Know </h3>
-            <% if @user_saved_chords %>
-              <% @user_saved_chords.each do |user_saved_chord| %>
+            <% if @saved_chords %>
+              <% @saved_chords.each do |user_saved_chord| %>
                 <div class='inline-chords'>
                   <%= user_saved_chord.name %><br>
                   <%= render html: user_saved_chord.render_chord.html_safe %></li><br>
+
+                    <button class="remove-saved-chords-button" id=<%= @user.user_saved_chords.find_by(chord_id: user_saved_chord.id).id %>>Forget This Chord</button>
+
                 </div>
               <% end %>
             <% else %>
@@ -32,9 +35,9 @@
           </div>
           <div class="saved_songs col-lg-7">
             <h3> Saved Songs </h3>
-            <% if @user_saved_songs  %>
+            <% if @saved_songs  %>
               <table class="table table-condensed">
-              <% @user_saved_songs.each do |song| %>
+              <% @saved_songs.each do |song| %>
                 <tr>
                   <td><h4>"<%= song.title %>"</h4></td>
                   <td><i><%= song.artist %></i></td>

@@ -29,26 +29,36 @@ $(document).ready(function() {
 
   $('#submit-tag').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
-    $('.js-page').toggleClass('is-closed');
+    $('.profile').empty();
+    $('.chords').empty();
+    $('.js-page').addClass('is-closed');
   })
 
   $('.js-closeToggle').on('click', function() {
     // When clicking on .js-close, find the parent .js-page and add .is-closed to its classlist.
-    $('.js-page').toggleClass('is-closed');
+    $('.js-page').addClass('is-closed');
   })
 
   // $("#all_chords").on("click", function(event){
+  //   event.preventDefault();
   //   $('.js-page').toggleClass('is-closed');
   // });
 
+  $("#profile").on("click", function(event){
+    event.preventDefault();
+    $('#results').empty();
+    $('.js-page').addClass('is-closed');
+  });
+
   //clicks on left hand side
-  $(".btn-default").click(function(event){
+  $(".unpressed").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
     if ($("#added_chords #" + $(this).attr("id")).length == false
-      ){$(this).clone().appendTo("#added_chords").css("margin", "+=10px");
+  ){$(this).clone().removeClass("focus").addClass("unpressed").appendTo("#added_chords").css("margin", "+=10px");
       var chordName = $(this).attr("id");
       searchString = searchString + ", " + chordName;}
     else{$(this).css("class","btn btn-default "+chordName+" active")}
+    $(this).addClass("pressed").removeClass("unpressed");
   });
 
   //clicks in well
@@ -86,9 +96,26 @@ $(document).ready(function() {
 
   //"add saved chords" button will add all saved chords to the current well
   $("body").on("click","#add-saved-chords-button",function(event){
-    console.log("hey");
     $.get("/user_saved_chords")
   })
+
+
+
+
+
+  //"forget this chord" button will destroy the saved chord for the user
+  $("body").on("click",".remove-saved-chords-button",function(event){
+    console.log($(this).attr('id'));
+    var request = $.ajax({
+      url: "/user_saved_chords/" + $(this).attr('id'),
+      type: "DELETE"
+    })
+    request.done;
+  });
+
+
+
+
 
   //this prevents page refresh on Enter. needed for the keyup event below
   $(function(){

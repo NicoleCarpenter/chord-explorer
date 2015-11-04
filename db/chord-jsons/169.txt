@@ -1,0 +1,1 @@
+{"objects": [{"code": "133311_4", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Absus4_133311_4.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Absus4", "uri": "/v2/chords/51023/"}], "objects_count": 1}

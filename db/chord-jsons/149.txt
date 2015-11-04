@@ -1,0 +1,1 @@
+{"objects": [{"code": "x13oxo_8", "image_url": "http://chords.guitarparty.com/chord-images/guitar_CslashF_x13oxo_8.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "C/F", "uri": "/v2/chords/42399/"}], "objects_count": 1}

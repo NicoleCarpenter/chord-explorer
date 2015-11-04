@@ -1,0 +1,1 @@
+{"objects": [{"code": "4o2x2o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_AslashAb_4o2x2o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "A/Ab", "uri": "/v2/chords/8052/"}], "objects_count": 1}
