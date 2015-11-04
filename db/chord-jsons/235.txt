@@ -1,0 +1,1 @@
+{"objects": [{"code": "o332", "image_url": "http://chords.guitarparty.com/chord-images/ukulele_Ebaug_o332.png", "instrument": {"name": "Ukulele", "safe_name": "ukulele", "tuning": "GCEA"}, "name": "Ebaug", "uri": "/v2/chords/65235/"}], "objects_count": 1}

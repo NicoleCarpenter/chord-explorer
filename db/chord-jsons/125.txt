@@ -1,0 +1,1 @@
+{"objects": [{"code": "33oo11", "image_url": "http://chords.guitarparty.com/chord-images/guitar_G7sus4_33oo11.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "G7sus4", "uri": "/v2/chords/38288/"}], "objects_count": 1}

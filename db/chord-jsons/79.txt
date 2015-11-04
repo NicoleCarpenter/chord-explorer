@@ -1,0 +1,1 @@
+{"objects": [{"code": "o3421x_11", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Edim_o3421x_11.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Edim", "uri": "/v2/chords/31250/"}], "objects_count": 1}

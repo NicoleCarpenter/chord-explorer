@@ -1,0 +1,1 @@
+{"objects": [{"code": "421x41_5", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Cm6_421x41_5.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Cm6", "uri": "/v2/chords/17094/"}], "objects_count": 1}

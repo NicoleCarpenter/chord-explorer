@@ -1,0 +1,1 @@
+{"objects": [{"code": "535o5o", "image_url": "http://chords.guitarparty.com/chord-images/guitar_CslashA_535o5o.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "C/A", "uri": "/v2/chords/58123/"}], "objects_count": 1}

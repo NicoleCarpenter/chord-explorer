@@ -1,0 +1,1 @@
+{"objects": [{"code": "o2ooo2", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Em9_o2ooo2.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Em9", "uri": "/v2/chords/12388/"}], "objects_count": 1}

@@ -1,0 +1,1 @@
+{"objects": [{"code": "1xx233_10", "image_url": "http://chords.guitarparty.com/chord-images/guitar_D6slash9_1xx233_10.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "D6/9", "uri": "/v2/chords/25839/"}], "objects_count": 1}

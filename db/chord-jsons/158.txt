@@ -1,0 +1,1 @@
+{"objects": [{"code": "4200", "image_url": "http://chords.guitarparty.com/chord-images/ukulele_E7sus_4200.png", "instrument": {"name": "Ukulele", "safe_name": "ukulele", "tuning": "GCEA"}, "name": "E7sus", "uri": "/v2/chords/66586/"}], "objects_count": 1}

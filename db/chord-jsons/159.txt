@@ -1,0 +1,1 @@
+{"objects": [{"code": "x434o4", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Db7_x434o4.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Db7", "uri": "/v2/chords/43740/"}], "objects_count": 1}

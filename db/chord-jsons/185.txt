@@ -1,0 +1,1 @@
+{"objects": [{"code": "331x4x_6", "image_url": "http://chords.guitarparty.com/chord-images/guitar_FmslashC_331x4x_6.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Fm/C", "uri": "/v2/chords/35688/"}], "objects_count": 1}

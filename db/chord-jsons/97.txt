@@ -1,0 +1,1 @@
+{"objects": [{"code": "xo21oo", "image_url": "http://chords.guitarparty.com/chord-images/guitar_EslashA_xo21oo.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "E/A", "uri": "/v2/chords/1234/"}], "objects_count": 1}

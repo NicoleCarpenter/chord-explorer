@@ -1,0 +1,1 @@
+{"objects": [{"code": "xo22oo", "image_url": "http://chords.guitarparty.com/chord-images/guitar_Asus2_xo22oo.png", "instrument": {"name": "Guitar", "safe_name": "guitar", "tuning": "EADGBE"}, "name": "Asus2", "uri": "/v2/chords/34842/"}], "objects_count": 1}
