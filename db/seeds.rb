@@ -1,6 +1,6 @@
 require 'json'
 
-chord_list = File.open("chord_list.txt", "r").readlines
+chord_list = File.open("db/chord_list.txt", "r").readlines
 chord_list.each do |line|
   name, code = line.chomp.split(",")
   chord = Chord.find_or_create_by(name: name, code: code, family: name[0])
