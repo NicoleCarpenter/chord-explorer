@@ -30,14 +30,13 @@ class UserSavedChordsController < ApplicationController
   # POST /user_saved_chords.json
   def create
     if request.xhr?
+      @user = current_user
       formatted_params = params[:save_chords].split(",")[1..-1].map!{|chord| chord.strip}
-      p formatted_params
       chord_ids = formatted_params.map{|chord| Chord.find_by(escaped_name: chord.strip).id}
-
       chord_ids.each do |id|
         UserSavedChord.find_or_create_by(user_id: session[:user_id], chord_id: id)
-        p id
       end
+      @saved_chords = @user.user_saved_chords.map(&:chord)
     end
   end
 
@@ -58,11 +57,9 @@ class UserSavedChordsController < ApplicationController
   # DELETE /user_saved_chords/1
   # DELETE /user_saved_chords/1.json
   def destroy
-    p params
     @user_saved_chord.destroy
     @user = User.find(session[:user_id])
     @saved_chords = @user.user_saved_chords.map(&:chord)
-    puts @saved_chords
     # respond_to do |format|
     #   format.html { redirect_to user_saved_chords_url, notice: 'User saved chord was successfully destroyed.' }
     #   format.json { head :no_content }

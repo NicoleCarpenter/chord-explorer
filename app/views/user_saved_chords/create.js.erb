@@ -1,1 +1,5 @@
-console.log("chords have been saved")
+if ($('.profile-is-active').length !== 0){
+  $(".profile").html(" <%= escape_javascript (render partial: 'users/profile.html.erb', :locals =>{:user =>@user, :saved_chords => @saved_chords}) %>");
+
+  $('.chord').chordsIO();
+}

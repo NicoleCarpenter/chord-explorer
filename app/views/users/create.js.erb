@@ -1,0 +1,7 @@
+$(".profile").html( "<%= escape_javascript(render partial: 'users/profile.html.erb', :locals =>{:user => @user, :saved_chords => @saved_chords}) %>");
+$('.chord').chordsIO();
+
+// rerenders the profile/login/logout sidebar partial, rerenders the well partial, and sets the profile to active
+$("#profile-nav-wrapper").html(" <%= escape_javascript(render partial: 'welcome/navwrapper.html.erb') %>");
+$("#profile-well-wrapper").html(" <%= escape_javascript(render partial: 'welcome/wellwrapper.html.erb') %>");
+$('.profile').addClass("profile-is-active");

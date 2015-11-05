@@ -1,36 +1,40 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
+    <%= link_to root_path do %>
+      <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
+    <% end %>
     <li class="sidebar-brand">
       <a id="overlay" href="/">
         Chord Explorer
       </a>
     </li>
-    <% if logged_in? %>
+    <span id="profile-nav-wrapper">
+      <% if logged_in? %>
+      <li>
+        <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
+      </li>
+      <li>
+        <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+      </li>
+      <li>
+        <a id="chords" href="/chords">All Chords</a>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Sign Up", new_user_path, id: "register" %>
+      </li>
+      <li>
+        <%= link_to "Log in", login_path, id: "login" %>
+      </li>
+      <% end %>
+    </span>
     <li>
-      <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
-    </li>
-    <li>
-      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-    </li>
-    <li>
-      <a id="chords" href="/chords">All Chords</a>
-    </li>
-    <% else %>
-    <li>
-      <%= link_to "Sign Up", new_user_path, id: "register" %>
-    </li>
-    <li>
-      <%= link_to "Log in", login_path %>
-    </li>
-    <% end %>
-    <li>
-      <p>Type the chords you want to search here!</p>
+      <p>Enter the chords you know here</p>
     </li>
     <div class="row">
       <div class="col-md-11 col-md-offset-1">
         <form id="add-to-well">
-          <input id="sidebar-value" type="text" name="chords-to-add">
+          <input id="sidebar-value" type="text" name="chords-to-add" placeholder="Example: C, Dm, A7">
           <input id="sidebar-submit" type="submit" value="Submit" style="display:none;">
         </form>
       </div>
@@ -183,7 +187,6 @@
         <div class="col-sm-7 col-sm-offset-4 col-md-8 col-md-offset-3 col-lg-9 col-lg-offset-2">
           <h1>Welcome to </h1>
             <span class='brand-font'>Chord Explorer</span>
-            <a href="#close" class="js-closeToggle">click me</a>
           <div id="intro-content">
             <p>Chord Explorer is an innovative tool that helps you learn how to play guitar and intuitively expand your repitoire. It allows you to increase your current music knowledge by introducing you to songs that match your current skill level and chord toolbag.</p>
 
@@ -202,17 +205,19 @@
         </div>
       </div>
       <div class='col-sm-12 col-md-3'>
-        <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
-          <%= hidden_field_tag :search %>
-          <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
-        <% end %>
-        <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
-        <% if logged_in? %>
-          <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
-          <%= hidden_field_tag :save_chords %>
-            <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
+        <span id="profile-well-wrapper">
+          <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
+            <%= hidden_field_tag :search %>
+            <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
           <% end %>
-        <% end %>
+          <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
+          <% if logged_in? %>
+            <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
+            <%= hidden_field_tag :save_chords %>
+              <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
+            <% end %>
+          <% end %>
+        </span>
       </div>
     </div>
   </nav>
@@ -233,9 +238,6 @@
             <div id="results">
               <div id="spinner"></div>
               <% if @tabs %>
-
-              <% else %>
-                <h3>...</h3>
               <% end %>
             </div>
             <div class="register">

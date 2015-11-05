@@ -18,7 +18,6 @@
 //= require raphael-min
 //= require chords.io
 //= require highlight.min
-//= require jquery.bootpag.min
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
@@ -46,14 +45,64 @@ $(document).ready(function() {
   //   $('.js-page').addClass('is-closed');
   // });
 
+ //when you click the "profile" button in the sidebar, it resets some variables and adds the profile-is-active class, which is used in the "save these chords" ajax
   $("#profile").on("click", function(event){
     event.preventDefault();
+    $('.profile').addClass("profile-is-active");
     $('#results').empty();
     $('.chords').empty();
     $('.js-page').addClass('is-closed');
   });
 
-  //clicks on left hand side
+//when you click "sign up", ajax renders the form, then handles submit
+  $("#register").on("click",function(event){
+    $('.profile').removeClass("profile-is-active");
+    event.preventDefault();
+    $('.js-page').addClass('is-closed');
+    var request = $.ajax({
+      url: "/users/new",
+      type: "GET",
+      dataType: "HTML"
+    })
+    request.done(function(response){
+      $(".profile").html(response);
+    })
+  })
+  $("body").on("submit", "#new_user",function(event){
+    event.preventDefault()
+    data = $(this).serialize();
+    var request = $.ajax({
+      url: "/users",
+      type: "POST",
+      data: data
+    })
+  })
+
+  //when you click "login", ajax renders the form, then handles submit
+  $("#login").on("click",function(event){
+    $('.profile').removeClass("profile-is-active");
+    event.preventDefault();
+    $('.js-page').addClass('is-closed');
+    var request = $.ajax({
+      url: "/login",
+      type: "GET",
+      dataType: "HTML"
+    })
+    request.done(function(response){
+      $(".profile").html(response);
+    })
+  })
+  $("body").on("submit", "#new_session",function(event){
+    event.preventDefault()
+    data = $(this).serialize();
+    var request = $.ajax({
+      url: "/login",
+      type: "POST",
+      data: data
+    })
+  })
+
+  //clicks on left hand side clone and render buttons in the well
   $(".unpressed").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
     if ($("#added_chords #" + $(this).attr("id")).length == false
@@ -64,7 +113,7 @@ $(document).ready(function() {
     $(this).addClass("pressed").removeClass("unpressed");
   });
 
-  //clicks in well
+  //clicks in well reset buttons in sidebar
   $("body").on("click", ".navbar .btn-default", function(event){
     var chordName = $(this).attr("id");
     $("#"+chordName).attr("class","btn btn-default "+chordName);
@@ -73,8 +122,9 @@ $(document).ready(function() {
     return searchString
   });
 
-  //clicks on search in well, sends chords to form and seargit ches
+  //clicks on search, "Find Tabs" in well, sends chords to form and searches it
   $("body").on("click","#submit-tag",function(event){
+    $('.profile').removeClass("profile-is-active");
     $("#search").val(searchString);
     $("#hiddensearch").submit(function(){
       event.preventDefault();
@@ -102,13 +152,8 @@ $(document).ready(function() {
     $.get("/user_saved_chords")
   })
 
-
-
-
-
   //"forget this chord" button will destroy the saved chord for the user
   $("body").on("click",".remove-saved-chords-button",function(event){
-    console.log($(this).attr('id'));
     var request = $.ajax({
       url: "/user_saved_chords/" + $(this).attr('id'),
       type: "DELETE"
@@ -116,17 +161,17 @@ $(document).ready(function() {
     request.done;
   });
 
-
-
-
+  //when you click the "all chords" link on the main sidebar, it removes the profile-is-active class. this is needed for the "save these chords" ajax to function.
+  $("body").on("click","#chords",function(event){
+    $('.profile').removeClass("profile-is-active");
+  })
 
   //this prevents page refresh on Enter. needed for the keyup event below
   $(function(){
     $("#add-to-well").submit(function() {return false});
   });
 
-  // $("#sidebar-submit").on("click", function (event){
-  //replace the next three lines with the above to revert to the old way
+  //makes enter submit the chords written in the left sidebar
     $("#add-to-well").on("keyup", function(event){
       event.preventDefault();
       if (event.keyCode == 13) {

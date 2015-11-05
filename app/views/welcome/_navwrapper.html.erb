@@ -1,0 +1,18 @@
+<% if logged_in? %>
+<li>
+  <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
+</li>
+<li>
+  <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+</li>
+<li>
+  <a id="chords" href="/chords">All Chords</a>
+</li>
+<% else %>
+<li>
+  <%= link_to "Sign Up", new_user_path, id: "register" %>
+</li>
+<li>
+  <%= link_to "Log in", login_path %>
+</li>
+<% end %>
