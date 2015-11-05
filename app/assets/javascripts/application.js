@@ -57,6 +57,7 @@ $(document).ready(function() {
 
 //when you click "sign up", ajax renders the form, then handles submit
   $("#register").on("click",function(event){
+    $('.profile').removeClass("profile-is-active");
     event.preventDefault();
     $('.js-page').addClass('is-closed');
     var request = $.ajax({
@@ -80,6 +81,7 @@ $(document).ready(function() {
 
   //when you click "login", ajax renders the form, then handles submit
   $("#login").on("click",function(event){
+    $('.profile').removeClass("profile-is-active");
     event.preventDefault();
     $('.js-page').addClass('is-closed');
     var request = $.ajax({
@@ -121,7 +123,7 @@ $(document).ready(function() {
     return searchString
   });
 
-  //clicks on search in well, sends chords to form and searches it
+  //clicks on search, "Find Tabs" in well, sends chords to form and searches it
   $("body").on("click","#submit-tag",function(event){
     $('.profile').removeClass("profile-is-active");
     $("#search").val(searchString);
