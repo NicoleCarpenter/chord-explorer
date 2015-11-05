@@ -7,30 +7,89 @@
 
   </div>
 </div>
-<div class="container-fluid white">
-  <div class="container">
-    <h2 id="spinner">Chords</h2>
-  </div>
-</div>
-<div class="container-fluid white">
-  <div class="container">
-    <ul class="list-inline">
-      <% cur_letter = nil %>
-      <% @chords.each do |chord| %>
-      <% chord_letter = chord.name[0].capitalize.match(/[A-Z]/) ? chord.name[0].capitalize : "#" %>
-      <% if chord_letter != cur_letter %>
-      <% cur_letter = chord_letter %>
-      <br>
-      <hr>
-      <h3><%= cur_letter %> Chords</h3>
-      <br>
-      <% end %>
 
-      <div class="inline-chords">
-        <li><%= render html: chord.render_chord.html_safe %></li>
+<div class='container-fluid white'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12 col-lg-8 col-lg-offset-2'>
+        <h2 id="spinner">Chords</h2>
+
+        <ul class='nav nav-tabs'>
+          <li><a href='#achords'>A Chords</a></li>
+          <li><a href='#bchords'>B Chords</a></li>
+          <li><a href='#cchords'>C Chords</a></li>
+          <li><a href='#dchords'>D Chords</a></li>
+          <li><a href='#echords'>E Chords</a></li>
+          <li><a href='#fchords'>F Chords</a></li>
+          <li><a href='#gchords'>G Chords</a></li>
+        </ul>
+
+        <div class='tab-content'>
+          <div class='tab-pane fade active' id='achords'>
+            <% @achords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class='tab-pane fade' id='bchords'>
+            <% @bchords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class='tab-pane fade' id='cchords'>
+            <% @cchords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class='tab-pane fade' id='dchords'>
+            <% @dchords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class='tab-pane fade' id='echords'>
+            <% @echords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class='tab-pane fade' id='fchords'>
+            <% @fchords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class='tab-pane fade' id='gchords'>
+            <% @gchords.each do |chord| %>
+              <div class="inline-chords">
+                <ul class="list-unstyled">
+                  <li><%= render html: chord.render_chord.html_safe %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <% end %>
-      <hr>
-    </ul>
+    </div>
   </div>
 </div>
