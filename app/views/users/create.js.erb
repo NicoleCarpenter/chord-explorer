@@ -1,2 +1,5 @@
 $(".profile").html( "<%= escape_javascript(render partial: 'users/profile.html.erb', :locals =>{:user => @user, :saved_chords => @saved_chords}) %>");
 $('.chord').chordsIO();
+$("#profile-nav-wrapper").html(" <%= escape_javascript(render partial: 'welcome/navwrapper.html.erb') %>");
+$("#profile-well-wrapper").html(" <%= escape_javascript(render partial: 'welcome/wellwrapper.html.erb') %>");
+$('.profile').addClass("profile-is-active");

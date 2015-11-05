@@ -55,6 +55,7 @@ $(document).ready(function() {
     $('.js-page').addClass('is-closed');
   });
 
+//when you click "sign up", ajax renders the form
   $("#register").on("click",function(event){
     console.log("HEY YOU CLICKED ON REGISTER")
     event.preventDefault();

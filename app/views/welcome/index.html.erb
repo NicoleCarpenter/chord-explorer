@@ -6,24 +6,26 @@
         Chord Explorer
       </a>
     </li>
-    <% if logged_in? %>
-    <li>
-      <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
-    </li>
-    <li>
-      <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-    </li>
-    <li>
-      <a id="chords" href="/chords">All Chords</a>
-    </li>
-    <% else %>
-    <li>
-      <%= link_to "Sign Up", new_user_path, id: "register" %>
-    </li>
-    <li>
-      <%= link_to "Log in", login_path %>
-    </li>
-    <% end %>
+    <span id="profile-nav-wrapper">
+      <% if logged_in? %>
+      <li>
+        <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
+      </li>
+      <li>
+        <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+      </li>
+      <li>
+        <a id="chords" href="/chords">All Chords</a>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Sign Up", new_user_path, id: "register" %>
+      </li>
+      <li>
+        <%= link_to "Log in", login_path %>
+      </li>
+      <% end %>
+    </span>
     <li>
       <p>Enter the chords you know here</p>
     </li>
@@ -201,17 +203,19 @@
         </div>
       </div>
       <div class='col-sm-12 col-md-3'>
-        <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
-          <%= hidden_field_tag :search %>
-          <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
-        <% end %>
-        <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
-        <% if logged_in? %>
-          <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
-          <%= hidden_field_tag :save_chords %>
-            <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
+        <span id="profile-well-wrapper">
+          <%= form_tag(tabs_index_path, :controller => "tabs", :method => "get", id: "hiddensearch", remote: true) do %>
+            <%= hidden_field_tag :search %>
+            <%= submit_tag "Find Tabs", id: "submit-tag", class: "btn btn-info well-buttons" %>
           <% end %>
-        <% end %>
+          <button id="clear-well-button" class="btn btn-info well-buttons">Clear These Chords</button>
+          <% if logged_in? %>
+            <%= form_tag(user_saved_chords_path, :controller => "user_saved_chords", :method => "post", id: "save-chords-form", remote: true) do %>
+            <%= hidden_field_tag :save_chords %>
+              <%= submit_tag "Save These Chords", id: "save-chords-button", class: "btn btn-info well-buttons" %>
+            <% end %>
+          <% end %>
+        </span>
       </div>
     </div>
   </nav>
