@@ -1,6 +1,16 @@
 require 'yaml'
 
 module Fetcher
+
+  def fetch!(url)
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port) #create a new HTTP request
+    request = Net::HTTP::Get.new(uri.request_uri) #create a get request
+    request.initialize_http_header({"User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"}) #set headers
+    response = http.request(request) #make the request
+    clean_html_string = HTMLWhitespaceCleaner.clean(response.body)
+  end
+  
   def self.get_em(file_name)
     output = File.open("artist_links", "w")
     link_list = parse_file(file_name)
