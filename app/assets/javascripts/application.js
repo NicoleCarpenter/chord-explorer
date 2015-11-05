@@ -103,7 +103,7 @@ $(document).ready(function() {
   })
 
   //when you click "all chords", ajax renders the page
-  $("#chords").on("click",function(event){
+  $("#sidebar-wrapper").on("click","#chords",function(event){
     event.preventDefault();
     $('.profile').removeClass("profile-is-active");
     $('.js-page').addClass('is-closed');
