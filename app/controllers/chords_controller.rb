@@ -8,13 +8,15 @@ class ChordsController < ApplicationController
   def index
     # if request.xhr?
       @chords = Chord.order(:name)
-      # @achords = @chords.where(family: "A")
-      # @bchords = @chords.where(family: "B")
-      # @cchords = @chords.where(family: "C")
-      # @dchords = @chords.where(family: "D")
-      # @echords = @chords.where(family: "E")
-      # @fchords = @chords.where(family: "F")
-      # @gchords = @chords.where(family: "G")
+
+      @achords = @chords.where(family: "A").order(frequency: :desc)
+      @bchords = @chords.where(family: "B").order(frequency: :desc)
+      @cchords = @chords.where(family: "C").order(frequency: :desc)
+      @dchords = @chords.where(family: "D").order(frequency: :desc)
+      @echords = @chords.where(family: "E").order(frequency: :desc)
+      @fchords = @chords.where(family: "F").order(frequency: :desc)
+      @gchords = @chords.where(family: "G").order(frequency: :desc)
+
     # end
   end
 
