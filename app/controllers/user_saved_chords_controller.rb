@@ -31,13 +31,12 @@ class UserSavedChordsController < ApplicationController
   def create
     if request.xhr?
       @user = current_user
-      @saved_chords = @user.user_saved_chords.map(&:chord)
       formatted_params = params[:save_chords].split(",")[1..-1].map!{|chord| chord.strip}
       chord_ids = formatted_params.map{|chord| Chord.find_by(escaped_name: chord.strip).id}
-
       chord_ids.each do |id|
         UserSavedChord.find_or_create_by(user_id: session[:user_id], chord_id: id)
       end
+      @saved_chords = @user.user_saved_chords.map(&:chord)
     end
   end
 

@@ -1,7 +1,5 @@
 if ($('.profile-is-active').length !== 0){
-  alert("PROFILE IS ACTIVE BABY")
-
-  $(".profile").html(" <%= escape_javascript (render partial: 'users/profile', :locals =>{:user =>@user}) %>");
+  $(".profile").html(" <%= escape_javascript (render partial: 'users/profile.html.erb', :locals =>{:user =>@user, :saved_chords => @saved_chords}) %>");
 
   $('.chord').chordsIO();
 }
