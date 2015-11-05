@@ -1,6 +1,8 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
+    <%= link_to root_path do %>
+      <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
+    <% end %>
     <li class="sidebar-brand">
       <a id="overlay" href="/">
         Chord Explorer
