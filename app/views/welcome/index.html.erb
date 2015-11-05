@@ -9,6 +9,7 @@
       </a>
     </li>
     <span id="profile-nav-wrapper">
+      <br>
       <% if logged_in? %>
       <li>
         <%= link_to "Profile", user_path(session[:user_id]), id: "profile", remote: true %>
