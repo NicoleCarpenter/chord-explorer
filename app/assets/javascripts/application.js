@@ -102,6 +102,21 @@ $(document).ready(function() {
     })
   })
 
+  //when you click "all chords", ajax renders the page
+  $("#sidebar-wrapper").on("click","#chords",function(event){
+    event.preventDefault();
+    $('.profile').removeClass("profile-is-active");
+    $('.js-page').addClass('is-closed');
+
+    var request = $.ajax({
+      url: "/chords",
+      type: "GET"
+    })
+    request.done(function(response){
+      $(".profile").html(response);
+    })
+  })
+
   //clicks on left hand side clone and render buttons in the well
   $(".unpressed").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
@@ -162,9 +177,9 @@ $(document).ready(function() {
   });
 
   //when you click the "all chords" link on the main sidebar, it removes the profile-is-active class. this is needed for the "save these chords" ajax to function.
-  $("body").on("click","#chords",function(event){
-    $('.profile').removeClass("profile-is-active");
-  })
+  // $("body").on("click","#chords",function(event){
+  //   $('.profile').removeClass("profile-is-active");
+  // })
 
   //this prevents page refresh on Enter. needed for the keyup event below
   $(function(){
@@ -193,10 +208,12 @@ $(document).ready(function() {
     }
   })
 
+  //in the "all chords" page, this is what keeps the clicked tab active
   $(function() {
-    $('.nav-tabs a').click(function (e) {
+    $("body").on("click", ".nav-tabs a", function (e) {
       e.preventDefault();
       $(this).tab('show');
+      $('.chord').chordsIO();
     });
   });
 });

@@ -1,17 +1,7 @@
-<div class="jumbotron">
-  <div class="container centered">
-    <a href="/"><span class='brand-font'>Chord Explorer</span></a>
-    <% if logged_in? %>
-    <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
-    <% end %>
-
-  </div>
-</div>
-
-<div class='container-fluid white'>
+<div class='container-fluid'>
   <div class='container'>
     <div class='row'>
-      <div class='col-md-12'>
+      <div class='col-md-10 col-md-offset-1'>
         <h2 id="spinner">Chords</h2>
 
         <ul class='nav nav-tabs'>
