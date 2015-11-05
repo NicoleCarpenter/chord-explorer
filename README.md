@@ -2,7 +2,7 @@
 
 > Bring music to the world, one chord at a time.
 
-Chord Explorer is an innovative tool that helps individuals learn how to play guitar and intuitively expand their repitoire. The app allows users to increase their current music knowledge by introducing them to songs that match their current skill level and chord toolbag.
+Chord Explorer is an innovative tool that helps individuals learn how to play guitar and intuitively expand their repertoire. The app allows users to increase their current music knowledge by introducing them to songs that match their current skill level and chord toolbag.
 
 The user is introduced to the website by an option to search using either comma separated values or clickable chord images. Once the user has amassed the chords they want included in the search, the app will generate a list of songs which predominately use those chords. The songs will link to a third party website which will provide the full tab version of the song.
 
@@ -24,7 +24,8 @@ Preferably users should be able to save chords in their repertoire, see a list o
 * [Guitar Party API](http://www.guitarparty.com/developers/) - API used for song and chord data
 * [Anemone](https://github.com/chriskite/anemone) - Web crawler framework used for collecting song data from third party sites
 * [Bootstrap](http://getbootstrap.com/) - HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
-* [Chords.io](https://github.com/guitarparty/chords.io) -Chords.io is a small jQuery plugin to display guitar chords using Raphaël SVG library.
+* [Chords.io](https://github.com/guitarparty/chords.io) - Chords.io is a small jQuery plugin to display guitar chords using Raphaël SVG library.
+* [Kaminari](https://github.com/amatsuda/kaminari) - A scope & engine based paginator for Rails 3 and 4
 
 ##User Stories
 
