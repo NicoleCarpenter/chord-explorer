@@ -55,13 +55,10 @@ $(document).ready(function() {
     $('.js-page').addClass('is-closed');
   });
 
-//when you click "sign up", ajax renders the form
+//when you click "sign up", ajax renders the form, then handles submit
   $("#register").on("click",function(event){
-    console.log("HEY YOU CLICKED ON REGISTER")
     event.preventDefault();
     $('.js-page').addClass('is-closed');
-
-
     var request = $.ajax({
       url: "/users/new",
       type: "GET",
@@ -71,15 +68,34 @@ $(document).ready(function() {
       $(".profile").html(response);
     })
   })
-
   $("body").on("submit", "#new_user",function(event){
     event.preventDefault()
-    console.log("Clickity clack")
     data = $(this).serialize();
-    console.log(data)
-
     var request = $.ajax({
       url: "/users",
+      type: "POST",
+      data: data
+    })
+  })
+
+  //when you click "login", ajax renders the form, then handles submit
+  $("#login").on("click",function(event){
+    event.preventDefault();
+    $('.js-page').addClass('is-closed');
+    var request = $.ajax({
+      url: "/login",
+      type: "GET",
+      dataType: "HTML"
+    })
+    request.done(function(response){
+      $(".profile").html(response);
+    })
+  })
+  $("body").on("submit", "#new_session",function(event){
+    event.preventDefault()
+    data = $(this).serialize();
+    var request = $.ajax({
+      url: "/login",
       type: "POST",
       data: data
     })
@@ -137,7 +153,6 @@ $(document).ready(function() {
 
   //"forget this chord" button will destroy the saved chord for the user
   $("body").on("click",".remove-saved-chords-button",function(event){
-    console.log($(this).attr('id'));
     var request = $.ajax({
       url: "/user_saved_chords/" + $(this).attr('id'),
       type: "DELETE"

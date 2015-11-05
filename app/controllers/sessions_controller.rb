@@ -1,13 +1,19 @@
 class SessionsController < ApplicationController
 
   def new
+    if request.xhr?
+      respond_to do |format|
+        format.html { render partial: 'new'}
+      end
+    end
   end
 
   def create
     @user = User.find_by(username: params[:users][:username].downcase)
     if @user && @user.authenticate(params[:users][:password])
       session[:user_id] = @user.id
-      redirect_to welcome_index_path
+      @saved_chords = @user.user_saved_chords.map(&:chord)
+      @g = Chord.find_by(name: "G")
     else
       @message = 'Invalid username/password combination'
       render 'new'

@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   def new
     if request.xhr?
       @user = User.new
-      puts "You made it via AJAX to users/new"
       respond_to do |format|
         format.html { render partial: 'new'}
       end

@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <%= image_tag "guitar-logo-blue.png", :class => "style_logo" %>
+    <a href="/"><%= image_tag "guitar-logo-blue.png", :class => "style_logo" %></a>
     <li class="sidebar-brand">
       <a id="overlay" href="/">
         Chord Explorer
@@ -22,7 +22,7 @@
         <%= link_to "Sign Up", new_user_path, id: "register" %>
       </li>
       <li>
-        <%= link_to "Log in", login_path %>
+        <%= link_to "Log in", login_path, id: "login" %>
       </li>
       <% end %>
     </span>
