@@ -1,31 +1,27 @@
 <div class="row">
-  <div class="container-fluid white">
-    <div class="container">
-      <div class="auth-container">
-        <h1>Register</h1>
-        <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2>
-              <%= pluralize(@user.errors.count, "error") %> prohibited
-              this user from being saved:
-            </h2>
-            <ul>
-              <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <%= form_for @user, :url => users_path(@user) do |f| %>
-          <%= f.label :username %>
-          <%= f.text_field :username, class: 'form-control' %>
-
-          <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
-
-          <%= f.submit "Sign Up", class: "btn btn-success" %>
-        <% end %>
+  <div class="auth-container">
+    <h1>Register</h1>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@user.errors.count, "error") %> prohibited
+          this user from being saved:
+        </h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
       </div>
-    </div>
+    <% end %>
+    <%= form_for @user, :url => users_path(@user) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Sign Up", class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :edit, :update]
+  respond_to :html, :json, :js
 
   # GET /users
   # GET /users.json
@@ -22,7 +23,12 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    if request.xhr?
+      @user = User.new
+      respond_to do |format|
+        format.html { render partial: 'new'}
+      end
+    end
   end
 
   # GET /users/1/edit
@@ -32,18 +38,29 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
+    if request.xhr?
+      puts "you made it via AJAX"
+      password = params[:user][:password]
+      username =  params[:user][:username]
+      @user = User.new(username: username, password: password)
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to welcome_index_path, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        @saved_chords = @user.user_saved_chords.map(&:chord)
+        @g = Chord.find_by(name: "G")
       end
     end
+
+    # respond_to do |format|
+    #   if @user.save
+    #     puts "SUCCESS"
+    #     session[:user_id] = @user.id
+    #     format.html { redirect_to welcome_index_path, notice: 'User was successfully created.' }
+    #     format.json { render :show, status: :created, location: @user }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1
