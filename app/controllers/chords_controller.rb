@@ -6,7 +6,7 @@ class ChordsController < ApplicationController
   # GET /chords
   # GET /chords.json
   def index
-    # if request.xhr?
+    if request.xhr?
       @chords = Chord.order(:name)
 
       @achords = @chords.where(family: "A").order(frequency: :desc)
@@ -17,7 +17,11 @@ class ChordsController < ApplicationController
       @fchords = @chords.where(family: "F").order(frequency: :desc)
       @gchords = @chords.where(family: "G").order(frequency: :desc)
 
-    # end
+      respond_to do |format|
+        format.html { render partial: 'index'}
+      end
+
+    end
   end
 
   # GET /chords/1
