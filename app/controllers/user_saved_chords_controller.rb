@@ -58,6 +58,7 @@ class UserSavedChordsController < ApplicationController
   # DELETE /user_saved_chords/1.json
   def destroy
     @user_saved_chord.destroy
+    @g = Chord.find_by(name: "G")
     @user = User.find(session[:user_id])
     @saved_chords = @user.user_saved_chords.map(&:chord)
     # respond_to do |format|
