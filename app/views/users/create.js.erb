@@ -1,0 +1,2 @@
+$(".profile").html( "<%= escape_javascript(render partial: 'users/profile.html.erb', :locals =>{:user => @user, :saved_chords => @saved_chords}) %>");
+$('.chord').chordsIO();

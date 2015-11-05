@@ -55,6 +55,35 @@ $(document).ready(function() {
     $('.js-page').addClass('is-closed');
   });
 
+  $("#register").on("click",function(event){
+    console.log("HEY YOU CLICKED ON REGISTER")
+    event.preventDefault();
+    $('.js-page').addClass('is-closed');
+
+
+    var request = $.ajax({
+      url: "/users/new",
+      type: "GET",
+      dataType: "HTML"
+    })
+    request.done(function(response){
+      $(".profile").html(response);
+    })
+  })
+
+  $("body").on("submit", "#new_user",function(event){
+    event.preventDefault()
+    console.log("Clickity clack")
+    data = $(this).serialize();
+    console.log(data)
+
+    var request = $.ajax({
+      url: "/users",
+      type: "POST",
+      data: data
+    })
+  })
+
   //clicks on left hand side clone and render buttons in the well
   $(".unpressed").click(function(event){
     $(".navbar-fixed-bottom").css("display", "block");
