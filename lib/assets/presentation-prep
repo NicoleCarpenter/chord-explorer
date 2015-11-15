@@ -1,0 +1,49 @@
+GROUP PRESENTATION
+
+NICOLE
+  team intros
+  explain vision
+  demo - log in
+       - add chords to well from search
+       - add chords to well from buttons
+       - show results page and navigate to ultimate-guitar
+       - show user profile, have 3 saved chords in the profile
+       - show the next-recommended chord
+       - save chords to user profile, remove saved chords
+       - clear the well, add saved chords back to the well
+       - show the chords index with all the tabs
+
+DENNIS
+  explain guitarparty api
+  explain ultimate-guitar
+  explain our crawler - anemone
+    - we told the crawler what pages to index for the scraper (4-5 stars)
+    - fetching and parsing the data aka scraping
+    - we were worried about being banned - starbucks, using home ip's
+    - talk about nokogiri, and how we identified the elements of the page
+    - once we scraped, we were left with a huge mass of unshaped data
+
+ERIK
+  explain how we validate the data, knowing what to throw away
+  getting the chord list was difficult - danger of relying on user generated data.
+  entered chord fingerings manually
+  frequency data, next recommended chord
+  search, bitwise comparison, done in ruby, had to switch to SQL
+
+NICK
+  chords are rendered in javascript, raphael svg library
+  search was fast, but rendering is slow - we had to use pagination, but we were in an ajax partial, which made it complicated
+  we had to use kaminari because other solutions required us to extend ruby arrays
+  last step was to deploy to heroku, but our database is huge, so we had to buy it
+
+ANDY
+  i am the only person who plays guitar, and i'm not that good, so...
+  we originally had multiple pages, and then we had to start combining them into a one-page app
+  everything is partials
+  everything has to be re-rendered every time you click any link on the page, with event delegation
+  the well was very difficult - it has to store data in the client as a string, and then the search button parses it
+
+
+NICOLE
+  talk about the overall style and feel
+  questions?
