@@ -17,6 +17,9 @@ class UsersController < ApplicationController
       @saved_chords = @user.user_saved_chords.map(&:chord)
       @g = Chord.find_by(name: "G")
       @saved_songs = @user.user_songs.where(saved: true).map(&:song)
+      # unless session[:user_id] == params[:user_id]
+      #   redirect_to root_url
+      # end
     end
   end
 
